@@ -2826,8 +2826,18 @@ IOReturn IrisXeProbe::mtlSpaceOp(UInt32 op, void *argp) {
             !mtlVAOK(a->va, (UInt64)a->count * 4096)) return kIOReturnBadArgument;
         // v0.43.0: the GPU's page tables only change while no job runs (Maps' other threads map and unmap
         // memory while a draw is on the GPU): wait for the job lock
-        if (!IOLockTryLock(mtlJobLock)) { mapsDuringJob++; IOLockLock(mtlJobLock); }
-        mtlFinishAsync();                                  // v0.63.0: never change tables under a running async job
+        // v0.68.41: only for UNMAPPING. A new mapping only fills entries no queued or running job uses (every draw's
+        // memory is mapped before its job is queued, and every job starts with a TLB invalidate), so it no longer
+        // waits for the GPU - with the GPU worker, Maps' thread waited here for the worker's job before nearly every
+        // draw (memory lookups 4.5 ms per command buffer). mtlLock still orders it with space switches.
+        // Boot-arg -irisxemapwait: wait as before.
+        static int mapWait = -1;
+        if (mapWait < 0) mapWait = PE_parse_boot_argn("-irisxemapwait", nullptr, 0) ? 1 : 0;
+        const bool needJobLock = !map || mapWait;
+        if (needJobLock) {
+            if (!IOLockTryLock(mtlJobLock)) { mapsDuringJob++; IOLockLock(mtlJobLock); }
+            mtlFinishAsync();                              // v0.63.0: never change tables under a running async job
+        }
         IOLockLock(mtlLock);
         bool ok = true;
         for (UInt32 i = 0; i < a->count; i++) {
@@ -2850,7 +2860,7 @@ IOReturn IrisXeProbe::mtlSpaceOp(UInt32 op, void *argp) {
         __asm__ volatile("mfence" ::: "memory");
         if (!ok) mtlMapFails++;
         IOLockUnlock(mtlLock);
-        IOLockUnlock(mtlJobLock);
+        if (needJobLock) IOLockUnlock(mtlJobLock);
         if (!ok || (++mtlSpacePubTick & 255) == 0) mtlSpacePublish();
         a->result = ok ? 0 : -1;
         return ok ? kIOReturnSuccess : kIOReturnNoMemory;

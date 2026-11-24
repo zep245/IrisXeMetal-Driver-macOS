@@ -1133,6 +1133,7 @@ static void workThread(void *, wait_result_t) {
         } else if (ax && w.kind == 1) {
             IOAccelEventMachine2 *em = asyncEM(ax);
             if (em) asyncWrite(em, w.v);
+            if ((sAsyncSignals & 255) == 1) { asyncState(sAsyncWhy); workPublish(ax); }
         }
         IOLockLock(sWorkLock);
         sWorkHead++;

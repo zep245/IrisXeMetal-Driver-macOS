@@ -6,7 +6,7 @@ An open-source macOS driver for Intel Tiger Lake Iris Xe graphics (PCI ID `8086:
 
 ## Progress
 
-Rough estimates, updated with each build (v0.68.40):
+Rough estimates, updated with each build (v0.68.41):
 
 ```
 Display (panel, HiDPI, EDID)       ████████████████████ 100%
@@ -60,7 +60,7 @@ flowchart TD
 
 You need: a Tiger Lake laptop with Iris Xe (`8086:9a49`), macOS Sequoia, and OpenCore.
 
-**1. Build.** Upload this source to your GitHub repository. Open **Actions → IrisXe build → Run workflow**, enter the version (for example `0.68.40`) and run it. Download the `IrisXe-<version>` artifact and unzip it.
+**1. Build.** Upload this source to your GitHub repository. Open **Actions → IrisXe build → Run workflow**, enter the version (for example `0.68.41`) and run it. Download the `IrisXe-<version>` artifact and unzip it.
 
 **2. First time only: add IrisXeCore to OpenCore.** In `EFI/OC/config.plist`, under **Kernel → Add**, add an entry:
 
