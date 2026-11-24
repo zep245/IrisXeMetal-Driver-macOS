@@ -179,12 +179,16 @@ static UInt32 setOffsets(volatile UInt32 *regs, const UInt8 *data, UInt32 base) 
 #define G_RING_BYTES        (16 * 4096)
 #define G_GGTT_ADDR         0xF0600000u
 // render engine block (own allocation)
-#define R_BYTES             (128 * 1024)
+#define R_BYTES             (192 * 1024)   // v0.68.38: + 16 pages for the bigger render ring (was 128 KB)
 #define R_PAGES             (R_BYTES / 4096)
 #define R_HWSP              0
 #define R_LRC               1      // 1 ppHWSP + 14 state pages + spare
-#define R_RING              24     // 4 pages
-#define R_RING_BYTES        (4 * 4096)
+// v0.68.38: the render ring is 64 KB (16 pages at 32..47; was 16 KB at 24..27). A job may use at most half the
+// ring (v0.68.34), and with 16 KB that was ~2 draws per job in Maps (the first draw of a job carries the whole
+// pipeline setup): 47 GPU jobs per command buffer, each ~130 us of GPU setup + flushes. Now a job is only limited
+// by the draw buffer (sDrawBuf, 8192 dwords) and the state slots (6 draws).
+#define R_RING              32     // 16 pages
+#define R_RING_BYTES        (16 * 4096)
 #define R_GGTT_ADDR         0xF0700000u
 #define RCS                 0x2000
 #define RCS0_RSVD_MASK      0x190090
@@ -200,7 +204,7 @@ static UInt32 setOffsets(volatile UInt32 *regs, const UInt8 *data, UInt32 base) 
 #define R_RND_SURF          19     // BT, RT surface, vertices (GPU VA 0x20005000)
 #define R_RND_RT            28     // 4 pages: 64x64 RGBA8 render target (GPU VA 0x20006000)
 #define DRW_PAGES           4      // milestone 5c: draw state (own allocation, GPU VA 0x20010000)
-static UInt32 sDrawBuf[4096];
+static UInt32 sDrawBuf[8192];                  // v0.68.38: 8192 (was 4096) - bigger jobs, fewer per frame
 static UInt32 sAsyncResets;                                          // v0.63.0: gpuResets when the async job started      // the last draw job (mtlJobLock held); v0.42.4: also dumped on a hang
 // v0.43.1: Gen12 / Tiger Lake hardware workarounds, as Linux i915 sets them (gt/intel_workarounds.c:
 // gen12_ctx_workarounds_init, rcs_engine_wa_init, general_render_compute_wa_init, gen12_gt_workarounds_init).
@@ -453,7 +457,8 @@ void IrisXeProbe::gpuBuildTables() {
         static_assert(RENDER_PS_VA == CPT_GPU_VA + 0x3000 && RENDER_DYN_VA == CPT_GPU_VA + 0x4000 &&
                       RENDER_SURF_VA == CPT_GPU_VA + 0x5000 && RENDER_RT_VA == CPT_GPU_VA + 0x6000, "render layout");
         static_assert(RENDER_RT_PITCH * RENDER_RT_H <= 4 * 4096, "render target size");
-        static_assert(R_RING + R_RING_BYTES / 4096 <= R_RND_RT && R_RND_RT + 4 <= R_PAGES, "render pages");
+        static_assert(R_RND_RT + 4 <= R_RING && R_RING + R_RING_BYTES / 4096 <= R_PAGES, "render pages");
+        static_assert(R_GGTT_ADDR + R_BYTES <= 0xF0800000u, "render block below the video block (V_GGTT_ADDR)");
         p64(pt, 3, rpa(R_RND_PS) | 3);
         p64(pt, 4, rpa(R_RND_DYN) | 3);
         p64(pt, 5, rpa(R_RND_SURF) | 3);

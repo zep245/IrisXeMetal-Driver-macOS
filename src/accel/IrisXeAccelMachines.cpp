@@ -324,11 +324,13 @@ IRISXE_SLOT_RET IrisXeMemoryMap::commitIntoGPUPageTable() {
 // pages stay wired while mapped and are unmapped + unwired when the map is freed.
 struct XeMapEntry { IrisXeMemoryMap *map; IOAccelTask *task; IOMemoryDescriptor *md; UInt64 va;
                     UInt32 pages, seq, space; bool wired;
-                    bool mapped; };       // v0.60.0: its pages are in the GPU page tables of `space` (no re-check needed)
+                    bool mapped;          // v0.60.0: its pages are in the GPU page tables of `space` (no re-check needed)
+                    UInt64 cva, clen; };  // v0.68.38: its GPU address / length, read once (the full search read them
+                                          // through two virtual calls for each of up to 4096 maps, every time)
 // v0.60.0: the last maps found for GPU commands, looked at before the full table (a draw uses a few buffers and
 // textures again and again; the full search read the address and length of up to 4096 maps, for every resource)
 struct XeHit { IOAccelTask *task; IrisXeMemoryMap *map; int idx; UInt64 va, len; };
-#define XE_HITS 256                   // v0.60.1: 256 (32 missed 14% of lookups)
+#define XE_HITS 1024                  // v0.60.1: 256 (32 missed 14% of lookups); v0.68.38: 1024 (Maps: 2200 maps, 30% missed)
 static XeHit sHits[XE_HITS];
 static UInt32 sHitNext;
 static UInt64 sHitFast, sHitSlow;
@@ -418,7 +420,7 @@ IRISXE_SLOT_RET IrisXeMemoryMap::init(IOGraphicsAccelerator2 *a, IOAccelTask *t,
         XeTaskRec *rec = i < XE_MAX_MAPS ? taskRec(t, true) : nullptr;
         if (rec) {
             rec->maps++;
-            sMaps[i] = XeMapEntry{ this, t, nullptr, 0, 0, ++sMapSeq, 0, false };
+            sMaps[i] = XeMapEntry{ this, t, nullptr, 0, 0, ++sMapSeq, 0, false, false, 0, 0 };
             sMapStat[0]++;
         } else sMapStat[1]++;
         IOLockUnlock(l);
@@ -450,7 +452,7 @@ void IrisXeMemoryMap::free() {
                 *rec = XeTaskRec{ nullptr, 0, -1 };
                 if (sMapStat[6]) sMapStat[6]--;
             }
-            e = XeMapEntry{ nullptr, nullptr, nullptr, 0, 0, 0, 0, false };
+            e = XeMapEntry{ nullptr, nullptr, nullptr, 0, 0, 0, 0, false, false, 0, 0 };
             if (sMapStat[0]) sMapStat[0]--;
             break;
         }
@@ -492,8 +494,8 @@ static int mapForGPU(IrisXeAccelerator *ax, IOAccelTask *task, UInt64 va, UInt64
     for (int i = 0; i < XE_MAX_MAPS; i++) {
         XeMapEntry &e = sMaps[i];
         if (!e.map || (best >= 0 && e.seq < sMaps[best].seq)) continue;
-        UInt64 mva = (UInt64)e.map->getGPUVirtualAddress();
-        UInt64 mlen = (UInt64)e.map->getLength();
+        if (!e.cva || !e.clen) { e.cva = (UInt64)e.map->getGPUVirtualAddress(); e.clen = (UInt64)e.map->getLength(); }
+        UInt64 mva = e.cva, mlen = e.clen;
         if (!mva || !mlen || va < mva || va + len > mva + mlen) continue;
         if (e.task != task) { other = true; continue; }
         best = i; bva = mva; blen = mlen;
@@ -961,7 +963,7 @@ static bool prepDraw(IrisXeAccelerator *ax, IOAccelTask *task, const XeDrawCmd *
     // and the core's is-mapped call (memory lookups were 0.3 - 0.6 ms of every command buffer). Boot-arg
     // -irisxenolookcache: off.
     struct XeOk { IOAccelTask *task; UInt64 va, end; int space; UInt32 gen; };
-    static XeOk sOk[64];
+    static XeOk sOk[256];
     static UInt32 sOkNext;
     static int noCache = -1;
     static IOSimpleLock *okLock;                       // several queues (processes) may draw at the same time
@@ -977,8 +979,8 @@ static bool prepDraw(IrisXeAccelerator *ax, IOAccelTask *task, const XeDrawCmd *
         if (!noCache) {
             int hit = -1;
             IOSimpleLockLock(okLock);
-            for (UInt32 j = 0; j < 64; j++) {
-                const XeOk &o = sOk[(sOkNext - 1 - j) & 63];
+            for (UInt32 j = 0; j < 256; j++) {
+                const XeOk &o = sOk[(sOkNext - 1 - j) & 255];
                 if (o.task == task && o.gen == gen && va >= o.va && va + len <= o.end) { hit = o.space; break; }
             }
             IOSimpleLockUnlock(okLock);
@@ -993,7 +995,7 @@ static bool prepDraw(IrisXeAccelerator *ax, IOAccelTask *task, const XeDrawCmd *
         space = s;
         if (!noCache && gen == sMapGen) {
             IOSimpleLockLock(okLock);
-            sOk[sOkNext & 63] = XeOk{ task, va, va + len, s, gen }; sOkNext++;
+            sOk[sOkNext & 255] = XeOk{ task, va, va + len, s, gen }; sOkNext++;
             IOSimpleLockUnlock(okLock);
         }
         return true;
