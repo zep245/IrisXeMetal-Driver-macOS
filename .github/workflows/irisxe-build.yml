@@ -1,0 +1,81 @@
+name: IrisXe build
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version number"
+        required: true
+        default: "0.68.37"
+
+jobs:
+  build:
+    # Intel runner: the Metal driver links an x86_64 LLVM (our shader compiler)
+    runs-on: macos-15-intel
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          xcodebuild -version
+          xcrun --sdk macosx --show-sdk-path
+
+      - name: Install LLVM (bitcode reader for our shader compiler, linked in statically)
+        run: |
+          brew install llvm zstd
+          LC="$(brew --prefix llvm)/bin/llvm-config"
+          "$LC" --version
+          "$LC" --link-static --libs bitreader core transformutils
+          "$LC" --link-static --system-libs
+
+      - name: Build kexts, Metal driver and tools
+        run: make VERSION="${{ inputs.version }}"
+
+      - name: Check binaries
+        run: |
+          file build/IrisXeCore.kext/Contents/MacOS/IrisXeCore build/IrisXeFB.kext/Contents/MacOS/IrisXeFB build/IrisXeAccel.kext/Contents/MacOS/IrisXeAccel build/IrisXeAGDC.kext/Contents/MacOS/IrisXeAGDC build/irisxe-agdctest
+          file build/IrisXeMTLDriver.bundle/Contents/MacOS/IrisXeMTLDriver build/irisxe-metaltest
+
+      - name: Check the Metal driver, its compiler, and that nothing needs Homebrew
+        run: |
+          B=build/IrisXeMTLDriver.bundle/Contents
+          C=$B/Frameworks/libIrisXeCompiler.dylib
+          ls -la "$B/MacOS/" "$B/Frameworks/" build/irisxe-kernels.metallib || true
+          echo "== exported by the compiler:"; nm -gU "$C" | head -20
+          nm -gU "$C" | grep -q _irisxe_compile_air || { echo "ERROR: compiler does not export irisxe_compile_air"; exit 1; }
+          for f in "$B/MacOS/IrisXeMTLDriver" "$C"; do
+            echo "== $f"; otool -L "$f"
+            # (v0.25.0 had "! otool | grep" here, which never fails a step)
+            if otool -L "$f" | grep -E "/usr/local|/opt/homebrew"; then
+              echo "ERROR: $f needs a Homebrew library that users don't have"; exit 1
+            fi
+          done
+          if nm -u "$B/MacOS/IrisXeMTLDriver" | grep -i llvm; then echo "ERROR: LLVM in the bundle itself"; exit 1; fi
+          ls -la "$B/MacOS/" "$B/Frameworks/" build/irisxe-kernels.metallib
+
+      - name: Check IrisXeAccel links against Apple's IOAcceleratorFamily2 (macOS 15)
+        run: bash tools/accelgen/check_links.sh build/IrisXeAccel.kext/Contents/MacOS/IrisXeAccel
+
+      - name: Check IrisXeAGDC links against Apple's AppleGraphicsDeviceControl (macOS 15)
+        run: |
+          /usr/libexec/PlistBuddy -c "Print :OSBundleLibraries" build/IrisXeAGDC.kext/Contents/Info.plist
+          bash tools/agdc/check_links.sh build/IrisXeAGDC.kext/Contents/MacOS/IrisXeAGDC
+
+      - name: Research - what Metal Performance Shaders expects (writes build/irisxe-mps-research.txt)
+        continue-on-error: true
+        run: |
+          bash tools/mps-research/run.sh build/irisxe-mps-research.txt || true
+          touch build/irisxe-mps-research.txt
+          head -40 build/irisxe-mps-research.txt
+
+      - name: Package
+        run: |
+          cp scripts/install-*.sh scripts/irisxe-pipe-test.sh scripts/irisxe-fulltest.sh scripts/irisxe-linetest.sh scripts/irisxe-pstest.sh scripts/irisxe-wallpapertest.sh scripts/irisxe-videotest.sh scripts/irisxe-videorecord.sh scripts/irisxe-brighttest.sh scripts/irisxe-lidtest.sh scripts/irisxe-bootlog.sh scripts/irisxe-apptest.sh scripts/irisxe-bravetest.sh scripts/irisxe-speedtest.sh scripts/irisxe-batchtest.sh scripts/irisxe-hangdump.sh scripts/irisxe-airdump.sh scripts/irisxe-fps.sh build/
+          cd build
+          chmod +x install-*.sh
+          zip -r "IrisXe-${{ inputs.version }}.zip" irisxe-pipe-test.sh irisxe-fulltest.sh irisxe-linetest.sh irisxe-pstest.sh irisxe-wallpapertest.sh irisxe-videotest.sh irisxe-videorecord.sh irisxe-brighttest.sh irisxe-lidtest.sh irisxe-bootlog.sh irisxe-apptest.sh irisxe-bravetest.sh irisxe-speedtest.sh irisxe-batchtest.sh irisxe-hangdump.sh irisxe-airdump.sh irisxe-fps.sh irisxe-vtdecode install-all.sh install-accel.sh install-fb.sh install-bundle.sh install-core.sh install-agdc.sh install-kext-common.sh irisxe-mps-research.txt IrisXeCore.kext IrisXeFB.kext IrisXeAccel.kext IrisXeAGDC.kext irisxe-agdctest IrisXeMTLDriver.bundle irisxe-metaltest irisxe-kernels.metallib irisxe-kernels.ll irisxe-mtkdemo irisxe-mtkdemo.metallib
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: IrisXe-${{ inputs.version }}
+          path: build/IrisXe-${{ inputs.version }}.zip

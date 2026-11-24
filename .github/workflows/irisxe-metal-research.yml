@@ -1,0 +1,22 @@
+name: IrisXe Metal research
+
+on:
+  workflow_dispatch:
+
+jobs:
+  research:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect Metal driver interface info
+        working-directory: tools/metal-research
+        run: bash run.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: metal-research-${{ matrix.runner }}
+          path: tools/metal-research/out

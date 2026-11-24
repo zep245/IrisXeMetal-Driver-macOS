@@ -1,0 +1,3338 @@
+IOAccel2DContext2::IOAccel2DContext2(OSMetaClass const*)
+IOAccel2DContext2::MetaClass::MetaClass()
+IOAccel2DContext2::MetaClass::alloc() const
+IOAccel2DContext2::MetaClass::~MetaClass()
+IOAccel2DContext2::_RESERVEDIOAccel2DContext0()
+IOAccel2DContext2::_RESERVEDIOAccel2DContext1()
+IOAccel2DContext2::_RESERVEDIOAccel2DContext2()
+IOAccel2DContext2::_RESERVEDIOAccel2DContext3()
+IOAccel2DContext2::_RESERVEDIOAccel2DContext4()
+IOAccel2DContext2::_RESERVEDIOAccel2DContext5()
+IOAccel2DContext2::allowsExclusiveMode() const
+IOAccel2DContext2::blit(IOAccel2DBlitCommand*, unsigned long long)
+IOAccel2DContext2::blit(IOAccel2DBlitCommand*, unsigned long long)::_os_log_fmt
+IOAccel2DContext2::contextStart()
+IOAccel2DContext2::contextStop()
+IOAccel2DContext2::finish(unsigned int)
+IOAccel2DContext2::gMetaClass
+IOAccel2DContext2::getMetaClass() const
+IOAccel2DContext2::getSurfaceReqBits() const
+IOAccel2DContext2::getTargetAndMethodForIndex(IOService**, unsigned int)
+IOAccel2DContext2::metaClass
+IOAccel2DContext2::operator delete(void*, unsigned long)
+IOAccel2DContext2::operator new(unsigned long)
+IOAccel2DContext2::s2DContextMethods
+IOAccel2DContext2::set_surface(unsigned int, eIOAccelContextModeBits)
+IOAccel2DContext2::set_surface(unsigned int, eIOAccelContextModeBits)::_os_log_fmt
+IOAccel2DContext2::superClass
+IOAccel2DContext2::~IOAccel2DContext2()
+IOAccel2DContext2_ktv
+IOAccelAllocationInfo::IOAccelAllocationInfo()
+IOAccelAllocationInfo::IOAccelAllocationInfo(OSMetaClass const*)
+IOAccelAllocationInfo::MetaClass::MetaClass()
+IOAccelAllocationInfo::MetaClass::alloc() const
+IOAccelAllocationInfo::MetaClass::~MetaClass()
+IOAccelAllocationInfo::addAllocationDescription(IOAccelMemory*)
+IOAccelAllocationInfo::addAllocationDescription(IOAccelMemory*)::_os_log_fmt
+IOAccelAllocationInfo::addIOSurfaceID(IOAccelMemory*, unsigned int)
+IOAccelAllocationInfo::addPID(IOAccelMemory*, int)
+IOAccelAllocationInfo::addResource(IOAccelMemory*, IOAccelResource2*)
+IOAccelAllocationInfo::addString(IOAccelMemory*, char const*)
+IOAccelAllocationInfo::addSurfaceDescription(IOAccelMemory*, unsigned int, char const*, unsigned int, unsigned int, char const*)
+IOAccelAllocationInfo::addUserMapping(IOAccelMemory*, int, unsigned long long, unsigned long long)
+IOAccelAllocationInfo::copyToArray()
+IOAccelAllocationInfo::declareAdditionalSystemMemory(unsigned long long, int, char const*)
+IOAccelAllocationInfo::declareDeviceShmem(int, IOMemoryDescriptor*, unsigned long long)
+IOAccelAllocationInfo::declareDeviceShmem(int, IOMemoryDescriptor*, unsigned long long)::_os_log_fmt
+IOAccelAllocationInfo::declareIOSurfaceBackingStore(IOMemoryDescriptor*, unsigned int, int*, int)
+IOAccelAllocationInfo::declareIOSurfaceBackingStore(IOMemoryDescriptor*, unsigned int, int*, int)::_os_log_fmt
+IOAccelAllocationInfo::free()
+IOAccelAllocationInfo::free()::kalloc_type_view_74
+IOAccelAllocationInfo::gMetaClass
+IOAccelAllocationInfo::getMetaClass() const
+IOAccelAllocationInfo::getOrCreateProcessDictionaryForPID(IOAccelMemory*, int)
+IOAccelAllocationInfo::init(IOGraphicsAccelerator2*)
+IOAccelAllocationInfo::insertAllocation(IOAccelMemory*, OSDictionary*)
+IOAccelAllocationInfo::insertAllocation(IOAccelMemory*, OSDictionary*)::kalloc_type_view_532
+IOAccelAllocationInfo::lookupAllocation(IOAccelMemory*)
+IOAccelAllocationInfo::metaClass
+IOAccelAllocationInfo::operator delete(void*, unsigned long)
+IOAccelAllocationInfo::operator new(unsigned long)
+IOAccelAllocationInfo::setCacheCopy(IOAccelMemory*)
+IOAccelAllocationInfo::superClass
+IOAccelAllocationInfo::~IOAccelAllocationInfo()
+IOAccelAllocationInfo_ktv
+IOAccelBlockFence::IOAccelBlockFence()
+IOAccelBlockFence::IOAccelBlockFence(OSMetaClass const*)
+IOAccelBlockFence::MetaClass::MetaClass()
+IOAccelBlockFence::MetaClass::alloc() const
+IOAccelBlockFence::MetaClass::~MetaClass()
+IOAccelBlockFence::free()
+IOAccelBlockFence::gMetaClass
+IOAccelBlockFence::getHostTime(unsigned long long*, unsigned long long*)
+IOAccelBlockFence::getMetaClass() const
+IOAccelBlockFence::init(IOGraphicsAccelerator2*, IOAccelSubmitter2*, IOAccelBlockFencePort2*, unsigned long long, unsigned long long)
+IOAccelBlockFence::metaClass
+IOAccelBlockFence::notifyClient()
+IOAccelBlockFence::operator delete(void*, unsigned long)
+IOAccelBlockFence::operator new(unsigned long)
+IOAccelBlockFence::superClass
+IOAccelBlockFence::~IOAccelBlockFence()
+IOAccelBlockFencePort2::IOAccelBlockFencePort2()
+IOAccelBlockFencePort2::IOAccelBlockFencePort2(OSMetaClass const*)
+IOAccelBlockFencePort2::MetaClass::MetaClass()
+IOAccelBlockFencePort2::MetaClass::alloc() const
+IOAccelBlockFencePort2::MetaClass::~MetaClass()
+IOAccelBlockFencePort2::free()
+IOAccelBlockFencePort2::gMetaClass
+IOAccelBlockFencePort2::getMetaClass() const
+IOAccelBlockFencePort2::initWithAsyncRef64(unsigned long long*)
+IOAccelBlockFencePort2::metaClass
+IOAccelBlockFencePort2::operator delete(void*, unsigned long)
+IOAccelBlockFencePort2::operator new(unsigned long)
+IOAccelBlockFencePort2::superClass
+IOAccelBlockFencePort2::~IOAccelBlockFencePort2()
+IOAccelBlockFencePort2_ktv
+IOAccelBlockFence_ktv
+IOAccelBufferMemoryDescriptorPool2::IOAccelBufferMemoryDescriptorPool2()
+IOAccelBufferMemoryDescriptorPool2::IOAccelBufferMemoryDescriptorPool2(OSMetaClass const*)
+IOAccelBufferMemoryDescriptorPool2::MetaClass::MetaClass()
+IOAccelBufferMemoryDescriptorPool2::MetaClass::alloc() const
+IOAccelBufferMemoryDescriptorPool2::MetaClass::~MetaClass()
+IOAccelBufferMemoryDescriptorPool2::anyWiredBucketsBelowLowWaterMark()
+IOAccelBufferMemoryDescriptorPool2::describeDriverAllocations(IOAccelAllocationInfo*)
+IOAccelBufferMemoryDescriptorPool2::fillWiredBuckets(int)
+IOAccelBufferMemoryDescriptorPool2::fillWiredPoolBucket(unsigned int, int)
+IOAccelBufferMemoryDescriptorPool2::fillWiredPoolBucket(unsigned int, int)::_os_log_fmt
+IOAccelBufferMemoryDescriptorPool2::free()
+IOAccelBufferMemoryDescriptorPool2::free()::kalloc_type_view_167
+IOAccelBufferMemoryDescriptorPool2::free()::kalloc_type_view_168
+IOAccelBufferMemoryDescriptorPool2::free()::kalloc_type_view_169
+IOAccelBufferMemoryDescriptorPool2::gMetaClass
+IOAccelBufferMemoryDescriptorPool2::getMetaClass() const
+IOAccelBufferMemoryDescriptorPool2::initWithAccelerator(IOGraphicsAccelerator2*)
+IOAccelBufferMemoryDescriptorPool2::initWithAccelerator(IOGraphicsAccelerator2*)::kalloc_type_view_115
+IOAccelBufferMemoryDescriptorPool2::initWithAccelerator(IOGraphicsAccelerator2*)::kalloc_type_view_118
+IOAccelBufferMemoryDescriptorPool2::initWithAccelerator(IOGraphicsAccelerator2*)::kalloc_type_view_133
+IOAccelBufferMemoryDescriptorPool2::metaClass
+IOAccelBufferMemoryDescriptorPool2::newDescriptorsWithLength(unsigned long long, unsigned int*, task*, IOAccelEvent*, bool)
+IOAccelBufferMemoryDescriptorPool2::newWiredDescriptorsWithLength(unsigned long long, unsigned int*, task*, IOAccelEvent*, bool, bool*)
+IOAccelBufferMemoryDescriptorPool2::newWiredDescriptorsWithLength(unsigned long long, unsigned int*, task*, IOAccelEvent*, bool, bool*)::kalloc_type_view_485
+IOAccelBufferMemoryDescriptorPool2::operator delete(void*, unsigned long)
+IOAccelBufferMemoryDescriptorPool2::operator new(unsigned long)
+IOAccelBufferMemoryDescriptorPool2::releaseDescriptors(IOBufferMemoryDescriptor**, unsigned int, task*, IOAccelEvent*)
+IOAccelBufferMemoryDescriptorPool2::superClass
+IOAccelBufferMemoryDescriptorPool2::~IOAccelBufferMemoryDescriptorPool2()
+IOAccelBufferMemoryDescriptorPool2_ktv
+IOAccelCLContext2::IOAccelCLContext2(OSMetaClass const*)
+IOAccelCLContext2::MetaClass::MetaClass()
+IOAccelCLContext2::MetaClass::alloc() const
+IOAccelCLContext2::MetaClass::~MetaClass()
+IOAccelCLContext2::_RESERVEDIOAccelCLContext0()
+IOAccelCLContext2::_RESERVEDIOAccelCLContext1()
+IOAccelCLContext2::_RESERVEDIOAccelCLContext2()
+IOAccelCLContext2::_RESERVEDIOAccelCLContext3()
+IOAccelCLContext2::_RESERVEDIOAccelCLContext4()
+IOAccelCLContext2::_RESERVEDIOAccelCLContext5()
+IOAccelCLContext2::contextStart()
+IOAccelCLContext2::contextStop()
+IOAccelCLContext2::gMetaClass
+IOAccelCLContext2::getMetaClass() const
+IOAccelCLContext2::metaClass
+IOAccelCLContext2::operator delete(void*, unsigned long)
+IOAccelCLContext2::operator new(unsigned long)
+IOAccelCLContext2::processDataBuffers(unsigned int)
+IOAccelCLContext2::processDataBuffers(unsigned int)::_os_log_fmt
+IOAccelCLContext2::superClass
+IOAccelCLContext2::~IOAccelCLContext2()
+IOAccelCLContext2_ktv
+IOAccelChannel2::IOAccelChannel2(OSMetaClass const*)
+IOAccelChannel2::MetaClass::MetaClass()
+IOAccelChannel2::MetaClass::alloc() const
+IOAccelChannel2::MetaClass::~MetaClass()
+IOAccelChannel2::_RESERVEDIOAccelChannel2()
+IOAccelChannel2::_RESERVEDIOAccelChannel3()
+IOAccelChannel2::_RESERVEDIOAccelChannel4()
+IOAccelChannel2::_RESERVEDIOAccelChannel5()
+IOAccelChannel2::free()
+IOAccelChannel2::gMetaClass
+IOAccelChannel2::getChannelLabel() const
+IOAccelChannel2::getMetaClass() const
+IOAccelChannel2::incrementStamp()
+IOAccelChannel2::init(IOGraphicsAccelerator2*, int)
+IOAccelChannel2::mergeEventExcluding(IOAccelEvent*, IOAccelEvent*)
+IOAccelChannel2::metaClass
+IOAccelChannel2::operator delete(void*, unsigned long)
+IOAccelChannel2::operator new(unsigned long)
+IOAccelChannel2::setEventStamp(IOAccelEvent*)
+IOAccelChannel2::setStampIndex(int)
+IOAccelChannel2::submitterDestroyed(IOAccelSubmitter2*)
+IOAccelChannel2::superClass
+IOAccelChannel2::triage(char**, unsigned long long*)
+IOAccelChannel2::willSubmitCommands(unsigned long long)
+IOAccelChannel2::writeEventBarrierCommand(IOAccelEventQueue*, IOAccelEvent*, vendevtBarrierRec*)
+IOAccelChannel2::writeStampCommand(IOAccelEventQueue*, vendevtCommandRec*)
+IOAccelChannel2::~IOAccelChannel2()
+IOAccelChannel2_ktv
+IOAccelChannelList::Iterator::Iterator(IOAccelChannelList&)
+IOAccelChannelList::Iterator::getNextChannel()
+IOAccelChannelList::addChannel(IOAccelChannel2*)
+IOAccelChannelList::getCount() const
+IOAccelChannelList::init()
+IOAccelChannelList::removeChannel(IOAccelChannel2*)
+IOAccelChannelList::removeChannel(IOAccelChannel2*)::_os_log_fmt
+IOAccelClientSharedMachine::free()
+IOAccelClientSharedMachine::free()::kalloc_type_view_88
+IOAccelClientSharedMachine::getClientSharedAddressForId(unsigned int, unsigned long long*)
+IOAccelClientSharedMachine::init(IOGraphicsAccelerator2*, task*, unsigned long, unsigned long, unsigned long, unsigned int)
+IOAccelClientSharedMachine::mapClientSharedForId(unsigned int, void**)
+IOAccelClientSharedMachine::mapClientSharedForId(unsigned int, void**) (.cold.1)
+IOAccelClientSharedMachine::mapClientSharedForId(unsigned int, void**)::_os_log_fmt
+IOAccelClientSharedMachine::mapClientSharedForId(unsigned int, void**)::kalloc_type_view_109
+IOAccelClientSharedMachine::mapClientSharedForId(unsigned int, void**)::kalloc_type_view_118
+IOAccelClientSharedMachine::orphanClientMappings(OSSet*) const
+IOAccelClientSharedMachine::unmapClientSharedForId(unsigned int)
+IOAccelClientSharedMachine::unmapClientSharedForId(unsigned int) (.cold.1)
+IOAccelCommandBufferPool2::IOAccelCommandBufferPool2()
+IOAccelCommandBufferPool2::IOAccelCommandBufferPool2(OSMetaClass const*)
+IOAccelCommandBufferPool2::MetaClass::MetaClass()
+IOAccelCommandBufferPool2::MetaClass::alloc() const
+IOAccelCommandBufferPool2::MetaClass::~MetaClass()
+IOAccelCommandBufferPool2::_RESERVEDIOAccelCommandBufferPool0()
+IOAccelCommandBufferPool2::_RESERVEDIOAccelCommandBufferPool1()
+IOAccelCommandBufferPool2::_RESERVEDIOAccelCommandBufferPool2()
+IOAccelCommandBufferPool2::_RESERVEDIOAccelCommandBufferPool3()
+IOAccelCommandBufferPool2::_RESERVEDIOAccelCommandBufferPool4()
+IOAccelCommandBufferPool2::_RESERVEDIOAccelCommandBufferPool5()
+IOAccelCommandBufferPool2::allocMoreCommandBuffers()
+IOAccelCommandBufferPool2::allocMoreCommandBuffers()::_os_log_fmt
+IOAccelCommandBufferPool2::free()
+IOAccelCommandBufferPool2::gMetaClass
+IOAccelCommandBufferPool2::getBufferPtrNoInc(unsigned int)
+IOAccelCommandBufferPool2::getEventMachine() const
+IOAccelCommandBufferPool2::getGPUVirtualAddress(unsigned int*) const
+IOAccelCommandBufferPool2::getMetaClass() const
+IOAccelCommandBufferPool2::init(IOGraphicsAccelerator2*, IOAccelChannel2*, IOAccelTask*, int, int, unsigned int, unsigned int, unsigned int, unsigned int)
+IOAccelCommandBufferPool2::init(IOGraphicsAccelerator2*, IOAccelChannel2*, IOAccelTask*, int, int, unsigned int, unsigned int, unsigned int, unsigned int)::_os_log_fmt
+IOAccelCommandBufferPool2::metaClass
+IOAccelCommandBufferPool2::operator delete(void*, unsigned long)
+IOAccelCommandBufferPool2::operator new(unsigned long)
+IOAccelCommandBufferPool2::setBufferCurrentIndex(short)
+IOAccelCommandBufferPool2::setBufferCurrentIndex(short)::_os_log_fmt
+IOAccelCommandBufferPool2::setBufferPtr(unsigned int*)
+IOAccelCommandBufferPool2::submitBuffer()
+IOAccelCommandBufferPool2::superClass
+IOAccelCommandBufferPool2::~IOAccelCommandBufferPool2()
+IOAccelCommandBufferPool2_ktv
+IOAccelCommandBufferPoolList::Iterator::Iterator(IOAccelCommandBufferPoolList&)
+IOAccelCommandBufferPoolList::Iterator::getNextCommandPool()
+IOAccelCommandBufferPoolList::addCommandPool(IOAccelCommandBufferPool2*)
+IOAccelCommandBufferPoolList::getCount() const
+IOAccelCommandBufferPoolList::init()
+IOAccelCommandBufferPoolList::removeCommandPool(IOAccelCommandBufferPool2*)
+IOAccelCommandBufferPoolList::removeCommandPool(IOAccelCommandBufferPool2*)::_os_log_fmt
+IOAccelCommandDescriptor::init(IOGraphicsAccelerator2*)
+IOAccelCommandQueue::IOAccelCommandQueue()
+IOAccelCommandQueue::IOAccelCommandQueue(OSMetaClass const*)
+IOAccelCommandQueue::MetaClass::MetaClass()
+IOAccelCommandQueue::MetaClass::alloc() const
+IOAccelCommandQueue::MetaClass::~MetaClass()
+IOAccelCommandQueue::_RESERVEDIOAccelCommandQueue0()
+IOAccelCommandQueue::_RESERVEDIOAccelCommandQueue1()
+IOAccelCommandQueue::_RESERVEDIOAccelCommandQueue2()
+IOAccelCommandQueue::_RESERVEDIOAccelCommandQueue3()
+IOAccelCommandQueue::_RESERVEDIOAccelCommandQueue4()
+IOAccelCommandQueue::_RESERVEDIOAccelCommandQueue5()
+IOAccelCommandQueue::acquireAcceleratorLock()
+IOAccelCommandQueue::acquireAcceleratorLock() (.cold.1)
+IOAccelCommandQueue::affectedByHardwareReset(bool, unsigned int)
+IOAccelCommandQueue::attach(IOService*)
+IOAccelCommandQueue::beginCoalescedSegment()
+IOAccelCommandQueue::canSubmitCommandBuffer()
+IOAccelCommandQueue::clientClose()
+IOAccelCommandQueue::coalesceSegment(IOAccelCommandQueueSegment*, unsigned int*, IOAccelSegmentResourceList*, IOAccelKernelCommand const*, IOAccelKernelCommand const*)
+IOAccelCommandQueue::commandQueueStart()
+IOAccelCommandQueue::commandQueueStop()
+IOAccelCommandQueue::connectClient(IOUserClient*)
+IOAccelCommandQueue::connectClient(IOUserClient*)::_os_log_fmt
+IOAccelCommandQueue::endCoalescedSegment()
+IOAccelCommandQueue::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelCommandQueue::finalize(unsigned int)
+IOAccelCommandQueue::free()
+IOAccelCommandQueue::gMetaClass
+IOAccelCommandQueue::generateGPUSubmissionID()
+IOAccelCommandQueue::generateGPUSubmissionID()::gpu_submission_id_counter
+IOAccelCommandQueue::generateSegmentID()
+IOAccelCommandQueue::generateSegmentID()::segment_id_counter
+IOAccelCommandQueue::generateSubmissionID()
+IOAccelCommandQueue::generateSubmissionID()::submission_id_counter
+IOAccelCommandQueue::getGPUTask() const
+IOAccelCommandQueue::getMetaClass() const
+IOAccelCommandQueue::getOwningTask() const
+IOAccelCommandQueue::getOwningTaskPid() const
+IOAccelCommandQueue::init(OSDictionary*, task*)
+IOAccelCommandQueue::isOpportunisticWorkload() const
+IOAccelCommandQueue::metaClass
+IOAccelCommandQueue::operator delete(void*, unsigned long)
+IOAccelCommandQueue::operator new(unsigned long)
+IOAccelCommandQueue::parseSegmentList(IOAccelShared2*, IOAccelSegmentResourceListHeader const*)
+IOAccelCommandQueue::parseSegmentList(IOAccelShared2*, IOAccelSegmentResourceListHeader const*, IOAccelDeviceShmem*)
+IOAccelCommandQueue::pauseSubmitCommandBuffer()
+IOAccelCommandQueue::processAndSubmitCoalescedSegments(IOAccelCommandQueueSegment*, unsigned int*)
+IOAccelCommandQueue::processCommandBuffer(unsigned int, unsigned int)
+IOAccelCommandQueue::processCommandBuffer(unsigned int, unsigned int)::_os_log_fmt
+IOAccelCommandQueue::processCommandBuffer(unsigned int, unsigned int)::kalloc_type_view_1097
+IOAccelCommandQueue::processCommandBuffer(unsigned int, unsigned int)::kalloc_type_view_950
+IOAccelCommandQueue::processCommandBuffer(unsigned int, unsigned int)::kalloc_type_view_972
+IOAccelCommandQueue::processCommandBuffer(unsigned int, unsigned int)::kalloc_type_view_986
+IOAccelCommandQueue::processKernelCommand(IOAccelKernelCommand const*, IOAccelKernelCommand const*)
+IOAccelCommandQueue::processKernelCommand(IOAccelKernelCommand const*, IOAccelKernelCommand const*)::_os_log_fmt
+IOAccelCommandQueue::processKernelCommands(IOAccelKernelCommand const*, IOAccelKernelCommand const*)
+IOAccelCommandQueue::processKernelCommands(IOAccelKernelCommand const*, IOAccelKernelCommand const*)::_os_log_fmt
+IOAccelCommandQueue::processSegment(IOAccelSegmentResourceList*, IOAccelKernelCommand const*, IOAccelKernelCommand const*)
+IOAccelCommandQueue::processSegmentKernelCommand(IOAccelSegmentResourceList*, IOAccelKernelCommand const*, IOAccelKernelCommand const*)
+IOAccelCommandQueue::processSegmentKernelCommand(IOAccelSegmentResourceList*, IOAccelKernelCommand const*, IOAccelKernelCommand const*) (.cold.1)
+IOAccelCommandQueue::processSegmentKernelCommand(IOAccelSegmentResourceList*, IOAccelKernelCommand const*, IOAccelKernelCommand const*)::_os_log_fmt
+IOAccelCommandQueue::processSegmentKernelCommands(IOAccelSegmentResourceList*, IOAccelKernelCommand const*, IOAccelKernelCommand const*)
+IOAccelCommandQueue::processSegmentKernelCommands(IOAccelSegmentResourceList*, IOAccelKernelCommand const*, IOAccelKernelCommand const*)::_os_log_fmt
+IOAccelCommandQueue::process_command_buffer(unsigned int, unsigned int)
+IOAccelCommandQueue::process_command_buffer(unsigned int, unsigned int) (.cold.1)
+IOAccelCommandQueue::process_command_buffer(unsigned int, unsigned int) (.cold.2)
+IOAccelCommandQueue::process_command_buffer(unsigned int, unsigned int) (.cold.3)
+IOAccelCommandQueue::process_command_buffer(unsigned int, unsigned int)::_os_log_fmt
+IOAccelCommandQueue::releaseAcceleratorLock()
+IOAccelCommandQueue::releaseAcceleratorLock() (.cold.1)
+IOAccelCommandQueue::releaseAcceleratorLock() (.cold.2)
+IOAccelCommandQueue::retireCommandBuffer(IOAccelEventFence*)
+IOAccelCommandQueue::retireCommandBuffer(IOAccelEventFence*)::_os_log_fmt
+IOAccelCommandQueue::sCommandQueueMethods
+IOAccelCommandQueue::s_get_command_queue_info(IOAccelCommandQueue*, void*, IOExternalMethodArguments*)
+IOAccelCommandQueue::s_set_get_info(IOAccelCommandQueue*, void*, IOExternalMethodArguments*)
+IOAccelCommandQueue::s_set_notification_port(IOAccelCommandQueue*, void*, IOExternalMethodArguments*)
+IOAccelCommandQueue::s_set_priority_and_background(IOAccelCommandQueue*, void*, IOExternalMethodArguments*)
+IOAccelCommandQueue::s_set_quality_of_service(IOAccelCommandQueue*, void*, IOExternalMethodArguments*)
+IOAccelCommandQueue::s_submit_command_buffers(IOAccelCommandQueue*, void*, IOExternalMethodArguments*)
+IOAccelCommandQueue::s_submit_command_buffers(IOAccelCommandQueue*, void*, IOExternalMethodArguments*)::_os_log_fmt
+IOAccelCommandQueue::setPriority(eIOAccelCommandQueuePriority)
+IOAccelCommandQueue::setSubmissionError(unsigned int)
+IOAccelCommandQueue::set_notification_port(unsigned long long*)
+IOAccelCommandQueue::set_notification_port(unsigned long long*)::_os_log_fmt
+IOAccelCommandQueue::set_priority_and_background(eIOAccelCommandQueuePriority, eIOAccelCommandQueuePriority)
+IOAccelCommandQueue::set_priority_and_background(eIOAccelCommandQueuePriority, eIOAccelCommandQueuePriority)::_os_log_fmt
+IOAccelCommandQueue::set_quality_of_service(eIOAccelCommandQueueQosLevel)
+IOAccelCommandQueue::shouldHardwareCommandNooped()
+IOAccelCommandQueue::start(IOService*)
+IOAccelCommandQueue::stop(IOService*)
+IOAccelCommandQueue::stopLocked()
+IOAccelCommandQueue::submit_command_buffer(unsigned int, unsigned int, unsigned long long, unsigned long long)
+IOAccelCommandQueue::submit_command_buffers(IOAccelCommandQueueSubmitArgs const*)
+IOAccelCommandQueue::submit_command_buffers(IOAccelCommandQueueSubmitArgs const*)::_os_log_fmt
+IOAccelCommandQueue::superClass
+IOAccelCommandQueue::updatePriority()
+IOAccelCommandQueue::~IOAccelCommandQueue()
+IOAccelCommandQueueList::Iterator::Iterator(IOAccelCommandQueueList&)
+IOAccelCommandQueueList::Iterator::getNextCommandQueue()
+IOAccelCommandQueueList::addCommandQueue(IOAccelCommandQueue*)
+IOAccelCommandQueueList::getCount() const
+IOAccelCommandQueueList::getCountWithPID(int) const
+IOAccelCommandQueueList::init()
+IOAccelCommandQueueList::removeCommandQueue(IOAccelCommandQueue*)
+IOAccelCommandQueueList::removeCommandQueue(IOAccelCommandQueue*)::_os_log_fmt
+IOAccelCommandQueue_ktv
+IOAccelContext2::IOAccelContext2(OSMetaClass const*)
+IOAccelContext2::MetaClass::MetaClass()
+IOAccelContext2::MetaClass::alloc() const
+IOAccelContext2::MetaClass::~MetaClass()
+IOAccelContext2::_RESERVEDIOAccelContext0()
+IOAccelContext2::_RESERVEDIOAccelContext1()
+IOAccelContext2::_RESERVEDIOAccelContext2()
+IOAccelContext2::_RESERVEDIOAccelContext3()
+IOAccelContext2::_RESERVEDIOAccelContext4()
+IOAccelContext2::_RESERVEDIOAccelContext5()
+IOAccelContext2::addDataBufferToChannel(IOAccelResource2*, unsigned int)
+IOAccelContext2::add_task_surface_to_array(OSArray*, bool)
+IOAccelContext2::affectedByHardwareReset(bool, unsigned int)
+IOAccelContext2::allocOneDataBuffer(bool, unsigned int)
+IOAccelContext2::allocOneDataBuffer(bool, unsigned int)::_os_log_fmt
+IOAccelContext2::allowsExclusiveMode() const
+IOAccelContext2::attach(IOService*)
+IOAccelContext2::beginCommandStream(IOAccelCommandStreamInfo&)
+IOAccelContext2::bindResource(IOAccelCommandStreamInfo&, IOAccelResource2*, bool, IOAccelChannel2*, unsigned int, bool)
+IOAccelContext2::canSubmitCommandBuffer()
+IOAccelContext2::clientClose()
+IOAccelContext2::clientMemoryForType(unsigned int, unsigned int*, IOMemoryDescriptor**)
+IOAccelContext2::clientMemoryForType(unsigned int, unsigned int*, IOMemoryDescriptor**)::_os_log_fmt
+IOAccelContext2::compactCurrentMappings(IOAccelMemoryMap*)
+IOAccelContext2::compactCurrentVidMemory()
+IOAccelContext2::compactCurrentVidMemory()::_os_log_fmt
+IOAccelContext2::compactCurrentVidMemory()::kalloc_type_view_1244
+IOAccelContext2::compactCurrentVidMemory()::kalloc_type_view_1276
+IOAccelContext2::compactCurrentVidMemory()::kalloc_type_view_1294
+IOAccelContext2::connectClient(IOUserClient*)
+IOAccelContext2::connectClient(IOUserClient*)::_os_log_fmt
+IOAccelContext2::contextModeBits() const
+IOAccelContext2::contextStart()
+IOAccelContext2::contextStart()::_os_log_fmt
+IOAccelContext2::contextStart()::kalloc_type_view_228
+IOAccelContext2::contextStart()::kalloc_type_view_259
+IOAccelContext2::contextStop()
+IOAccelContext2::contextStop()::kalloc_type_view_385
+IOAccelContext2::contextStop()::kalloc_type_view_449
+IOAccelContext2::context_finish()
+IOAccelContext2::describeDriverAllocations(IOAccelAllocationInfo*)
+IOAccelContext2::discardSidebandToken(IOAccelCommandStreamInfo&)
+IOAccelContext2::enable_block_fences(unsigned long long*)
+IOAccelContext2::enable_block_fences(unsigned long long*)::_os_log_fmt
+IOAccelContext2::endCommandStream(IOAccelCommandStreamInfo&)
+IOAccelContext2::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelContext2::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)::enableBlockFencesDispatch
+IOAccelContext2::finalize(unsigned int)
+IOAccelContext2::finish()
+IOAccelContext2::finish_fence_event(unsigned int)
+IOAccelContext2::free()
+IOAccelContext2::freeAllDataBuffers()
+IOAccelContext2::freeAllDataBuffers() (.cold.1)
+IOAccelContext2::freeAllDataBuffers() (.cold.2)
+IOAccelContext2::freeAllDataBuffers() (.cold.3)
+IOAccelContext2::freeAllDataBuffers() (.cold.4)
+IOAccelContext2::freeOneDataBuffer(IOAccelResource2*)
+IOAccelContext2::freeUnassignedDataBuffers()
+IOAccelContext2::freeUnassignedDataBuffers() (.cold.1)
+IOAccelContext2::freeUnassignedDataBuffers() (.cold.2)
+IOAccelContext2::gMetaClass
+IOAccelContext2::getDataBuffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, IOAccelResourcePrivate*, unsigned long long)
+IOAccelContext2::getDataBuffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, IOAccelResourcePrivate*, unsigned long long) (.cold.1)
+IOAccelContext2::getDataBuffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, IOAccelResourcePrivate*, unsigned long long) (.cold.2)
+IOAccelContext2::getDataBuffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, IOAccelResourcePrivate*, unsigned long long) (.cold.3)
+IOAccelContext2::getDataBuffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, IOAccelResourcePrivate*, unsigned long long) (.cold.4)
+IOAccelContext2::getDataBuffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, IOAccelResourcePrivate*, unsigned long long) (.cold.5)
+IOAccelContext2::getDataBuffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, IOAccelResourcePrivate*, unsigned long long) (.cold.6)
+IOAccelContext2::getDataBuffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, IOAccelResourcePrivate*, unsigned long long)::_os_log_fmt
+IOAccelContext2::getDataBufferLimits()
+IOAccelContext2::getDataBufferPrivate(IOAccelResource2*, IOAccelResourcePrivate*, unsigned long long)
+IOAccelContext2::getFrameDelimiter()
+IOAccelContext2::getGPUTask() const
+IOAccelContext2::getMetaClass() const
+IOAccelContext2::getOwningTask() const
+IOAccelContext2::getOwningTaskPid() const
+IOAccelContext2::getPriorityInfo()
+IOAccelContext2::getSurfaceReqBits() const
+IOAccelContext2::getTargetAndMethodForIndex(IOService**, unsigned int)
+IOAccelContext2::get_data_buffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, unsigned long long, unsigned long long*)
+IOAccelContext2::get_data_buffer(IOAccelContextGetDataBufferIn*, IOAccelContextGetDataBufferOut*, unsigned long long, unsigned long long*)::_os_log_fmt
+IOAccelContext2::init(OSDictionary*, task*)
+IOAccelContext2::initSidebandBufferHeader(IOAccelSidebandBufferHeader*, unsigned long long, unsigned long long)
+IOAccelContext2::invalidate()
+IOAccelContext2::isBackgroundRenderingAllowed()
+IOAccelContext2::isExplicitPriorityAllowed()
+IOAccelContext2::isTripleBuffered() const
+IOAccelContext2::lookupResource(unsigned int, void**) const
+IOAccelContext2::metaClass
+IOAccelContext2::operator delete(void*, unsigned long)
+IOAccelContext2::operator new(unsigned long)
+IOAccelContext2::orphanClientMappings(OSSet*)
+IOAccelContext2::pauseSubmitCommandBuffer()
+IOAccelContext2::populateContextConfig(IOAccelContextConfig*)
+IOAccelContext2::postTokenSanityCheck(IOAccelCommandStreamInfo&)
+IOAccelContext2::prepareResources(IOAccelResource2**, int)
+IOAccelContext2::processDataBuffers(unsigned int)
+IOAccelContext2::processSidebandBuffer(IOAccelCommandDescriptor*, bool)
+IOAccelContext2::processSidebandBuffer(IOAccelCommandDescriptor*, bool)::_os_log_fmt
+IOAccelContext2::processSidebandToken(IOAccelCommandStreamInfo&)
+IOAccelContext2::processSidebandToken(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelContext2::process_token_BindDataBuffer(IOAccelCommandStreamInfo&)
+IOAccelContext2::process_token_BindDataBuffer(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelContext2::process_token_End(IOAccelCommandStreamInfo&)
+IOAccelContext2::process_token_End(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelContext2::process_token_Noop(IOAccelCommandStreamInfo&)
+IOAccelContext2::process_token_ResourcePurgeable(IOAccelCommandStreamInfo&)
+IOAccelContext2::process_token_ResourcePurgeable(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelContext2::process_token_ResourceRelease(IOAccelCommandStreamInfo&)
+IOAccelContext2::process_token_ResourceRelease(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelContext2::process_token_SetBlockFence(IOAccelCommandStreamInfo&)
+IOAccelContext2::process_token_SetBlockFence(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelContext2::process_token_Start(IOAccelCommandStreamInfo&)
+IOAccelContext2::process_token_Start(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelContext2::reclaim_resources()
+IOAccelContext2::reclaim_resources() (.cold.1)
+IOAccelContext2::reclaim_resources() (.cold.2)
+IOAccelContext2::removeCurrentResourceFromChannel(IOAccelResource2*, unsigned int)
+IOAccelContext2::removeDataBufferFromChannel(IOAccelResource2*, unsigned int)
+IOAccelContext2::removeSurface()
+IOAccelContext2::remove_surface(IOAccelSurface*)
+IOAccelContext2::requiresBackingStore() const
+IOAccelContext2::sContextMethods
+IOAccelContext2::sSubmitDataBuffersForegroundOnlyOverride
+IOAccelContext2::s_enable_block_fences(IOAccelContext2*, void*, IOExternalMethodArguments*)
+IOAccelContext2::s_enable_block_fences(IOAccelContext2*, void*, IOExternalMethodArguments*)::_os_log_fmt
+IOAccelContext2::setContextError(unsigned int)
+IOAccelContext2::setContextError(unsigned int)::_os_log_fmt
+IOAccelContext2::set_background_rendering(unsigned int)
+IOAccelContext2::set_client_info(IOAccelClientInfo*, unsigned long long)
+IOAccelContext2::set_compatible_surface_mode(unsigned long long*, unsigned long long, unsigned int)
+IOAccelContext2::shouldHardwareCommandNooped()
+IOAccelContext2::start(IOService*)
+IOAccelContext2::stop(IOService*)
+IOAccelContext2::stopLocked()
+IOAccelContext2::submit_data_buffers(IOAccelContextSubmitDataBuffersIn*, IOAccelContextSubmitDataBuffersOut*, unsigned long long, unsigned long long*)
+IOAccelContext2::submit_data_buffers(IOAccelContextSubmitDataBuffersIn*, IOAccelContextSubmitDataBuffersOut*, unsigned long long, unsigned long long*) (.cold.1)
+IOAccelContext2::submit_data_buffers(IOAccelContextSubmitDataBuffersIn*, IOAccelContextSubmitDataBuffersOut*, unsigned long long, unsigned long long*) (.cold.2)
+IOAccelContext2::submit_data_buffers(IOAccelContextSubmitDataBuffersIn*, IOAccelContextSubmitDataBuffersOut*, unsigned long long, unsigned long long*)::_os_log_fmt
+IOAccelContext2::superClass
+IOAccelContext2::unbindResource(IOAccelCommandStreamInfo&, IOAccelResource2*, IOAccelChannel2*)
+IOAccelContext2::update_data_buffer_desired_size(unsigned int, unsigned long long)
+IOAccelContext2::validateDataBuffer(unsigned long long, IOBufferMemoryDescriptor*, IOAccelResource2*)
+IOAccelContext2::validateTokenSize(IOAccelCommandStreamInfo&, unsigned short)
+IOAccelContext2::validateTokenSize(IOAccelCommandStreamInfo&, unsigned short)::_os_log_fmt
+IOAccelContext2::~IOAccelContext2()
+IOAccelContext2_ktv
+IOAccelContextEventFence::IOAccelContextEventFence()
+IOAccelContextEventFence::IOAccelContextEventFence(OSMetaClass const*)
+IOAccelContextEventFence::MetaClass::MetaClass()
+IOAccelContextEventFence::MetaClass::alloc() const
+IOAccelContextEventFence::MetaClass::~MetaClass()
+IOAccelContextEventFence::gMetaClass
+IOAccelContextEventFence::getMetaClass() const
+IOAccelContextEventFence::metaClass
+IOAccelContextEventFence::notifyClient()
+IOAccelContextEventFence::operator delete(void*, unsigned long)
+IOAccelContextEventFence::operator new(unsigned long)
+IOAccelContextEventFence::superClass
+IOAccelContextEventFence::~IOAccelContextEventFence()
+IOAccelContextEventFence_ktv
+IOAccelContextList::Iterator::Iterator(IOAccelContextList&)
+IOAccelContextList::Iterator::getNextContext()
+IOAccelContextList::addContext(IOAccelContext2*)
+IOAccelContextList::getCount() const
+IOAccelContextList::getCountWithPID(int) const
+IOAccelContextList::init()
+IOAccelContextList::removeContext(IOAccelContext2*)
+IOAccelContextList::removeContext(IOAccelContext2*)::_os_log_fmt
+IOAccelDevice2::IOAccelDevice2()
+IOAccelDevice2::IOAccelDevice2(OSMetaClass const*)
+IOAccelDevice2::MetaClass::MetaClass()
+IOAccelDevice2::MetaClass::alloc() const
+IOAccelDevice2::MetaClass::~MetaClass()
+IOAccelDevice2::_RESERVEDIOAccelDevice0()
+IOAccelDevice2::_RESERVEDIOAccelDevice1()
+IOAccelDevice2::_RESERVEDIOAccelDevice2()
+IOAccelDevice2::_RESERVEDIOAccelDevice3()
+IOAccelDevice2::_RESERVEDIOAccelDevice4()
+IOAccelDevice2::_RESERVEDIOAccelDevice5()
+IOAccelDevice2::add_orphaned_mappings(OSSet*)
+IOAccelDevice2::clientClose()
+IOAccelDevice2::detach_device()
+IOAccelDevice2::deviceStart()
+IOAccelDevice2::deviceStop()
+IOAccelDevice2::didTerminate(IOService*, unsigned int, bool*)
+IOAccelDevice2::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelDevice2::free()
+IOAccelDevice2::gMetaClass
+IOAccelDevice2::getMetaClass() const
+IOAccelDevice2::getTargetAndMethodForIndex(IOService**, unsigned int)
+IOAccelDevice2::get_config(IOAccelDeviceConfigData*)
+IOAccelDevice2::get_current_trace_filter(IOAccelDeviceTraceFilterData*)
+IOAccelDevice2::get_device_info(IOAccelDeviceInfoReturnData*)
+IOAccelDevice2::get_event_machine(IOAccelDeviceEventMachineData*)
+IOAccelDevice2::get_name(char*)
+IOAccelDevice2::get_next_gid_group(IOAccelDeviceGIDGroupData*)
+IOAccelDevice2::get_next_global_object_id(IOAccelDeviceGlobalObjectIDData*)
+IOAccelDevice2::get_surface_info(unsigned int, IOAccelDeviceSurfaceData*)
+IOAccelDevice2::get_surface_info(unsigned int, IOAccelDeviceSurfaceData*)::_os_log_fmt
+IOAccelDevice2::init(OSDictionary*, task*)
+IOAccelDevice2::metaClass
+IOAccelDevice2::operator delete(void*, unsigned long)
+IOAccelDevice2::operator new(unsigned long)
+IOAccelDevice2::orphanClientMappings(OSSet*)
+IOAccelDevice2::requestTerminate(IOService*, unsigned int)
+IOAccelDevice2::sDeviceMethods
+IOAccelDevice2::set_api_property(IOAccelDeviceAPIProperty*)
+IOAccelDevice2::set_stereo(unsigned int, unsigned int)
+IOAccelDevice2::start(IOService*)
+IOAccelDevice2::stop(IOService*)
+IOAccelDevice2::stopLocked()
+IOAccelDevice2::superClass
+IOAccelDevice2::~IOAccelDevice2()
+IOAccelDevice2_ktv
+IOAccelDeviceList::Iterator::Iterator(IOAccelDeviceList&)
+IOAccelDeviceList::Iterator::getNextDevice()
+IOAccelDeviceList::addDevice(IOAccelDevice2*)
+IOAccelDeviceList::getCount() const
+IOAccelDeviceList::getCountWithPID(int) const
+IOAccelDeviceList::init()
+IOAccelDeviceList::removeDevice(IOAccelDevice2*)
+IOAccelDeviceList::removeDevice(IOAccelDevice2*)::_os_log_fmt
+IOAccelDeviceShmem::IOAccelDeviceShmem()
+IOAccelDeviceShmem::IOAccelDeviceShmem(OSMetaClass const*)
+IOAccelDeviceShmem::MetaClass::MetaClass()
+IOAccelDeviceShmem::MetaClass::alloc() const
+IOAccelDeviceShmem::MetaClass::~MetaClass()
+IOAccelDeviceShmem::describeAllocation(int, IOAccelAllocationInfo*)
+IOAccelDeviceShmem::deviceShmemWithTask(IOGraphicsAccelerator2*, task*, IOAccelNamespace*, unsigned long)
+IOAccelDeviceShmem::free()
+IOAccelDeviceShmem::gMetaClass
+IOAccelDeviceShmem::getClientData()
+IOAccelDeviceShmem::getKernelData()
+IOAccelDeviceShmem::getLength() const
+IOAccelDeviceShmem::getMetaClass() const
+IOAccelDeviceShmem::getShmemData()
+IOAccelDeviceShmem::getShmemId()
+IOAccelDeviceShmem::getShmemLength() const
+IOAccelDeviceShmem::init(IOGraphicsAccelerator2*, task*, IOAccelNamespace*, unsigned long)
+IOAccelDeviceShmem::metaClass
+IOAccelDeviceShmem::operator delete(void*, unsigned long)
+IOAccelDeviceShmem::operator new(unsigned long)
+IOAccelDeviceShmem::resetKernelDataRange()
+IOAccelDeviceShmem::setKernelDataRange(unsigned long, unsigned long)
+IOAccelDeviceShmem::superClass
+IOAccelDeviceShmem::~IOAccelDeviceShmem()
+IOAccelDeviceShmem_ktv
+IOAccelDisplayMachine::IOAccelDisplayMachine(OSMetaClass const*)
+IOAccelDisplayMachine::MetaClass::MetaClass()
+IOAccelDisplayMachine::MetaClass::alloc() const
+IOAccelDisplayMachine::MetaClass::~MetaClass()
+IOAccelDisplayMachine::_RESERVEDIOAccelDisplayMachine1()
+IOAccelDisplayMachine::_RESERVEDIOAccelDisplayMachine2()
+IOAccelDisplayMachine::_RESERVEDIOAccelDisplayMachine3()
+IOAccelDisplayMachine::_RESERVEDIOAccelDisplayMachine4()
+IOAccelDisplayMachine::_RESERVEDIOAccelDisplayMachine5()
+IOAccelDisplayMachine::calculateUpdateCopyMatrix(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)
+IOAccelDisplayMachine::destroyFramebufferResource(unsigned int, unsigned int, IOFramebuffer*, IOAccelResource2*)
+IOAccelDisplayMachine::device_terminated()
+IOAccelDisplayMachine::disable_pipe_event_interrupt(unsigned int)
+IOAccelDisplayMachine::display_mode_did_change(unsigned int)
+IOAccelDisplayMachine::display_mode_did_change(unsigned int) (.cold.1)
+IOAccelDisplayMachine::display_mode_will_change(unsigned int)
+IOAccelDisplayMachine::display_mode_will_change(unsigned int)::_os_log_fmt
+IOAccelDisplayMachine::enable_pipe_event_interrupt(unsigned int)
+IOAccelDisplayMachine::finish_transaction_queue(unsigned int)
+IOAccelDisplayMachine::found_framebuffer(IOFramebuffer*)
+IOAccelDisplayMachine::found_framebuffer(IOFramebuffer*)::_os_log_fmt
+IOAccelDisplayMachine::framebuffer_did_power_on(unsigned int)
+IOAccelDisplayMachine::framebuffer_terminated(unsigned int)
+IOAccelDisplayMachine::framebuffer_will_power_off(unsigned int)
+IOAccelDisplayMachine::free()
+IOAccelDisplayMachine::gMetaClass
+IOAccelDisplayMachine::getDisplayPipe(unsigned int) const
+IOAccelDisplayMachine::getFramebufferCount() const
+IOAccelDisplayMachine::getFramebufferHeight(unsigned int) const
+IOAccelDisplayMachine::getFramebufferResource(unsigned int, unsigned int) const
+IOAccelDisplayMachine::getFramebufferWidth(unsigned int) const
+IOAccelDisplayMachine::getIOFramebuffer(unsigned int) const
+IOAccelDisplayMachine::getMetaClass() const
+IOAccelDisplayMachine::get_finished_transactions(DisplayTransactionListHead*)
+IOAccelDisplayMachine::get_pipe_workloop()
+IOAccelDisplayMachine::init(IOGraphicsAccelerator2*)
+IOAccelDisplayMachine::initFramebufferResource(unsigned int, unsigned int, IOFramebuffer*, IOAccelResource2*)
+IOAccelDisplayMachine::invertUpdateCopyMatrix(IOAccelAffineTransform)
+IOAccelDisplayMachine::isDeferred(unsigned int) const
+IOAccelDisplayMachine::isFramebufferActive(unsigned int) const
+IOAccelDisplayMachine::is_current_display_resource(IOAccelResource2*)
+IOAccelDisplayMachine::ktraceStateChanged()
+IOAccelDisplayMachine::metaClass
+IOAccelDisplayMachine::operator delete(void*, unsigned long)
+IOAccelDisplayMachine::operator new(unsigned long)
+IOAccelDisplayMachine::signalEventInterrupt()
+IOAccelDisplayMachine::start(IOPCIDevice*)
+IOAccelDisplayMachine::stop()
+IOAccelDisplayMachine::superClass
+IOAccelDisplayMachine::system_will_sleep()
+IOAccelDisplayMachine::triage(char**, unsigned long long*)
+IOAccelDisplayMachine::waitForStampTimeout(int)
+IOAccelDisplayMachine::wsaa_did_enter_defer(unsigned int, int)
+IOAccelDisplayMachine::wsaa_did_exit_defer(unsigned int, int)
+IOAccelDisplayMachine::wsaa_will_enter_defer(unsigned int, int)
+IOAccelDisplayMachine::wsaa_will_exit_defer(unsigned int, int)
+IOAccelDisplayMachine::~IOAccelDisplayMachine()
+IOAccelDisplayMachine_ktv
+IOAccelDisplayPipe::IOAccelDisplayPipe()
+IOAccelDisplayPipe::IOAccelDisplayPipe(OSMetaClass const*)
+IOAccelDisplayPipe::MetaClass::MetaClass()
+IOAccelDisplayPipe::MetaClass::alloc() const
+IOAccelDisplayPipe::MetaClass::~MetaClass()
+IOAccelDisplayPipe::_RESERVEDIOAccelDisplayPipe1()
+IOAccelDisplayPipe::_RESERVEDIOAccelDisplayPipe2()
+IOAccelDisplayPipe::_RESERVEDIOAccelDisplayPipe3()
+IOAccelDisplayPipe::_RESERVEDIOAccelDisplayPipe4()
+IOAccelDisplayPipe::_RESERVEDIOAccelDisplayPipe5()
+IOAccelDisplayPipe::_RESERVEDIOAccelDisplayPipe6()
+IOAccelDisplayPipe::_RESERVEDIOAccelDisplayPipe7()
+IOAccelDisplayPipe::beginTransaction(IOAccelEvent*)
+IOAccelDisplayPipe::completeTransaction(IOAccelDisplayPipeTransaction2*)
+IOAccelDisplayPipe::copyCapabilities()
+IOAccelDisplayPipe::copySurface(unsigned int, unsigned int)
+IOAccelDisplayPipe::createWorkLoop()
+IOAccelDisplayPipe::destroyFramebufferResource(unsigned int, IOAccelResource2*)
+IOAccelDisplayPipe::destroy_framebuffer_resource(IOAccelResource2*)
+IOAccelDisplayPipe::device_terminated()
+IOAccelDisplayPipe::didPowerOn()
+IOAccelDisplayPipe::disableTransactionInterrupt()
+IOAccelDisplayPipe::disableVBLInterrupt()
+IOAccelDisplayPipe::disable_event_interrupt(IOAccelEvent const*)
+IOAccelDisplayPipe::disable_transaction_interrupt()
+IOAccelDisplayPipe::disable_vbl_interrupt()
+IOAccelDisplayPipe::displayModeDidChange()
+IOAccelDisplayPipe::displayModeWillChange()
+IOAccelDisplayPipe::display_change_handler(void*, IOFramebuffer*, int, void*)
+IOAccelDisplayPipe::display_change_handler(void*, IOFramebuffer*, int, void*)::_os_log_fmt
+IOAccelDisplayPipe::enableTransactionInterrupt()
+IOAccelDisplayPipe::enableVBLInterrupt()
+IOAccelDisplayPipe::enable_event_interrupt(IOAccelEvent const*)
+IOAccelDisplayPipe::enable_transaction_interrupt()
+IOAccelDisplayPipe::enable_vbl_interrupt()
+IOAccelDisplayPipe::event_interrupt_gated()
+IOAccelDisplayPipe::event_interrupt_gated()::_os_log_fmt
+IOAccelDisplayPipe::find_temp_transaction(unsigned int)
+IOAccelDisplayPipe::finishTransactionQueue()
+IOAccelDisplayPipe::framebufferTerminated()
+IOAccelDisplayPipe::framebuffer_did_power_on()
+IOAccelDisplayPipe::framebuffer_online_status_changed(bool)
+IOAccelDisplayPipe::framebuffer_terminated()
+IOAccelDisplayPipe::framebuffer_will_power_off()
+IOAccelDisplayPipe::free()
+IOAccelDisplayPipe::free()::kalloc_type_view_171
+IOAccelDisplayPipe::free()::kalloc_type_view_176
+IOAccelDisplayPipe::gMetaClass
+IOAccelDisplayPipe::getCurrentPipeColorMatrix() const
+IOAccelDisplayPipe::getCurrentPipeColorMatrixArgs() const
+IOAccelDisplayPipe::getCurrentPipePostCSCGammaVID() const
+IOAccelDisplayPipe::getCurrentPipePostGammaTable() const
+IOAccelDisplayPipe::getCurrentPipePreCSCLinearizationVID() const
+IOAccelDisplayPipe::getCurrentPipePreGammaTable() const
+IOAccelDisplayPipe::getCurrentPipeRotationArgs() const
+IOAccelDisplayPipe::getCurrentPipeScalerState() const
+IOAccelDisplayPipe::getCurrentPlaneDirtyRect(unsigned int) const
+IOAccelDisplayPipe::getCurrentPlaneDstRect(unsigned int) const
+IOAccelDisplayPipe::getCurrentPlaneGammaTable(unsigned int) const
+IOAccelDisplayPipe::getCurrentPlaneIOSurface(unsigned int, unsigned int) const
+IOAccelDisplayPipe::getCurrentPlaneIOSurfaceDeviceCache(unsigned int, unsigned int) const
+IOAccelDisplayPipe::getCurrentPlaneOptions(unsigned int) const
+IOAccelDisplayPipe::getCurrentPlaneResource(unsigned int, unsigned int) const
+IOAccelDisplayPipe::getCurrentPlaneSrcRect(unsigned int) const
+IOAccelDisplayPipe::getDisplayModePipeScalerSetup(IOAccelDisplayPipeScaler*)
+IOAccelDisplayPipe::getEventMachine() const
+IOAccelDisplayPipe::getFramebuffer() const
+IOAccelDisplayPipe::getFramebufferIndex() const
+IOAccelDisplayPipe::getFramebufferResource(unsigned int) const
+IOAccelDisplayPipe::getHeight() const
+IOAccelDisplayPipe::getMetaClass() const
+IOAccelDisplayPipe::getStampIndex() const
+IOAccelDisplayPipe::getWidth() const
+IOAccelDisplayPipe::get_finished_transactions(DisplayTransactionListHead*)
+IOAccelDisplayPipe::get_finished_transactions_gated(DisplayTransactionListHead*)
+IOAccelDisplayPipe::get_user_client() const
+IOAccelDisplayPipe::init(IOGraphicsAccelerator2*, IOAccelDisplayMachine*, IOFramebuffer*, unsigned int)
+IOAccelDisplayPipe::init(IOGraphicsAccelerator2*, IOAccelDisplayMachine*, IOFramebuffer*, unsigned int)::_os_log_fmt
+IOAccelDisplayPipe::init(IOGraphicsAccelerator2*, IOAccelDisplayMachine*, IOFramebuffer*, unsigned int)::kalloc_type_view_67
+IOAccelDisplayPipe::init(IOGraphicsAccelerator2*, IOAccelDisplayMachine*, IOFramebuffer*, unsigned int)::kalloc_type_view_71
+IOAccelDisplayPipe::initFramebufferResource(unsigned int, IOAccelResource2*)
+IOAccelDisplayPipe::init_framebuffer_resource(IOAccelResource2*)
+IOAccelDisplayPipe::init_framebuffer_resource(IOAccelResource2*)::_os_log_fmt
+IOAccelDisplayPipe::isActive() const
+IOAccelDisplayPipe::isTransactionComplete(IOAccelDisplayPipeTransaction2*)
+IOAccelDisplayPipe::ktraceStateChanged()
+IOAccelDisplayPipe::logTransactionTimeoutDiagnosisReport()
+IOAccelDisplayPipe::logTransactionTimeoutDiagnosisReport() (.cold.1)
+IOAccelDisplayPipe::logTransactionTimeoutDiagnosisReport()::_os_log_fmt
+IOAccelDisplayPipe::metaClass
+IOAccelDisplayPipe::newDisplayPipeTransaction()
+IOAccelDisplayPipe::operator delete(void*, unsigned long)
+IOAccelDisplayPipe::operator new(unsigned long)
+IOAccelDisplayPipe::performTransaction(IOAccelDisplayPipeTransaction2*)
+IOAccelDisplayPipe::releaseLiveTransaction()
+IOAccelDisplayPipe::release_live_transaction_gated()
+IOAccelDisplayPipe::remove_notify(IOAccelDisplayPipeNotifyRequest*)
+IOAccelDisplayPipe::remove_notify_gated(IOAccelDisplayPipeNotifyRequest*)
+IOAccelDisplayPipe::remove_notify_gated(IOAccelDisplayPipeNotifyRequest*) (.cold.1)
+IOAccelDisplayPipe::remove_notify_gated(IOAccelDisplayPipeNotifyRequest*) (.cold.2)
+IOAccelDisplayPipe::reportVRRStampInfo(IOAccelDisplayPipeVRRTimeStampInfo*)
+IOAccelDisplayPipe::report_vrr_timestamp_gated()
+IOAccelDisplayPipe::request_notify(unsigned long long*, IOAccelDisplayPipeRequestNotifyGatedArgs*)
+IOAccelDisplayPipe::request_notify_gated(unsigned long long*, IOAccelDisplayPipeRequestNotifyGatedArgs*)
+IOAccelDisplayPipe::sendNotification(IOAccelDisplayPipeTransaction2*, unsigned int)
+IOAccelDisplayPipe::set_current_pipe_color_matrix(IOAccelDisplayPipeColorMatrix)
+IOAccelDisplayPipe::set_current_pipe_color_matrix_args(IOAccelDisplayPipeColorMatrixArgs)
+IOAccelDisplayPipe::set_current_pipe_postcscgamma_vid(IOAccelDisplayPipePostCSCGammaVID*)
+IOAccelDisplayPipe::set_current_pipe_postgamma_table(IOAccelDisplayPipeGammaTable2*)
+IOAccelDisplayPipe::set_current_pipe_precsclinearization_vid(IOAccelDisplayPipePreCSCLinearizationVID*)
+IOAccelDisplayPipe::set_current_pipe_pregamma_table(IOAccelDisplayPipeGammaTable2*)
+IOAccelDisplayPipe::set_current_pipe_rotation_args(IOAccelDisplayPipeRotationArgs)
+IOAccelDisplayPipe::set_current_pipe_scaler_state(IOAccelDisplayPipeScaler)
+IOAccelDisplayPipe::set_current_plane_data(unsigned int, unsigned int, IOAccelDisplayRect, IOAccelDisplayRect, IOAccelDisplayRect)
+IOAccelDisplayPipe::set_current_plane_gamma_table(unsigned int, IOAccelDisplayPipeGammaTable2*)
+IOAccelDisplayPipe::set_current_plane_ioSurfaceDeviceCache(IOAccelEvent*, unsigned int, unsigned int, IOSurfaceDeviceCache*)
+IOAccelDisplayPipe::set_current_plane_resources(IOAccelEvent*, unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelDisplayPipe::set_user_client(IOAccelDisplayPipeUserClient2*)
+IOAccelDisplayPipe::setup_workloop()
+IOAccelDisplayPipe::setup_workloop()::_os_log_fmt
+IOAccelDisplayPipe::signalTransactionComplete(IOAccelEvent*)
+IOAccelDisplayPipe::signalTransactionInterrupt(void*)
+IOAccelDisplayPipe::signalVBLInterrupt(void*)
+IOAccelDisplayPipe::signal_event_interrupt()
+IOAccelDisplayPipe::submitFlipBufferTransaction(IOAccelEvent*, unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelDisplayPipe::submitTransaction(IOAccelDisplayPipeTransaction2*)
+IOAccelDisplayPipe::superClass
+IOAccelDisplayPipe::system_will_sleep()
+IOAccelDisplayPipe::teardown_workloop()
+IOAccelDisplayPipe::teardown_workloop_gated()
+IOAccelDisplayPipe::transaction_abort(unsigned int)
+IOAccelDisplayPipe::transaction_abort(unsigned int) (.cold.1)
+IOAccelDisplayPipe::transaction_abort(unsigned int) (.cold.2)
+IOAccelDisplayPipe::transaction_begin(IOAccelDisplayPipeUserClient2*, unsigned int*)
+IOAccelDisplayPipe::transaction_begin(IOAccelDisplayPipeUserClient2*, unsigned int*) (.cold.1)
+IOAccelDisplayPipe::transaction_end(IOAccelDisplayPipeUserClient2*, IOAccelDisplayPipeTransactionArgs*)
+IOAccelDisplayPipe::transaction_end(IOAccelDisplayPipeUserClient2*, IOAccelDisplayPipeTransactionArgs*) (.cold.1)
+IOAccelDisplayPipe::transaction_end(IOAccelDisplayPipeUserClient2*, IOAccelDisplayPipeTransactionArgs*) (.cold.2)
+IOAccelDisplayPipe::transaction_interrupt_gated()
+IOAccelDisplayPipe::transaction_queue(IOAccelDisplayPipeTransaction2*)
+IOAccelDisplayPipe::transaction_queue_gated(IOAccelDisplayPipeTransaction2*)
+IOAccelDisplayPipe::transaction_queue_idle_gated()
+IOAccelDisplayPipe::transaction_set_pipe_postcscgamma_vid(IOAccelDisplayPipePostCSCGammaTableArgs*)
+IOAccelDisplayPipe::transaction_set_pipe_postgamma_table(IOAccelDisplayPipeGammaTableArgs*)
+IOAccelDisplayPipe::transaction_set_pipe_precsclinearization_vid(IOAccelDisplayPipePreCSCLinearizationArgs*)
+IOAccelDisplayPipe::transaction_set_pipe_pregamma_table(IOAccelDisplayPipeGammaTableArgs*)
+IOAccelDisplayPipe::transaction_set_plane_gamma_table(IOAccelDisplayPipeGammaTableArgs*)
+IOAccelDisplayPipe::transaction_timeout_timer_fired(IOTimerEventSource*)
+IOAccelDisplayPipe::transaction_timeout_timer_fired(IOTimerEventSource*)::_os_log_fmt
+IOAccelDisplayPipe::transaction_wait_gated(IOAccelDisplayPipeTransactionWaitArgs*)
+IOAccelDisplayPipe::transaction_wait_gated(IOAccelDisplayPipeTransactionWaitArgs*)::_os_log_fmt
+IOAccelDisplayPipe::transaction_wait_nolock(IOAccelDisplayPipeTransactionWaitArgs*)
+IOAccelDisplayPipe::triage(char**, unsigned long long*)
+IOAccelDisplayPipe::triage(char**, unsigned long long*)::label (.rel)
+IOAccelDisplayPipe::user_client_terminated(IOAccelDisplayPipeUserClient2*)
+IOAccelDisplayPipe::user_client_terminated(IOAccelDisplayPipeUserClient2*) (.cold.1)
+IOAccelDisplayPipe::user_client_terminated(IOAccelDisplayPipeUserClient2*) (.cold.2)
+IOAccelDisplayPipe::validateTransaction(IOAccelDisplayPipeTransaction2*)
+IOAccelDisplayPipe::vbl_interrupt_gated()
+IOAccelDisplayPipe::vbl_interrupt_gated() (.cold.1)
+IOAccelDisplayPipe::vbl_interrupt_gated() (.cold.2)
+IOAccelDisplayPipe::waitForStampTimeout(int)
+IOAccelDisplayPipe::waitForStampTimeout(int)::_os_log_fmt
+IOAccelDisplayPipe::wait_for_queue_slot_gated()
+IOAccelDisplayPipe::wait_for_queue_slot_nolock()
+IOAccelDisplayPipe::willPowerOff()
+IOAccelDisplayPipe::wsaaDidEnterDefer(int)
+IOAccelDisplayPipe::wsaaDidExitDefer(int)
+IOAccelDisplayPipe::wsaaEnterDefer(int)
+IOAccelDisplayPipe::wsaaWillEnterDefer(int)
+IOAccelDisplayPipe::wsaaWillExitDefer(int)
+IOAccelDisplayPipe::~IOAccelDisplayPipe()
+IOAccelDisplayPipeGammaTable2::IOAccelDisplayPipeGammaTable2()
+IOAccelDisplayPipeGammaTable2::IOAccelDisplayPipeGammaTable2(OSMetaClass const*)
+IOAccelDisplayPipeGammaTable2::MetaClass::MetaClass()
+IOAccelDisplayPipeGammaTable2::MetaClass::alloc() const
+IOAccelDisplayPipeGammaTable2::MetaClass::~MetaClass()
+IOAccelDisplayPipeGammaTable2::free()
+IOAccelDisplayPipeGammaTable2::gMetaClass
+IOAccelDisplayPipeGammaTable2::getMetaClass() const
+IOAccelDisplayPipeGammaTable2::getTableCount() const
+IOAccelDisplayPipeGammaTable2::getTableEntry(unsigned int, float*, float*, float*) const
+IOAccelDisplayPipeGammaTable2::getTableMaxValue() const
+IOAccelDisplayPipeGammaTable2::getTableMinValue() const
+IOAccelDisplayPipeGammaTable2::init(IOAccelDisplayPipeGammaTableData*)
+IOAccelDisplayPipeGammaTable2::init(IOAccelDisplayPipeGammaTableData*) (.cold.1)
+IOAccelDisplayPipeGammaTable2::metaClass
+IOAccelDisplayPipeGammaTable2::operator delete(void*, unsigned long)
+IOAccelDisplayPipeGammaTable2::operator new(unsigned long)
+IOAccelDisplayPipeGammaTable2::superClass
+IOAccelDisplayPipeGammaTable2::withGammaTableData(IOAccelDisplayPipeGammaTableData*)
+IOAccelDisplayPipeGammaTable2::~IOAccelDisplayPipeGammaTable2()
+IOAccelDisplayPipeGammaTable2_ktv
+IOAccelDisplayPipePostCSCGammaVID::IOAccelDisplayPipePostCSCGammaVID()
+IOAccelDisplayPipePostCSCGammaVID::IOAccelDisplayPipePostCSCGammaVID(OSMetaClass const*)
+IOAccelDisplayPipePostCSCGammaVID::MetaClass::MetaClass()
+IOAccelDisplayPipePostCSCGammaVID::MetaClass::alloc() const
+IOAccelDisplayPipePostCSCGammaVID::MetaClass::~MetaClass()
+IOAccelDisplayPipePostCSCGammaVID::free()
+IOAccelDisplayPipePostCSCGammaVID::gMetaClass
+IOAccelDisplayPipePostCSCGammaVID::getConfigurationID() const
+IOAccelDisplayPipePostCSCGammaVID::getData() const
+IOAccelDisplayPipePostCSCGammaVID::getFormat() const
+IOAccelDisplayPipePostCSCGammaVID::getMaximumValue() const
+IOAccelDisplayPipePostCSCGammaVID::getMetaClass() const
+IOAccelDisplayPipePostCSCGammaVID::getMinimumValue() const
+IOAccelDisplayPipePostCSCGammaVID::getPlane() const
+IOAccelDisplayPipePostCSCGammaVID::getSize() const
+IOAccelDisplayPipePostCSCGammaVID::getType() const
+IOAccelDisplayPipePostCSCGammaVID::init(IOAccelDisplayPipePostCSCGammaTableArgs*)
+IOAccelDisplayPipePostCSCGammaVID::init(IOAccelDisplayPipePostCSCGammaTableArgs*) (.cold.1)
+IOAccelDisplayPipePostCSCGammaVID::metaClass
+IOAccelDisplayPipePostCSCGammaVID::operator delete(void*, unsigned long)
+IOAccelDisplayPipePostCSCGammaVID::operator new(unsigned long)
+IOAccelDisplayPipePostCSCGammaVID::superClass
+IOAccelDisplayPipePostCSCGammaVID::withArgs(IOAccelDisplayPipePostCSCGammaTableArgs*)
+IOAccelDisplayPipePostCSCGammaVID::~IOAccelDisplayPipePostCSCGammaVID()
+IOAccelDisplayPipePostCSCGammaVID_ktv
+IOAccelDisplayPipePreCSCLinearizationVID::IOAccelDisplayPipePreCSCLinearizationVID()
+IOAccelDisplayPipePreCSCLinearizationVID::IOAccelDisplayPipePreCSCLinearizationVID(OSMetaClass const*)
+IOAccelDisplayPipePreCSCLinearizationVID::MetaClass::MetaClass()
+IOAccelDisplayPipePreCSCLinearizationVID::MetaClass::alloc() const
+IOAccelDisplayPipePreCSCLinearizationVID::MetaClass::~MetaClass()
+IOAccelDisplayPipePreCSCLinearizationVID::free()
+IOAccelDisplayPipePreCSCLinearizationVID::gMetaClass
+IOAccelDisplayPipePreCSCLinearizationVID::getConfigurationID() const
+IOAccelDisplayPipePreCSCLinearizationVID::getData() const
+IOAccelDisplayPipePreCSCLinearizationVID::getFormat() const
+IOAccelDisplayPipePreCSCLinearizationVID::getMaximumValue() const
+IOAccelDisplayPipePreCSCLinearizationVID::getMetaClass() const
+IOAccelDisplayPipePreCSCLinearizationVID::getMinimumValue() const
+IOAccelDisplayPipePreCSCLinearizationVID::getPlane() const
+IOAccelDisplayPipePreCSCLinearizationVID::getSize() const
+IOAccelDisplayPipePreCSCLinearizationVID::getType() const
+IOAccelDisplayPipePreCSCLinearizationVID::init(IOAccelDisplayPipePreCSCLinearizationArgs*)
+IOAccelDisplayPipePreCSCLinearizationVID::init(IOAccelDisplayPipePreCSCLinearizationArgs*) (.cold.1)
+IOAccelDisplayPipePreCSCLinearizationVID::metaClass
+IOAccelDisplayPipePreCSCLinearizationVID::operator delete(void*, unsigned long)
+IOAccelDisplayPipePreCSCLinearizationVID::operator new(unsigned long)
+IOAccelDisplayPipePreCSCLinearizationVID::superClass
+IOAccelDisplayPipePreCSCLinearizationVID::withArgs(IOAccelDisplayPipePreCSCLinearizationArgs*)
+IOAccelDisplayPipePreCSCLinearizationVID::~IOAccelDisplayPipePreCSCLinearizationVID()
+IOAccelDisplayPipePreCSCLinearizationVID_ktv
+IOAccelDisplayPipeTransaction2::IOAccelDisplayPipeTransaction2()
+IOAccelDisplayPipeTransaction2::IOAccelDisplayPipeTransaction2(OSMetaClass const*)
+IOAccelDisplayPipeTransaction2::MetaClass::MetaClass()
+IOAccelDisplayPipeTransaction2::MetaClass::alloc() const
+IOAccelDisplayPipeTransaction2::MetaClass::~MetaClass()
+IOAccelDisplayPipeTransaction2::_RESERVEDIOAccelDisplayPipeTransaction0()
+IOAccelDisplayPipeTransaction2::_RESERVEDIOAccelDisplayPipeTransaction1()
+IOAccelDisplayPipeTransaction2::_RESERVEDIOAccelDisplayPipeTransaction2()
+IOAccelDisplayPipeTransaction2::_RESERVEDIOAccelDisplayPipeTransaction3()
+IOAccelDisplayPipeTransaction2::_RESERVEDIOAccelDisplayPipeTransaction4()
+IOAccelDisplayPipeTransaction2::_RESERVEDIOAccelDisplayPipeTransaction5()
+IOAccelDisplayPipeTransaction2::_RESERVEDIOAccelDisplayPipeTransaction6()
+IOAccelDisplayPipeTransaction2::_RESERVEDIOAccelDisplayPipeTransaction7()
+IOAccelDisplayPipeTransaction2::build_barrier_event(IOAccelEvent*)
+IOAccelDisplayPipeTransaction2::complete()
+IOAccelDisplayPipeTransaction2::finish()
+IOAccelDisplayPipeTransaction2::free()
+IOAccelDisplayPipeTransaction2::free()::kalloc_type_view_2914
+IOAccelDisplayPipeTransaction2::gMetaClass
+IOAccelDisplayPipeTransaction2::getMetaClass() const
+IOAccelDisplayPipeTransaction2::getPipeColorMatrix() const
+IOAccelDisplayPipeTransaction2::getPipeColorMatrixArgs() const
+IOAccelDisplayPipeTransaction2::getPipePostCSCGammaVID() const
+IOAccelDisplayPipeTransaction2::getPipePostGammaTable() const
+IOAccelDisplayPipeTransaction2::getPipePreCSCLinearizationVID() const
+IOAccelDisplayPipeTransaction2::getPipePreGammaTable() const
+IOAccelDisplayPipeTransaction2::getPipeScalerState() const
+IOAccelDisplayPipeTransaction2::getPlaneDirtyRect(unsigned int) const
+IOAccelDisplayPipeTransaction2::getPlaneDstRect(unsigned int) const
+IOAccelDisplayPipeTransaction2::getPlaneGammaTable(unsigned int) const
+IOAccelDisplayPipeTransaction2::getPlaneIOSurface(unsigned int, unsigned int) const
+IOAccelDisplayPipeTransaction2::getPlaneResource(unsigned int, unsigned int) const
+IOAccelDisplayPipeTransaction2::getPlaneSrcRect(unsigned int) const
+IOAccelDisplayPipeTransaction2::getPlaneTransactionOptions(unsigned int) const
+IOAccelDisplayPipeTransaction2::getTimeStamp() const
+IOAccelDisplayPipeTransaction2::getTransactionDirtyBits() const
+IOAccelDisplayPipeTransaction2::getTransactionID() const
+IOAccelDisplayPipeTransaction2::getTransactionOptions() const
+IOAccelDisplayPipeTransaction2::init(IOGraphicsAccelerator2*, IOAccelDisplayPipe*, IOAccelDisplayPipeUserClient2*, unsigned int)
+IOAccelDisplayPipeTransaction2::init(IOGraphicsAccelerator2*, IOAccelDisplayPipe*, IOAccelDisplayPipeUserClient2*, unsigned int)::kalloc_type_view_2849
+IOAccelDisplayPipeTransaction2::make_flip_transaction(unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelDisplayPipeTransaction2::metaClass
+IOAccelDisplayPipeTransaction2::operator delete(void*, unsigned long)
+IOAccelDisplayPipeTransaction2::operator new(unsigned long)
+IOAccelDisplayPipeTransaction2::prepare()
+IOAccelDisplayPipeTransaction2::sendNotification()
+IOAccelDisplayPipeTransaction2::set_pipe_postcscgamma_vid(IOAccelDisplayPipePostCSCGammaTableArgs*)
+IOAccelDisplayPipeTransaction2::set_pipe_postgamma_table(IOAccelDisplayPipeGammaTableData*)
+IOAccelDisplayPipeTransaction2::set_pipe_precsclinearization_vid(IOAccelDisplayPipePreCSCLinearizationArgs*)
+IOAccelDisplayPipeTransaction2::set_pipe_pregamma_table(IOAccelDisplayPipeGammaTableData*)
+IOAccelDisplayPipeTransaction2::set_plane_gamma_table(unsigned int, IOAccelDisplayPipeGammaTableData*)
+IOAccelDisplayPipeTransaction2::set_transaction_args(IOAccelDisplayPipeTransactionArgs*)
+IOAccelDisplayPipeTransaction2::set_transaction_args(IOAccelDisplayPipeTransactionArgs*)::_os_log_fmt
+IOAccelDisplayPipeTransaction2::superClass
+IOAccelDisplayPipeTransaction2::~IOAccelDisplayPipeTransaction2()
+IOAccelDisplayPipeTransaction2_ktv
+IOAccelDisplayPipeUserClient2::IOAccelDisplayPipeUserClient2()
+IOAccelDisplayPipeUserClient2::IOAccelDisplayPipeUserClient2(OSMetaClass const*)
+IOAccelDisplayPipeUserClient2::MetaClass::MetaClass()
+IOAccelDisplayPipeUserClient2::MetaClass::alloc() const
+IOAccelDisplayPipeUserClient2::MetaClass::~MetaClass()
+IOAccelDisplayPipeUserClient2::attach(IOService*)
+IOAccelDisplayPipeUserClient2::canUseDisplayPipe()
+IOAccelDisplayPipeUserClient2::clientClose()
+IOAccelDisplayPipeUserClient2::copySurface(unsigned int, unsigned int)
+IOAccelDisplayPipeUserClient2::doesEntitlementExist(char const*)
+IOAccelDisplayPipeUserClient2::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelDisplayPipeUserClient2::free()
+IOAccelDisplayPipeUserClient2::gMetaClass
+IOAccelDisplayPipeUserClient2::getCapabilitiesData(unsigned char*, unsigned long long*)
+IOAccelDisplayPipeUserClient2::getDisplayModeScaler(IOAccelDisplayPipeScaler*)
+IOAccelDisplayPipeUserClient2::getDisplayPipeNoLock()
+IOAccelDisplayPipeUserClient2::getMetaClass() const
+IOAccelDisplayPipeUserClient2::init(OSDictionary*, task*)
+IOAccelDisplayPipeUserClient2::metaClass
+IOAccelDisplayPipeUserClient2::operator delete(void*, unsigned long)
+IOAccelDisplayPipeUserClient2::operator new(unsigned long)
+IOAccelDisplayPipeUserClient2::requestNotify(unsigned long long*, IOAccelDisplayPipeRequestNotifyArgs*)
+IOAccelDisplayPipeUserClient2::sDisplayMethodDescs
+IOAccelDisplayPipeUserClient2::s_copy_surface(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_get_capabilities_data(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_get_display_mode_scaler(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_request_notify(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_set_pipe_index(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_transaction_begin(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_transaction_end(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_transaction_set_pipe_postcscgamma_vid(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_transaction_set_pipe_postgamma_table(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_transaction_set_pipe_precsclinearization_vid(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_transaction_set_pipe_pregamma_table(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_transaction_set_plane_gamma_table(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_transaction_wait(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::s_triage(IOAccelDisplayPipeUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelDisplayPipeUserClient2::sendAsyncResult64(unsigned long long*, int, unsigned long long*, unsigned int)
+IOAccelDisplayPipeUserClient2::setAsyncReference64(unsigned long long*, ipc_port*, unsigned long long, unsigned long long)
+IOAccelDisplayPipeUserClient2::setPipeIndex(unsigned int, unsigned long long*)
+IOAccelDisplayPipeUserClient2::start(IOService*)
+IOAccelDisplayPipeUserClient2::stop(IOService*)
+IOAccelDisplayPipeUserClient2::superClass
+IOAccelDisplayPipeUserClient2::transactionBegin(unsigned int*)
+IOAccelDisplayPipeUserClient2::transactionEnd(IOAccelDisplayPipeTransactionArgs*)
+IOAccelDisplayPipeUserClient2::transactionSetPipePostCSCGammaVID(IOAccelDisplayPipePostCSCGammaTableArgs*)
+IOAccelDisplayPipeUserClient2::transactionSetPipePostGammaTable(IOAccelDisplayPipeGammaTableArgs*)
+IOAccelDisplayPipeUserClient2::transactionSetPipePreCSCLinearizationVID(IOAccelDisplayPipePreCSCLinearizationArgs*)
+IOAccelDisplayPipeUserClient2::transactionSetPipePreGammaTable(IOAccelDisplayPipeGammaTableArgs*)
+IOAccelDisplayPipeUserClient2::transactionSetPlaneGammaTable(IOAccelDisplayPipeGammaTableArgs*)
+IOAccelDisplayPipeUserClient2::transactionWait(IOAccelDisplayPipeTransactionWaitArgs*)
+IOAccelDisplayPipeUserClient2::triage(char**, unsigned long long*)
+IOAccelDisplayPipeUserClient2::~IOAccelDisplayPipeUserClient2()
+IOAccelDisplayPipeUserClient2_ktv
+IOAccelDisplayPipe_ktv
+IOAccelDrawable2::IOAccelDrawable2()
+IOAccelDrawable2::IOAccelDrawable2(OSMetaClass const*)
+IOAccelDrawable2::MetaClass::MetaClass()
+IOAccelDrawable2::MetaClass::alloc() const
+IOAccelDrawable2::MetaClass::~MetaClass()
+IOAccelDrawable2::addToChannel(IOAccelChannel2*)
+IOAccelDrawable2::checkDirty()
+IOAccelDrawable2::client_release()
+IOAccelDrawable2::complete()
+IOAccelDrawable2::dirtyLevel()
+IOAccelDrawable2::free()
+IOAccelDrawable2::free() (.cold.1)
+IOAccelDrawable2::free() (.cold.2)
+IOAccelDrawable2::gMetaClass
+IOAccelDrawable2::getMetaClass() const
+IOAccelDrawable2::init(IOGraphicsAccelerator2*, IOAccelSurface*, IOAccelShared2*, bool)
+IOAccelDrawable2::metaClass
+IOAccelDrawable2::operator delete(void*, unsigned long)
+IOAccelDrawable2::operator new(unsigned long)
+IOAccelDrawable2::prepare()
+IOAccelDrawable2::removeFromChannel(IOAccelChannel2*)
+IOAccelDrawable2::remove_buffers()
+IOAccelDrawable2::superClass
+IOAccelDrawable2::update()
+IOAccelDrawable2::~IOAccelDrawable2()
+IOAccelDrawable2_ktv
+IOAccelEventFence::IOAccelEventFence(OSMetaClass const*)
+IOAccelEventFence::MetaClass::MetaClass()
+IOAccelEventFence::MetaClass::alloc() const
+IOAccelEventFence::MetaClass::~MetaClass()
+IOAccelEventFence::free()
+IOAccelEventFence::gMetaClass
+IOAccelEventFence::getMetaClass() const
+IOAccelEventFence::init(IOGraphicsAccelerator2*, IOAccelSubmitter2*)
+IOAccelEventFence::metaClass
+IOAccelEventFence::operator delete(void*, unsigned long)
+IOAccelEventFence::operator new(unsigned long)
+IOAccelEventFence::superClass
+IOAccelEventFence::~IOAccelEventFence()
+IOAccelEventFence_ktv
+IOAccelEventMachine2::IOAccelEventMachine2(OSMetaClass const*)
+IOAccelEventMachine2::MetaClass::MetaClass()
+IOAccelEventMachine2::MetaClass::alloc() const
+IOAccelEventMachine2::MetaClass::~MetaClass()
+IOAccelEventMachine2::_RESERVEDIOAccelEventMachine2()
+IOAccelEventMachine2::_RESERVEDIOAccelEventMachine3()
+IOAccelEventMachine2::_RESERVEDIOAccelEventMachine4()
+IOAccelEventMachine2::_RESERVEDIOAccelEventMachine5()
+IOAccelEventMachine2::collectAllLiveEventIfNeeded()
+IOAccelEventMachine2::deviceTerminatedUnlocked()
+IOAccelEventMachine2::disableStampInterrupt(int)
+IOAccelEventMachine2::disable_stamp_interrupt(int)
+IOAccelEventMachine2::enableStampInterrupt(int)
+IOAccelEventMachine2::free()
+IOAccelEventMachine2::free()::kalloc_type_view_210
+IOAccelEventMachine2::gMetaClass
+IOAccelEventMachine2::getMetaClass() const
+IOAccelEventMachine2::getNumStamps()
+IOAccelEventMachine2::getStampOffset(int)
+IOAccelEventMachine2::gpu_progress_check(IOInterruptEventSource*, int)
+IOAccelEventMachine2::gpu_progress_check_timer(IOTimerEventSource*)
+IOAccelEventMachine2::handleFinishChannelRestart(int, int, unsigned int)
+IOAccelEventMachine2::handleFinishChannelRestart(int, int, unsigned int)::_os_log_fmt
+IOAccelEventMachine2::hardwareErrorEvent()
+IOAccelEventMachine2::hardwareErrorEvent()::_os_log_fmt
+IOAccelEventMachine2::init(IOGraphicsAccelerator2*, unsigned int, int)
+IOAccelEventMachine2::init(IOGraphicsAccelerator2*, unsigned int, int)::_os_log_fmt
+IOAccelEventMachine2::metaClass
+IOAccelEventMachine2::operator delete(void*, unsigned long)
+IOAccelEventMachine2::operator new(unsigned long)
+IOAccelEventMachine2::resetHardwareProgressTimer()
+IOAccelEventMachine2::restart_channel()
+IOAccelEventMachine2::restart_channel()::_os_log_fmt
+IOAccelEventMachine2::setDisplayMachineInterrupt(IOAccelDisplayMachine*)
+IOAccelEventMachine2::setStampBaseAddress(unsigned int volatile*)
+IOAccelEventMachine2::setStampBaseAddress(unsigned int volatile*)::kalloc_type_view_232
+IOAccelEventMachine2::signalAllStamps()
+IOAccelEventMachine2::signalHardwareError(eRestartRequest, int)
+IOAccelEventMachine2::signalHardwareError(eRestartRequest, int)::_os_log_fmt
+IOAccelEventMachine2::signalStamp(int, unsigned int)
+IOAccelEventMachine2::startHardwareProgressTimer()
+IOAccelEventMachine2::startHardwareProgressTimerUnlocked()
+IOAccelEventMachine2::stop()
+IOAccelEventMachine2::stopHardwareProgressTimer()
+IOAccelEventMachine2::stopHardwareProgressTimerUnlocked()
+IOAccelEventMachine2::superClass
+IOAccelEventMachine2::waitForStamp(int, unsigned int, unsigned int*)
+IOAccelEventMachine2::waitForStamp(int, unsigned int, unsigned int*)::_os_log_fmt
+IOAccelEventMachine2::~IOAccelEventMachine2()
+IOAccelEventMachine2_ktv
+IOAccelEventMachineFast2::IOAccelEventMachineFast2(OSMetaClass const*)
+IOAccelEventMachineFast2::MetaClass::MetaClass()
+IOAccelEventMachineFast2::MetaClass::alloc() const
+IOAccelEventMachineFast2::MetaClass::~MetaClass()
+IOAccelEventMachineFast2::_RESERVEDIOAccelEventMachineFast0()
+IOAccelEventMachineFast2::_RESERVEDIOAccelEventMachineFast1()
+IOAccelEventMachineFast2::_RESERVEDIOAccelEventMachineFast2()
+IOAccelEventMachineFast2::_RESERVEDIOAccelEventMachineFast3()
+IOAccelEventMachineFast2::_RESERVEDIOAccelEventMachineFast4()
+IOAccelEventMachineFast2::_RESERVEDIOAccelEventMachineFast5()
+IOAccelEventMachineFast2::checkChannelProgress(int)
+IOAccelEventMachineFast2::checkGPUProgress()
+IOAccelEventMachineFast2::checkGPUProgress()::_os_log_fmt
+IOAccelEventMachineFast2::cleanEvent(IOAccelEvent*)
+IOAccelEventMachineFast2::copyEvent(IOAccelEvent*, IOAccelEvent*)
+IOAccelEventMachineFast2::copyEventExcluding(IOAccelEvent*, IOAccelEvent*, int)
+IOAccelEventMachineFast2::deviceTerminatedUnlocked()
+IOAccelEventMachineFast2::disableEventStampInterrupts(IOAccelEvent const*)
+IOAccelEventMachineFast2::enableEventStampInterrupts(IOAccelEvent const*)
+IOAccelEventMachineFast2::eventTimeout(int)
+IOAccelEventMachineFast2::finishAllStamps()
+IOAccelEventMachineFast2::finishEvent(IOAccelEvent*)
+IOAccelEventMachineFast2::finishEventExcluding(IOAccelEvent*, int)
+IOAccelEventMachineFast2::finishEventUnlocked(IOAccelEvent*)
+IOAccelEventMachineFast2::finishStamp(int)
+IOAccelEventMachineFast2::free()
+IOAccelEventMachineFast2::gMetaClass
+IOAccelEventMachineFast2::getClientTestEventFunc()
+IOAccelEventMachineFast2::getMetaClass() const
+IOAccelEventMachineFast2::getStamp(int)
+IOAccelEventMachineFast2::getSubmittedStamp(int)
+IOAccelEventMachineFast2::incrementStamp(int)
+IOAccelEventMachineFast2::init(IOGraphicsAccelerator2*, unsigned int, int)
+IOAccelEventMachineFast2::initEvent(IOAccelEvent*)
+IOAccelEventMachineFast2::logCommandSubmission(int)
+IOAccelEventMachineFast2::mergeEvent(IOAccelEvent*, IOAccelEvent*)
+IOAccelEventMachineFast2::mergeEventExcluding(IOAccelEvent*, IOAccelEvent*, int)
+IOAccelEventMachineFast2::metaClass
+IOAccelEventMachineFast2::moveEvent(IOAccelEvent*, IOAccelEvent*)
+IOAccelEventMachineFast2::operator delete(void*, unsigned long)
+IOAccelEventMachineFast2::operator new(unsigned long)
+IOAccelEventMachineFast2::scrubEvent(IOAccelEvent*)
+IOAccelEventMachineFast2::setEventStamp(int, IOAccelEvent*)
+IOAccelEventMachineFast2::setEventStampWait(int, IOAccelEvent*, unsigned int)
+IOAccelEventMachineFast2::stampIsIncremented()
+IOAccelEventMachineFast2::superClass
+IOAccelEventMachineFast2::testAllStamps()
+IOAccelEventMachineFast2::testAllStampsUnlocked()
+IOAccelEventMachineFast2::testEvent(IOAccelEvent*)
+IOAccelEventMachineFast2::testEventExcluding(IOAccelEvent*, int)
+IOAccelEventMachineFast2::testEventUnlocked(IOAccelEvent*)
+IOAccelEventMachineFast2::testStamp(int)
+IOAccelEventMachineFast2::triage(char**, unsigned long long*)
+IOAccelEventMachineFast2::waitForAnyStamp(IOAccelEvent*, int*)
+IOAccelEventMachineFast2::waitForAnyStamp(IOAccelEvent*, int*)::_os_log_fmt
+IOAccelEventMachineFast2::writeEventBarrierCommand(IOAccelEventQueue*, IOAccelEvent*, vendevtBarrierRec*, int)
+IOAccelEventMachineFast2::writeEventStampCommand(int, IOAccelEventQueue*, IOAccelEvent*, vendevtCommandRec*)
+IOAccelEventMachineFast2::writeStampCommand(int, IOAccelEventQueue*, vendevtCommandRec*)
+IOAccelEventMachineFast2::~IOAccelEventMachineFast2()
+IOAccelEventMachineFast2_ktv
+IOAccelExternalEvent::IOAccelExternalEvent()
+IOAccelExternalEvent::IOAccelExternalEvent(OSMetaClass const*)
+IOAccelExternalEvent::MetaClass::MetaClass()
+IOAccelExternalEvent::MetaClass::alloc() const
+IOAccelExternalEvent::MetaClass::~MetaClass()
+IOAccelExternalEvent::decrement()
+IOAccelExternalEvent::externalEvent()
+IOAccelExternalEvent::finish()
+IOAccelExternalEvent::free()
+IOAccelExternalEvent::gMetaClass
+IOAccelExternalEvent::getMetaClass() const
+IOAccelExternalEvent::increment()
+IOAccelExternalEvent::init()
+IOAccelExternalEvent::metaClass
+IOAccelExternalEvent::operator delete(void*, unsigned long)
+IOAccelExternalEvent::operator new(unsigned long)
+IOAccelExternalEvent::superClass
+IOAccelExternalEvent::test() const
+IOAccelExternalEvent::~IOAccelExternalEvent()
+IOAccelExternalEventFence::IOAccelExternalEventFence()
+IOAccelExternalEventFence::IOAccelExternalEventFence(OSMetaClass const*)
+IOAccelExternalEventFence::MetaClass::MetaClass()
+IOAccelExternalEventFence::MetaClass::alloc() const
+IOAccelExternalEventFence::MetaClass::~MetaClass()
+IOAccelExternalEventFence::free()
+IOAccelExternalEventFence::gMetaClass
+IOAccelExternalEventFence::getMetaClass() const
+IOAccelExternalEventFence::initWithExternalEvent(IOAccelExternalEvent*, IOGraphicsAccelerator2*)
+IOAccelExternalEventFence::metaClass
+IOAccelExternalEventFence::notifyClient()
+IOAccelExternalEventFence::operator delete(void*, unsigned long)
+IOAccelExternalEventFence::operator new(unsigned long)
+IOAccelExternalEventFence::superClass
+IOAccelExternalEventFence::withExternalEvent(IOAccelExternalEvent*, IOGraphicsAccelerator2*)
+IOAccelExternalEventFence::~IOAccelExternalEventFence()
+IOAccelExternalEventFence_ktv
+IOAccelExternalEvent_ktv
+IOAccelFIFOChannel2::IOAccelFIFOChannel2(OSMetaClass const*)
+IOAccelFIFOChannel2::Iterator::Iterator(IOAccelFIFOChannel2&)
+IOAccelFIFOChannel2::Iterator::getNextRingEntry()
+IOAccelFIFOChannel2::MetaClass::MetaClass()
+IOAccelFIFOChannel2::MetaClass::alloc() const
+IOAccelFIFOChannel2::MetaClass::~MetaClass()
+IOAccelFIFOChannel2::_RESERVEDIOAccelFIFOChannel0()
+IOAccelFIFOChannel2::_RESERVEDIOAccelFIFOChannel1()
+IOAccelFIFOChannel2::_RESERVEDIOAccelFIFOChannel2()
+IOAccelFIFOChannel2::_RESERVEDIOAccelFIFOChannel3()
+IOAccelFIFOChannel2::_RESERVEDIOAccelFIFOChannel4()
+IOAccelFIFOChannel2::_RESERVEDIOAccelFIFOChannel5()
+IOAccelFIFOChannel2::finishChannel()
+IOAccelFIFOChannel2::free()
+IOAccelFIFOChannel2::gMetaClass
+IOAccelFIFOChannel2::getFirstPendingEvent()
+IOAccelFIFOChannel2::getFirstPendingEvent()::_os_log_fmt
+IOAccelFIFOChannel2::getMetaClass() const
+IOAccelFIFOChannel2::init(IOGraphicsAccelerator2*, int, int, int, int)
+IOAccelFIFOChannel2::init(IOGraphicsAccelerator2*, int, int, int, int) (.cold.1)
+IOAccelFIFOChannel2::logRingBuffer()
+IOAccelFIFOChannel2::metaClass
+IOAccelFIFOChannel2::operator delete(void*, unsigned long)
+IOAccelFIFOChannel2::operator new(unsigned long)
+IOAccelFIFOChannel2::pruneRingBuffer()
+IOAccelFIFOChannel2::restart()
+IOAccelFIFOChannel2::restart() (.cold.1)
+IOAccelFIFOChannel2::restart()::_os_log_fmt
+IOAccelFIFOChannel2::submitCommands(IOAccelCommandDescriptor*)
+IOAccelFIFOChannel2::submitCommands(IOAccelCommandDescriptor*)::_os_log_fmt
+IOAccelFIFOChannel2::submitterDestroyed(IOAccelSubmitter2*)
+IOAccelFIFOChannel2::superClass
+IOAccelFIFOChannel2::triage(char**, unsigned long long*)
+IOAccelFIFOChannel2::waitForRingBufferSpace()
+IOAccelFIFOChannel2::writeStampCommand(IOAccelEventQueue*, vendevtCommandRec*)
+IOAccelFIFOChannel2::~IOAccelFIFOChannel2()
+IOAccelFIFOChannel2_ktv
+IOAccelFenceMachine::IOAccelFenceMachine()
+IOAccelFenceMachine::IOAccelFenceMachine(OSMetaClass const*)
+IOAccelFenceMachine::MetaClass::MetaClass()
+IOAccelFenceMachine::MetaClass::alloc() const
+IOAccelFenceMachine::MetaClass::~MetaClass()
+IOAccelFenceMachine::addEventFence(IOAccelSubmitter2*, IOAccelEventFence*)
+IOAccelFenceMachine::cancelBlockFenceCallback(IOAccelSubmitter2*)
+IOAccelFenceMachine::cancelBlockFenceCallback(IOAccelSubmitter2*) (.cold.1)
+IOAccelFenceMachine::cancelBlockFenceCallback(IOAccelSubmitter2*) (.cold.2)
+IOAccelFenceMachine::eventfence_notifier(IOInterruptEventSource*, int)
+IOAccelFenceMachine::eventfence_notifier(IOInterruptEventSource*, int) (.cold.1)
+IOAccelFenceMachine::eventfence_notifier(IOInterruptEventSource*, int) (.cold.2)
+IOAccelFenceMachine::fence_timeout(IOTimerEventSource*)
+IOAccelFenceMachine::free()
+IOAccelFenceMachine::free() (.cold.1)
+IOAccelFenceMachine::free() (.cold.2)
+IOAccelFenceMachine::free() (.cold.3)
+IOAccelFenceMachine::free() (.cold.4)
+IOAccelFenceMachine::free() (.cold.5)
+IOAccelFenceMachine::free() (.cold.6)
+IOAccelFenceMachine::gMetaClass
+IOAccelFenceMachine::getCompletedEventFences(EventFencesListHead*)
+IOAccelFenceMachine::getMetaClass() const
+IOAccelFenceMachine::guiltyForHardwareReset(IOAccelCommandQueue*, unsigned int)
+IOAccelFenceMachine::hasEventSignal(IOAccelSubmitter2*, IOSurfaceSharedEvent*)
+IOAccelFenceMachine::has_event_signal(IOAccelSubmitter2*, IOSurfaceSharedEvent*)
+IOAccelFenceMachine::init(IOGraphicsAccelerator2*)
+IOAccelFenceMachine::init(IOGraphicsAccelerator2*)::_os_log_fmt
+IOAccelFenceMachine::metaClass
+IOAccelFenceMachine::notify_fences()
+IOAccelFenceMachine::operator delete(void*, unsigned long)
+IOAccelFenceMachine::operator new(unsigned long)
+IOAccelFenceMachine::process_eventfences(EventFencesListHead*, bool)
+IOAccelFenceMachine::process_eventfences(EventFencesListHead*, bool) (.cold.1)
+IOAccelFenceMachine::process_eventfences(EventFencesListHead*, bool) (.cold.2)
+IOAccelFenceMachine::sendBlockFenceNotification(unsigned long long*, unsigned long long, unsigned long long, unsigned int, unsigned long long, unsigned long long)
+IOAccelFenceMachine::setErrorOnEventFenceWithID(IOAccelSubmitter2*, unsigned long long, unsigned int)
+IOAccelFenceMachine::superClass
+IOAccelFenceMachine::waitEventSignal(IOAccelSubmitter2*, IOSurfaceSharedEvent*)
+IOAccelFenceMachine::~IOAccelFenceMachine()
+IOAccelFenceMachine_ktv
+IOAccelGLContext2::IOAccelGLContext2(OSMetaClass const*)
+IOAccelGLContext2::MetaClass::MetaClass()
+IOAccelGLContext2::MetaClass::alloc() const
+IOAccelGLContext2::MetaClass::~MetaClass()
+IOAccelGLContext2::_RESERVEDIOAccelGLContext0()
+IOAccelGLContext2::_RESERVEDIOAccelGLContext1()
+IOAccelGLContext2::_RESERVEDIOAccelGLContext2()
+IOAccelGLContext2::_RESERVEDIOAccelGLContext3()
+IOAccelGLContext2::_RESERVEDIOAccelGLContext4()
+IOAccelGLContext2::_RESERVEDIOAccelGLContext5()
+IOAccelGLContext2::addVendorSurfaceRequiredBits(unsigned long long)
+IOAccelGLContext2::allowsExclusiveMode() const
+IOAccelGLContext2::bind_surface_drawable()
+IOAccelGLContext2::contextModeBits() const
+IOAccelGLContext2::contextStart()
+IOAccelGLContext2::contextStart()::methodDispatchDescs
+IOAccelGLContext2::contextStop()
+IOAccelGLContext2::context_finish()
+IOAccelGLContext2::discardSidebandToken(IOAccelCommandStreamInfo&)
+IOAccelGLContext2::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelGLContext2::gMetaClass
+IOAccelGLContext2::getMetaClass() const
+IOAccelGLContext2::getSurfaceReqBits() const
+IOAccelGLContext2::get_config(unsigned int*)
+IOAccelGLContext2::get_status(unsigned int*)
+IOAccelGLContext2::get_surface_info(unsigned int, unsigned int*, unsigned int*, unsigned int*)
+IOAccelGLContext2::get_surface_info(unsigned int, unsigned int*, unsigned int*, unsigned int*)::_os_log_fmt
+IOAccelGLContext2::get_surface_size(unsigned int*, unsigned int*, unsigned int*, unsigned int*)
+IOAccelGLContext2::isTripleBuffered() const
+IOAccelGLContext2::metaClass
+IOAccelGLContext2::operator delete(void*, unsigned long)
+IOAccelGLContext2::operator new(unsigned long)
+IOAccelGLContext2::processDataBuffers(unsigned int)
+IOAccelGLContext2::processDataBuffers(unsigned int)::_os_log_fmt
+IOAccelGLContext2::processSidebandToken(IOAccelCommandStreamInfo&)
+IOAccelGLContext2::processSwap(eDoSwap)
+IOAccelGLContext2::processSwap(eDoSwap)::_os_log_fmt
+IOAccelGLContext2::process_token_BindDrawFBO(IOAccelCommandStreamInfo&)
+IOAccelGLContext2::process_token_BindDrawFBO(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelGLContext2::process_token_Flush(IOAccelCommandStreamInfo&)
+IOAccelGLContext2::process_token_SetSurfaceState(IOAccelCommandStreamInfo&)
+IOAccelGLContext2::process_token_SetSurfaceState(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelGLContext2::process_token_Swap(IOAccelCommandStreamInfo&)
+IOAccelGLContext2::process_token_UnbindDrawFBO(IOAccelCommandStreamInfo&)
+IOAccelGLContext2::process_token_UnbindDrawFBO(IOAccelCommandStreamInfo&)::_os_log_fmt
+IOAccelGLContext2::process_token_UserEnd(IOAccelCommandStreamInfo&)
+IOAccelGLContext2::read_buffer(IOAccelGLContextReadBufferData*)
+IOAccelGLContext2::read_buffer(IOAccelGLContextReadBufferData*)::_os_log_fmt
+IOAccelGLContext2::removeSurface()
+IOAccelGLContext2::requiresBackingStore() const
+IOAccelGLContext2::s_read_buffer(IOAccelGLContext2*, void*, IOExternalMethodArguments*)
+IOAccelGLContext2::s_set_surface(IOAccelGLContext2*, void*, IOExternalMethodArguments*)
+IOAccelGLContext2::s_set_surface_get_config_status(IOAccelGLContext2*, void*, IOExternalMethodArguments*)
+IOAccelGLContext2::s_set_surface_volatile_state(IOAccelGLContext2*, void*, IOExternalMethodArguments*)
+IOAccelGLContext2::s_set_swap_interval(IOAccelGLContext2*, void*, IOExternalMethodArguments*)
+IOAccelGLContext2::s_set_swap_rect(IOAccelGLContext2*, void*, IOExternalMethodArguments*)
+IOAccelGLContext2::set_compatible_surface_mode(unsigned long long*, unsigned long long, unsigned int)
+IOAccelGLContext2::set_surface(IOAccelGLContextSetSurfaceData*)
+IOAccelGLContext2::set_surface(IOAccelGLContextSetSurfaceData*)::_os_log_fmt
+IOAccelGLContext2::set_surface_get_config_status(IOAccelGLContextSetSurfaceData*, IOAccelGLContextGetConfigStatus*, unsigned long long, unsigned long long*)
+IOAccelGLContext2::set_surface_get_config_status(IOAccelGLContextSetSurfaceData*, IOAccelGLContextGetConfigStatus*, unsigned long long, unsigned long long*)::_os_log_fmt
+IOAccelGLContext2::set_surface_volatile_state(unsigned int)
+IOAccelGLContext2::set_swap_interval(int, int)
+IOAccelGLContext2::set_swap_rect(int, int, int, int)
+IOAccelGLContext2::sleepForSwapCompleteNoLock(unsigned int)
+IOAccelGLContext2::superClass
+IOAccelGLContext2::~IOAccelGLContext2()
+IOAccelGLContext2_ktv
+IOAccelGLDrawableUserClient::IOAccelGLDrawableUserClient()
+IOAccelGLDrawableUserClient::IOAccelGLDrawableUserClient(OSMetaClass const*)
+IOAccelGLDrawableUserClient::MetaClass::MetaClass()
+IOAccelGLDrawableUserClient::MetaClass::alloc() const
+IOAccelGLDrawableUserClient::MetaClass::~MetaClass()
+IOAccelGLDrawableUserClient::_RESERVEDIOAccelGLDrawableUserClient0()
+IOAccelGLDrawableUserClient::_RESERVEDIOAccelGLDrawableUserClient1()
+IOAccelGLDrawableUserClient::_RESERVEDIOAccelGLDrawableUserClient2()
+IOAccelGLDrawableUserClient::_RESERVEDIOAccelGLDrawableUserClient3()
+IOAccelGLDrawableUserClient::_RESERVEDIOAccelGLDrawableUserClient4()
+IOAccelGLDrawableUserClient::_RESERVEDIOAccelGLDrawableUserClient5()
+IOAccelGLDrawableUserClient::add_task_surface_to_array(OSArray*)
+IOAccelGLDrawableUserClient::allowsExclusiveMode()
+IOAccelGLDrawableUserClient::attach(IOService*)
+IOAccelGLDrawableUserClient::clientClose()
+IOAccelGLDrawableUserClient::contextModeBits()
+IOAccelGLDrawableUserClient::create_mach_port_from_iosurface(unsigned long long, unsigned int*)
+IOAccelGLDrawableUserClient::drawableStart()
+IOAccelGLDrawableUserClient::drawableStop()
+IOAccelGLDrawableUserClient::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelGLDrawableUserClient::free()
+IOAccelGLDrawableUserClient::gMetaClass
+IOAccelGLDrawableUserClient::getMetaClass() const
+IOAccelGLDrawableUserClient::getSurfaceReqBits()
+IOAccelGLDrawableUserClient::get_config(unsigned int*)
+IOAccelGLDrawableUserClient::get_status(unsigned int*)
+IOAccelGLDrawableUserClient::get_surface_size(unsigned int*, unsigned int*, unsigned int*, unsigned int*)
+IOAccelGLDrawableUserClient::init(OSDictionary*, task*)
+IOAccelGLDrawableUserClient::invalidate()
+IOAccelGLDrawableUserClient::isTripleBuffered()
+IOAccelGLDrawableUserClient::metaClass
+IOAccelGLDrawableUserClient::operator delete(void*, unsigned long)
+IOAccelGLDrawableUserClient::operator new(unsigned long)
+IOAccelGLDrawableUserClient::removeSurface()
+IOAccelGLDrawableUserClient::remove_surface(IOAccelSurfaceMTL*)
+IOAccelGLDrawableUserClient::requiresBackingStore()
+IOAccelGLDrawableUserClient::sMethodDispatch
+IOAccelGLDrawableUserClient::s_create_mach_port_from_iosurface(IOAccelGLDrawableUserClient*, void*, IOExternalMethodArguments*)
+IOAccelGLDrawableUserClient::s_set_surface(IOAccelGLDrawableUserClient*, void*, IOExternalMethodArguments*)
+IOAccelGLDrawableUserClient::s_set_surface_get_config_status(IOAccelGLDrawableUserClient*, void*, IOExternalMethodArguments*)
+IOAccelGLDrawableUserClient::s_set_swap_interval(IOAccelGLDrawableUserClient*, void*, IOExternalMethodArguments*)
+IOAccelGLDrawableUserClient::s_set_swap_rect(IOAccelGLDrawableUserClient*, void*, IOExternalMethodArguments*)
+IOAccelGLDrawableUserClient::s_signal_shared_event(IOAccelGLDrawableUserClient*, void*, IOExternalMethodArguments*)
+IOAccelGLDrawableUserClient::set_client_info(IOAccelClientInfo*, unsigned long long)
+IOAccelGLDrawableUserClient::set_compatible_surface_mode(unsigned long long*, unsigned long long, unsigned int)
+IOAccelGLDrawableUserClient::set_surface(IOAccelGLDrawableClientSetSurfaceData*)
+IOAccelGLDrawableUserClient::set_surface(IOAccelGLDrawableClientSetSurfaceData*)::_os_log_fmt
+IOAccelGLDrawableUserClient::set_surface_get_config_status(IOAccelGLDrawableClientSetSurfaceData*, IOAccelGLDrawableClientGetConfigStatus*, unsigned long long, unsigned long long*)
+IOAccelGLDrawableUserClient::set_surface_get_config_status(IOAccelGLDrawableClientSetSurfaceData*, IOAccelGLDrawableClientGetConfigStatus*, unsigned long long, unsigned long long*)::_os_log_fmt
+IOAccelGLDrawableUserClient::set_swap_interval(int, int)
+IOAccelGLDrawableUserClient::set_swap_rect(int, int, int, int)
+IOAccelGLDrawableUserClient::signal_shared_event(task*, unsigned long long, unsigned int, unsigned long long)
+IOAccelGLDrawableUserClient::start(IOService*)
+IOAccelGLDrawableUserClient::stop(IOService*)
+IOAccelGLDrawableUserClient::stopLocked()
+IOAccelGLDrawableUserClient::superClass
+IOAccelGLDrawableUserClient::~IOAccelGLDrawableUserClient()
+IOAccelGLDrawableUserClientList::Iterator::Iterator(IOAccelGLDrawableUserClientList&)
+IOAccelGLDrawableUserClientList::Iterator::getNextGLDrawableUserClient()
+IOAccelGLDrawableUserClientList::addGLDrawableUserClient(IOAccelGLDrawableUserClient*)
+IOAccelGLDrawableUserClientList::getCount() const
+IOAccelGLDrawableUserClientList::getCountWithPID(int) const
+IOAccelGLDrawableUserClientList::init()
+IOAccelGLDrawableUserClientList::removeGLDrawableUserClient(IOAccelGLDrawableUserClient*)
+IOAccelGLDrawableUserClientList::removeGLDrawableUserClient(IOAccelGLDrawableUserClient*)::_os_log_fmt
+IOAccelGLDrawableUserClient_ktv
+IOAccelGPURestartReport2::IOAccelGPURestartReport2()
+IOAccelGPURestartReport2::IOAccelGPURestartReport2(OSMetaClass const*)
+IOAccelGPURestartReport2::MetaClass::MetaClass()
+IOAccelGPURestartReport2::MetaClass::alloc() const
+IOAccelGPURestartReport2::MetaClass::~MetaClass()
+IOAccelGPURestartReport2::gMetaClass
+IOAccelGPURestartReport2::getMetaClass() const
+IOAccelGPURestartReport2::metaClass
+IOAccelGPURestartReport2::newUserClient(task*, void*, unsigned int, IOUserClient**)
+IOAccelGPURestartReport2::operator delete(void*, unsigned long)
+IOAccelGPURestartReport2::operator new(unsigned long)
+IOAccelGPURestartReport2::superClass
+IOAccelGPURestartReport2::~IOAccelGPURestartReport2()
+IOAccelGPURestartReport2_ktv
+IOAccelKernelMappedMemory::IOAccelKernelMappedMemory()
+IOAccelKernelMappedMemory::IOAccelKernelMappedMemory(OSMetaClass const*)
+IOAccelKernelMappedMemory::MetaClass::MetaClass()
+IOAccelKernelMappedMemory::MetaClass::alloc() const
+IOAccelKernelMappedMemory::MetaClass::~MetaClass()
+IOAccelKernelMappedMemory::free()
+IOAccelKernelMappedMemory::gMetaClass
+IOAccelKernelMappedMemory::getKernelData()
+IOAccelKernelMappedMemory::getKernelData()::_os_log_fmt
+IOAccelKernelMappedMemory::getLength() const
+IOAccelKernelMappedMemory::getMetaClass() const
+IOAccelKernelMappedMemory::init(IOGraphicsAccelerator2*, IOMemoryDescriptor*)
+IOAccelKernelMappedMemory::map()
+IOAccelKernelMappedMemory::metaClass
+IOAccelKernelMappedMemory::operator delete(void*, unsigned long)
+IOAccelKernelMappedMemory::operator new(unsigned long)
+IOAccelKernelMappedMemory::releaseKernelData()
+IOAccelKernelMappedMemory::superClass
+IOAccelKernelMappedMemory::unmap()
+IOAccelKernelMappedMemory::~IOAccelKernelMappedMemory()
+IOAccelKernelMappedMemory_ktv
+IOAccelLegacyDisplayMachine::IOAccelLegacyDisplayMachine(OSMetaClass const*)
+IOAccelLegacyDisplayMachine::MetaClass::MetaClass()
+IOAccelLegacyDisplayMachine::MetaClass::alloc() const
+IOAccelLegacyDisplayMachine::MetaClass::~MetaClass()
+IOAccelLegacyDisplayMachine::audit_freed_resource(IOAccelResource2*)
+IOAccelLegacyDisplayMachine::destroyScanoutResource(unsigned int, unsigned int, IOFramebuffer*, IOAccelResource2*)
+IOAccelLegacyDisplayMachine::disableFlipInterrupt(unsigned int)
+IOAccelLegacyDisplayMachine::display_mode_did_change(unsigned int)
+IOAccelLegacyDisplayMachine::display_mode_did_change(unsigned int) (.cold.1)
+IOAccelLegacyDisplayMachine::display_mode_will_change(unsigned int)
+IOAccelLegacyDisplayMachine::display_mode_will_change(unsigned int)::_os_log_fmt
+IOAccelLegacyDisplayMachine::enableFlipInterrupt(unsigned int)
+IOAccelLegacyDisplayMachine::find_primary_display_pipe(IOAccelLegacyDisplayPipe*)
+IOAccelLegacyDisplayMachine::found_framebuffer(IOFramebuffer*)
+IOAccelLegacyDisplayMachine::found_framebuffer(IOFramebuffer*) (.cold.1)
+IOAccelLegacyDisplayMachine::framebuffer_did_power_on(unsigned int)
+IOAccelLegacyDisplayMachine::framebuffer_will_power_off(unsigned int)
+IOAccelLegacyDisplayMachine::gMetaClass
+IOAccelLegacyDisplayMachine::getDisplayResource(unsigned int, unsigned int) const
+IOAccelLegacyDisplayMachine::getFramebufferPixelBytes(unsigned int) const
+IOAccelLegacyDisplayMachine::getFramebufferStereoMode(unsigned int) const
+IOAccelLegacyDisplayMachine::getFullScreenSurface(unsigned int) const
+IOAccelLegacyDisplayMachine::getLegacyDisplayPipe(unsigned int) const
+IOAccelLegacyDisplayMachine::getMetaClass() const
+IOAccelLegacyDisplayMachine::getScanoutHeight(unsigned int) const
+IOAccelLegacyDisplayMachine::getScanoutResource(unsigned int, unsigned int) const
+IOAccelLegacyDisplayMachine::getScanoutSurface(unsigned int) const
+IOAccelLegacyDisplayMachine::getScanoutWidth(unsigned int) const
+IOAccelLegacyDisplayMachine::getWindowServerFullScreenAssemblySurface(unsigned int) const
+IOAccelLegacyDisplayMachine::initScanoutResource(unsigned int, unsigned int, IOFramebuffer*, IOAccelResource2*)
+IOAccelLegacyDisplayMachine::isCurrentFramebufferModeAcceleratorBacked(unsigned int)
+IOAccelLegacyDisplayMachine::isFramebufferHardwareMirrorOfFramebuffer(unsigned int, unsigned int)
+IOAccelLegacyDisplayMachine::is_framebuffer_safe_for_exclusive(unsigned int) const
+IOAccelLegacyDisplayMachine::metaClass
+IOAccelLegacyDisplayMachine::needsSecondaryFramebufferResources()
+IOAccelLegacyDisplayMachine::operator delete(void*, unsigned long)
+IOAccelLegacyDisplayMachine::operator new(unsigned long)
+IOAccelLegacyDisplayMachine::resetFullScreen(IOAccelEvent*, unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayMachine::resetScanout(IOAccelEvent*, unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayMachine::reset_fullscreen(unsigned int, bool)
+IOAccelLegacyDisplayMachine::reset_scanout(unsigned int)
+IOAccelLegacyDisplayMachine::setStereo(unsigned int, IOAccelStereoMode)
+IOAccelLegacyDisplayMachine::setupFullScreen(unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayMachine::setupScanout(unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayMachine::setup_fullscreen(IOAccelLegacySurface*)
+IOAccelLegacyDisplayMachine::setup_scanout(IOAccelLegacySurface*)
+IOAccelLegacyDisplayMachine::start(IOPCIDevice*)
+IOAccelLegacyDisplayMachine::stop()
+IOAccelLegacyDisplayMachine::submitFlipBuffer(IOAccelEvent*, unsigned int, unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayMachine::submitScanoutFlipBuffer(IOAccelEvent*, unsigned int, unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayMachine::submit_flip(IOAccelEvent*, unsigned int, unsigned int)
+IOAccelLegacyDisplayMachine::submit_scanout_flip(IOAccelEvent*, unsigned int, unsigned int)
+IOAccelLegacyDisplayMachine::superClass
+IOAccelLegacyDisplayMachine::surface_will_stop(IOAccelLegacySurface*)
+IOAccelLegacyDisplayMachine::~IOAccelLegacyDisplayMachine()
+IOAccelLegacyDisplayMachine_ktv
+IOAccelLegacyDisplayPipe::IOAccelLegacyDisplayPipe()
+IOAccelLegacyDisplayPipe::IOAccelLegacyDisplayPipe(OSMetaClass const*)
+IOAccelLegacyDisplayPipe::MetaClass::MetaClass()
+IOAccelLegacyDisplayPipe::MetaClass::alloc() const
+IOAccelLegacyDisplayPipe::MetaClass::~MetaClass()
+IOAccelLegacyDisplayPipe::audit_freed_resource(IOAccelResource2*)
+IOAccelLegacyDisplayPipe::destroyScanoutResource(unsigned int, IOAccelResource2*)
+IOAccelLegacyDisplayPipe::destroy_scanout_resource(IOAccelResource2*)
+IOAccelLegacyDisplayPipe::displayModeDidChange()
+IOAccelLegacyDisplayPipe::displayModeDidChange()::_os_log_fmt
+IOAccelLegacyDisplayPipe::displayModeWillChange()
+IOAccelLegacyDisplayPipe::framebuffer_did_power_on()
+IOAccelLegacyDisplayPipe::framebuffer_terminated()
+IOAccelLegacyDisplayPipe::framebuffer_will_power_off()
+IOAccelLegacyDisplayPipe::free()
+IOAccelLegacyDisplayPipe::gMetaClass
+IOAccelLegacyDisplayPipe::getBytesPerPixel() const
+IOAccelLegacyDisplayPipe::getDisplayResource(unsigned int) const
+IOAccelLegacyDisplayPipe::getFullScreenSurface() const
+IOAccelLegacyDisplayPipe::getMetaClass() const
+IOAccelLegacyDisplayPipe::getScanoutHeight() const
+IOAccelLegacyDisplayPipe::getScanoutResource(unsigned int) const
+IOAccelLegacyDisplayPipe::getScanoutSurface() const
+IOAccelLegacyDisplayPipe::getScanoutWidth() const
+IOAccelLegacyDisplayPipe::getStereoMode() const
+IOAccelLegacyDisplayPipe::getWindowServerFullScreenAssemblySurface() const
+IOAccelLegacyDisplayPipe::init(IOGraphicsAccelerator2*, IOAccelDisplayMachine*, IOFramebuffer*, unsigned int)
+IOAccelLegacyDisplayPipe::init(IOGraphicsAccelerator2*, IOAccelDisplayMachine*, IOFramebuffer*, unsigned int) (.cold.1)
+IOAccelLegacyDisplayPipe::initScanoutResource(unsigned int, IOAccelResource2*)
+IOAccelLegacyDisplayPipe::init_scanout_resource(IOAccelResource2*)
+IOAccelLegacyDisplayPipe::isAcceleratorBacked() const
+IOAccelLegacyDisplayPipe::isCurrentModeAcceleratorBacked()
+IOAccelLegacyDisplayPipe::isHardwareMirrorOfPipe(IOAccelLegacyDisplayPipe*)
+IOAccelLegacyDisplayPipe::isMirrorPrimary() const
+IOAccelLegacyDisplayPipe::isMirrored() const
+IOAccelLegacyDisplayPipe::is_current_mode_accelerator_backed()
+IOAccelLegacyDisplayPipe::is_safe_for_exclusive()
+IOAccelLegacyDisplayPipe::metaClass
+IOAccelLegacyDisplayPipe::needsSecondaryFramebufferResources()
+IOAccelLegacyDisplayPipe::operator delete(void*, unsigned long)
+IOAccelLegacyDisplayPipe::operator new(unsigned long)
+IOAccelLegacyDisplayPipe::resetFullScreen(IOAccelEvent*, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayPipe::resetScanout(IOAccelEvent*, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayPipe::reset_fullscreen(bool)
+IOAccelLegacyDisplayPipe::reset_scanout()
+IOAccelLegacyDisplayPipe::restore_fullscreen_surface()
+IOAccelLegacyDisplayPipe::restore_scanout_surface()
+IOAccelLegacyDisplayPipe::save_fullscreen_surface()
+IOAccelLegacyDisplayPipe::save_scanout_surface()
+IOAccelLegacyDisplayPipe::setStereo(IOAccelStereoMode)
+IOAccelLegacyDisplayPipe::set_windowserver_fullscreen_assembly_surface(IOAccelLegacySurface*)
+IOAccelLegacyDisplayPipe::set_windowserver_scanout_surface(IOAccelLegacySurface*)
+IOAccelLegacyDisplayPipe::setupFullScreen(IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayPipe::setupScanout(IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayPipe::setup_fullscreen(IOAccelLegacySurface*)
+IOAccelLegacyDisplayPipe::setup_fullscreen(IOAccelLegacySurface*)::_os_log_fmt
+IOAccelLegacyDisplayPipe::setup_scanout(IOAccelLegacySurface*)
+IOAccelLegacyDisplayPipe::setup_scanout(IOAccelLegacySurface*)::_os_log_fmt
+IOAccelLegacyDisplayPipe::submitFlipBuffer(IOAccelEvent*, unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayPipe::submitScanoutFlipBuffer(IOAccelEvent*, unsigned int, IOAccelResource2*, IOAccelResource2*)
+IOAccelLegacyDisplayPipe::submit_flip(IOAccelEvent*, IOAccelLegacyDisplayPipe*, unsigned int)
+IOAccelLegacyDisplayPipe::submit_flip(IOAccelEvent*, IOAccelLegacyDisplayPipe*, unsigned int)::_os_log_fmt
+IOAccelLegacyDisplayPipe::submit_scanout_flip(IOAccelEvent*, unsigned int)
+IOAccelLegacyDisplayPipe::submit_scanout_flip(IOAccelEvent*, unsigned int)::_os_log_fmt
+IOAccelLegacyDisplayPipe::superClass
+IOAccelLegacyDisplayPipe::surface_will_stop(IOAccelLegacySurface*)
+IOAccelLegacyDisplayPipe::~IOAccelLegacyDisplayPipe()
+IOAccelLegacyDisplayPipe_ktv
+IOAccelLegacySurface::IOAccelLegacySurface(OSMetaClass const*)
+IOAccelLegacySurface::MetaClass::MetaClass()
+IOAccelLegacySurface::MetaClass::alloc() const
+IOAccelLegacySurface::MetaClass::~MetaClass()
+IOAccelLegacySurface::add_context_to_list(IOAccelContext2*)
+IOAccelLegacySurface::clientClose()
+IOAccelLegacySurface::clientClose()::_os_log_fmt
+IOAccelLegacySurface::copy_forward(unsigned int, IOAccelDeviceRegion*, unsigned long long)
+IOAccelLegacySurface::copy_forward(unsigned int, IOAccelDeviceRegion*, unsigned long long)::_os_log_fmt
+IOAccelLegacySurface::didSubmitSwap(unsigned int, unsigned int)
+IOAccelLegacySurface::did_update(unsigned int, IOAccelDeviceRegion*, unsigned long long)
+IOAccelLegacySurface::did_update(unsigned int, IOAccelDeviceRegion*, unsigned long long)::_os_log_fmt
+IOAccelLegacySurface::enter_exclusive_mode(unsigned int, bool)
+IOAccelLegacySurface::enter_scanout_mode(unsigned int)
+IOAccelLegacySurface::gMetaClass
+IOAccelLegacySurface::getMetaClass() const
+IOAccelLegacySurface::get_current_backbuffer_index()
+IOAccelLegacySurface::isBackBufferReady(unsigned int)
+IOAccelLegacySurface::is_back_buffer_ready()
+IOAccelLegacySurface::leave_assembly_fullscreen()
+IOAccelLegacySurface::leave_assembly_fullscreen()::_os_log_fmt
+IOAccelLegacySurface::leave_exclusive_mode(unsigned int, bool)
+IOAccelLegacySurface::leave_exclusive_mode(unsigned int, bool)::_os_log_fmt
+IOAccelLegacySurface::leave_scanout_mode(unsigned int)
+IOAccelLegacySurface::metaClass
+IOAccelLegacySurface::operator delete(void*, unsigned long)
+IOAccelLegacySurface::operator new(unsigned long)
+IOAccelLegacySurface::pickPresentType(unsigned int)
+IOAccelLegacySurface::pick_present_type()
+IOAccelLegacySurface::present_surface_with_flip(unsigned int)
+IOAccelLegacySurface::present_surface_with_swap(unsigned int, unsigned int)
+IOAccelLegacySurface::prune_buffers()
+IOAccelLegacySurface::remove_context_from_list(IOAccelContext2*)
+IOAccelLegacySurface::reset_req_bits()
+IOAccelLegacySurface::set_id_mode(unsigned int, unsigned int)
+IOAccelLegacySurface::set_id_mode(unsigned int, unsigned int)::_os_log_fmt
+IOAccelLegacySurface::set_scaling(unsigned int, IOAccelSurfaceScaling*)
+IOAccelLegacySurface::set_scaling(unsigned int, IOAccelSurfaceScaling*)::_os_log_fmt
+IOAccelLegacySurface::set_shape(eIOAccelSurfaceShapeBits, unsigned int, IOAccelDeviceRegion*, unsigned long long)
+IOAccelLegacySurface::set_shape_backing_length_ext(eIOAccelSurfaceShapeBits, unsigned int, unsigned long long, unsigned int, unsigned long long, IOAccelDeviceRegion*, unsigned long long)
+IOAccelLegacySurface::set_shape_backing_length_ext(eIOAccelSurfaceShapeBits, unsigned int, unsigned long long, unsigned int, unsigned long long, IOAccelDeviceRegion*, unsigned long long)::_os_log_fmt
+IOAccelLegacySurface::submitCopyForward(IOAccelEvent*, unsigned int, IOAccelResource2*, IOAccelResource2*, IOAccelBounds const*, unsigned int)
+IOAccelLegacySurface::submitFullScreenUpdate(unsigned int)
+IOAccelLegacySurface::submitUpdate(unsigned int, IOAccelBounds*, unsigned int)
+IOAccelLegacySurface::submit_scanout_swap(unsigned int, unsigned int)
+IOAccelLegacySurface::submit_scanout_swap(unsigned int, unsigned int)::_os_log_fmt
+IOAccelLegacySurface::submit_swap(unsigned int, unsigned int)
+IOAccelLegacySurface::submit_swap(unsigned int, unsigned int)::_os_log_fmt
+IOAccelLegacySurface::superClass
+IOAccelLegacySurface::surfaceStart()
+IOAccelLegacySurface::surfaceStart() (.cold.1)
+IOAccelLegacySurface::surfaceStop()
+IOAccelLegacySurface::surface_control_with_lock(unsigned int, unsigned int, unsigned int*)
+IOAccelLegacySurface::surface_flush(unsigned int, unsigned int)
+IOAccelLegacySurface::surface_flush(unsigned int, unsigned int)::_os_log_fmt
+IOAccelLegacySurface::surface_lock_options(eLockType, unsigned int, IOAccelSurfaceInformation*, unsigned long long)
+IOAccelLegacySurface::surface_lock_options(eLockType, unsigned int, IOAccelSurfaceInformation*, unsigned long long)::_os_log_fmt
+IOAccelLegacySurface::update_exclusive_bit(unsigned int, bool, bool)
+IOAccelLegacySurface::update_exclusive_scanout_bit(unsigned int, bool, bool)
+IOAccelLegacySurface::update_shape()
+IOAccelLegacySurface::~IOAccelLegacySurface()
+IOAccelLegacySurface_ktv
+IOAccelMTLEvent2::IOAccelMTLEvent2()
+IOAccelMTLEvent2::IOAccelMTLEvent2(OSMetaClass const*)
+IOAccelMTLEvent2::MetaClass::MetaClass()
+IOAccelMTLEvent2::MetaClass::alloc() const
+IOAccelMTLEvent2::MetaClass::~MetaClass()
+IOAccelMTLEvent2::clean_ring()
+IOAccelMTLEvent2::copySubmitted(unsigned long long, IOAccelEvent*, unsigned long long, unsigned long long, unsigned long long)
+IOAccelMTLEvent2::free()
+IOAccelMTLEvent2::gMetaClass
+IOAccelMTLEvent2::getMetaClass() const
+IOAccelMTLEvent2::initWithAcceleratorNamespace(IOGraphicsAccelerator2*, IOAccelNamespace*, unsigned long long)
+IOAccelMTLEvent2::metaClass
+IOAccelMTLEvent2::operator delete(void*, unsigned long)
+IOAccelMTLEvent2::operator new(unsigned long)
+IOAccelMTLEvent2::signalSubmitted(IOAccelEvent const*, unsigned long long)
+IOAccelMTLEvent2::superClass
+IOAccelMTLEvent2::withAcceleratorNamespace(IOGraphicsAccelerator2*, IOAccelNamespace*, unsigned long long)
+IOAccelMTLEvent2::~IOAccelMTLEvent2()
+IOAccelMTLEvent2_ktv
+IOAccelMemory::IOAccelMemory(OSMetaClass const*)
+IOAccelMemory::MetaClass::MetaClass()
+IOAccelMemory::MetaClass::alloc() const
+IOAccelMemory::MetaClass::~MetaClass()
+IOAccelMemory::_RESERVEDIOAccelMemory0()
+IOAccelMemory::_RESERVEDIOAccelMemory1()
+IOAccelMemory::_RESERVEDIOAccelMemory2()
+IOAccelMemory::_RESERVEDIOAccelMemory3()
+IOAccelMemory::_RESERVEDIOAccelMemory4()
+IOAccelMemory::_RESERVEDIOAccelMemory5()
+IOAccelMemory::addSizesToAllocationTotals(IOAccelMemoryInfoAllocTotals*)
+IOAccelMemory::addSizesToAllocationTotals(IOAccelMemoryInfoAllocTotals*)::_os_log_fmt
+IOAccelMemory::add_mapping(IOAccelMemoryMap*)
+IOAccelMemory::add_mapping(IOAccelMemoryMap*) (.cold.1)
+IOAccelMemory::add_mapping(IOAccelMemoryMap*)::kalloc_type_view_183
+IOAccelMemory::add_mapping(IOAccelMemoryMap*)::kalloc_type_view_188
+IOAccelMemory::check_orphan_state()
+IOAccelMemory::clearFlags(unsigned int)
+IOAccelMemory::complete()
+IOAccelMemory::createMappingInTask(IOAccelTask*, unsigned int)
+IOAccelMemory::createMappingInTaskAtAddressLength(IOAccelTask*, unsigned int, unsigned long long, unsigned long long)
+IOAccelMemory::createMappingInTaskAtAddressLength(IOAccelTask*, unsigned int, unsigned long long, unsigned long long)::_os_log_fmt
+IOAccelMemory::finishAllEvent()
+IOAccelMemory::free()
+IOAccelMemory::free() (.cold.1)
+IOAccelMemory::free()::kalloc_type_view_139
+IOAccelMemory::gMetaClass
+IOAccelMemory::getActiveMappingCount()
+IOAccelMemory::getEventMachine() const
+IOAccelMemory::getLRUSeed() const
+IOAccelMemory::getLength() const
+IOAccelMemory::getMetaClass() const
+IOAccelMemory::getPrepareCount() const
+IOAccelMemory::getWireSerial() const
+IOAccelMemory::incrementExternalMemoryEvent()
+IOAccelMemory::init(IOGraphicsAccelerator2*)
+IOAccelMemory::init(IOGraphicsAccelerator2*)::kalloc_type_view_36
+IOAccelMemory::make_resident()
+IOAccelMemory::merge_mapping_events(IOAccelEvent*)
+IOAccelMemory::metaClass
+IOAccelMemory::operator delete(void*, unsigned long)
+IOAccelMemory::operator new(unsigned long)
+IOAccelMemory::orphanIt()
+IOAccelMemory::prepare()
+IOAccelMemory::pruneOrphanedMappings()
+IOAccelMemory::redirectActiveMappings(IOAccelMemory*)
+IOAccelMemory::release() const
+IOAccelMemory::remove_mapping(IOAccelMemoryMap*)
+IOAccelMemory::scrubAllEvents()
+IOAccelMemory::setFlags(unsigned int)
+IOAccelMemory::superClass
+IOAccelMemory::testAllEvent()
+IOAccelMemory::unorphanIt(IOAccelShared2*)
+IOAccelMemory::updateLRUSeed()
+IOAccelMemory::~IOAccelMemory()
+IOAccelMemoryAllocator2::IOAccelMemoryAllocator2()
+IOAccelMemoryAllocator2::IOAccelMemoryAllocator2(OSMetaClass const*)
+IOAccelMemoryAllocator2::MetaClass::MetaClass()
+IOAccelMemoryAllocator2::MetaClass::alloc() const
+IOAccelMemoryAllocator2::MetaClass::~MetaClass()
+IOAccelMemoryAllocator2::_RESERVEDIOAccelMemoryAllocator0()
+IOAccelMemoryAllocator2::_RESERVEDIOAccelMemoryAllocator1()
+IOAccelMemoryAllocator2::_RESERVEDIOAccelMemoryAllocator2()
+IOAccelMemoryAllocator2::_RESERVEDIOAccelMemoryAllocator3()
+IOAccelMemoryAllocator2::_RESERVEDIOAccelMemoryAllocator4()
+IOAccelMemoryAllocator2::_RESERVEDIOAccelMemoryAllocator5()
+IOAccelMemoryAllocator2::allocPages(GLKMemoryElement*, unsigned long long, unsigned long long, bool, unsigned int)
+IOAccelMemoryAllocator2::allocPages(GLKMemoryElement*, unsigned long long, unsigned long long, unsigned long long, unsigned long long, bool, unsigned int)
+IOAccelMemoryAllocator2::dealloc(GLKMemoryElement*)
+IOAccelMemoryAllocator2::deallocOne(GLKMemoryElement*)
+IOAccelMemoryAllocator2::free()
+IOAccelMemoryAllocator2::free()::kalloc_type_view_199
+IOAccelMemoryAllocator2::gMetaClass
+IOAccelMemoryAllocator2::getMetaClass() const
+IOAccelMemoryAllocator2::growStack()
+IOAccelMemoryAllocator2::growStack()::kalloc_type_view_213
+IOAccelMemoryAllocator2::init()
+IOAccelMemoryAllocator2::init()::kalloc_type_view_66
+IOAccelMemoryAllocator2::init_pool(unsigned long long)
+IOAccelMemoryAllocator2::init_pool(unsigned long long)::kalloc_type_view_90
+IOAccelMemoryAllocator2::init_pool(unsigned long long, unsigned long long)
+IOAccelMemoryAllocator2::init_pool(unsigned long long, unsigned long long, unsigned long long)
+IOAccelMemoryAllocator2::log()
+IOAccelMemoryAllocator2::log()::_os_log_fmt
+IOAccelMemoryAllocator2::logMax()
+IOAccelMemoryAllocator2::logMax()::_os_log_fmt
+IOAccelMemoryAllocator2::metaClass
+IOAccelMemoryAllocator2::operator delete(void*, unsigned long)
+IOAccelMemoryAllocator2::operator new(unsigned long)
+IOAccelMemoryAllocator2::popFromStack()
+IOAccelMemoryAllocator2::pushIntoStack(GLKMemoryElement*)
+IOAccelMemoryAllocator2::reserve(GLKMemoryElement*, unsigned long long, unsigned long long)
+IOAccelMemoryAllocator2::superClass
+IOAccelMemoryAllocator2::total_free()
+IOAccelMemoryAllocator2::~IOAccelMemoryAllocator2()
+IOAccelMemoryAllocator2_ktv
+IOAccelMemoryInfoUserClient::IOAccelMemoryInfoUserClient()
+IOAccelMemoryInfoUserClient::IOAccelMemoryInfoUserClient(OSMetaClass const*)
+IOAccelMemoryInfoUserClient::MetaClass::MetaClass()
+IOAccelMemoryInfoUserClient::MetaClass::alloc() const
+IOAccelMemoryInfoUserClient::MetaClass::~MetaClass()
+IOAccelMemoryInfoUserClient::clientClose()
+IOAccelMemoryInfoUserClient::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelMemoryInfoUserClient::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)::gather_dispatch
+IOAccelMemoryInfoUserClient::free()
+IOAccelMemoryInfoUserClient::gMetaClass
+IOAccelMemoryInfoUserClient::gather_memory_data(unsigned int, unsigned int*, unsigned int*, void*)
+IOAccelMemoryInfoUserClient::gather_memory_data(unsigned int, unsigned int*, unsigned int*, void*)::_os_log_fmt
+IOAccelMemoryInfoUserClient::gather_memory_data_totals(OSDictionary*, unsigned int*, IOAccelMemoryInfoAllocTotals*)
+IOAccelMemoryInfoUserClient::getMetaClass() const
+IOAccelMemoryInfoUserClient::init()
+IOAccelMemoryInfoUserClient::lock_with_timeout(unsigned long long)
+IOAccelMemoryInfoUserClient::metaClass
+IOAccelMemoryInfoUserClient::operator delete(void*, unsigned long)
+IOAccelMemoryInfoUserClient::operator new(unsigned long)
+IOAccelMemoryInfoUserClient::purge_all_vid_memory()
+IOAccelMemoryInfoUserClient::s_allowed_to_gather()
+IOAccelMemoryInfoUserClient::s_gather_memory_data(OSObject*, void*, IOExternalMethodArguments*)
+IOAccelMemoryInfoUserClient::s_gather_memory_data_totals(OSObject*, void*, IOExternalMethodArguments*)
+IOAccelMemoryInfoUserClient::s_purge_all_vid_memory(OSObject*, void*, IOExternalMethodArguments*)
+IOAccelMemoryInfoUserClient::start(IOService*)
+IOAccelMemoryInfoUserClient::stop(IOService*)
+IOAccelMemoryInfoUserClient::superClass
+IOAccelMemoryInfoUserClient::~IOAccelMemoryInfoUserClient()
+IOAccelMemoryInfoUserClient_ktv
+IOAccelMemoryMap::IOAccelMemoryMap(OSMetaClass const*)
+IOAccelMemoryMap::MetaClass::MetaClass()
+IOAccelMemoryMap::MetaClass::alloc() const
+IOAccelMemoryMap::MetaClass::~MetaClass()
+IOAccelMemoryMap::_RESERVEDIOAccelMemoryMap1()
+IOAccelMemoryMap::_RESERVEDIOAccelMemoryMap2()
+IOAccelMemoryMap::_RESERVEDIOAccelMemoryMap3()
+IOAccelMemoryMap::_RESERVEDIOAccelMemoryMap4()
+IOAccelMemoryMap::_RESERVEDIOAccelMemoryMap5()
+IOAccelMemoryMap::add_resource(IOAccelResource2*)
+IOAccelMemoryMap::add_resource(IOAccelResource2*)::kalloc_type_view_497
+IOAccelMemoryMap::add_resource(IOAccelResource2*)::kalloc_type_view_500
+IOAccelMemoryMap::allocGPUVirtualAddress()
+IOAccelMemoryMap::commit_pte()
+IOAccelMemoryMap::compatibleWith(IOAccelMemoryMap*)
+IOAccelMemoryMap::complete()
+IOAccelMemoryMap::finishEvent()
+IOAccelMemoryMap::free()
+IOAccelMemoryMap::free()::kalloc_type_view_212
+IOAccelMemoryMap::freeGPUVirtualAddress()
+IOAccelMemoryMap::gMetaClass
+IOAccelMemoryMap::getAssignedGPUVirtualAddressLength() const
+IOAccelMemoryMap::getGPUVirtualAddress()
+IOAccelMemoryMap::getGPUVirtualAddressForUserProcess()
+IOAccelMemoryMap::getGPUVirtualAddressLengthForUserProcess()
+IOAccelMemoryMap::getLRUSeed() const
+IOAccelMemoryMap::getLength() const
+IOAccelMemoryMap::getMetaClass() const
+IOAccelMemoryMap::getPrepareCount() const
+IOAccelMemoryMap::init(IOGraphicsAccelerator2*, IOAccelTask*, IOAccelMemory*, unsigned int)
+IOAccelMemoryMap::matchOptionBits(unsigned int)
+IOAccelMemoryMap::metaClass
+IOAccelMemoryMap::operator delete(void*, unsigned long)
+IOAccelMemoryMap::operator new(unsigned long)
+IOAccelMemoryMap::prepare()
+IOAccelMemoryMap::prepare() (.cold.1)
+IOAccelMemoryMap::redirect(IOAccelMemory*)
+IOAccelMemoryMap::release() const
+IOAccelMemoryMap::release_pte()
+IOAccelMemoryMap::remove_resource(IOAccelResource2*)
+IOAccelMemoryMap::reserveGPUVirtualAddress(unsigned long long, unsigned long long)
+IOAccelMemoryMap::superClass
+IOAccelMemoryMap::testEvent()
+IOAccelMemoryMap::updateLRUSeed()
+IOAccelMemoryMap::update_pte()
+IOAccelMemoryMap::~IOAccelMemoryMap()
+IOAccelMemoryMapList::Iterator::Iterator(IOAccelMemoryMapList&)
+IOAccelMemoryMapList::Iterator::getNextMapping()
+IOAccelMemoryMapList::ReverseIterator::ReverseIterator(IOAccelMemoryMapList&)
+IOAccelMemoryMapList::ReverseIterator::getPrevMapping()
+IOAccelMemoryMapList::addMapping(IOAccelMemoryMap*)
+IOAccelMemoryMapList::getCount() const
+IOAccelMemoryMapList::init()
+IOAccelMemoryMapList::moveMappingToHead(IOAccelMemoryMap*)
+IOAccelMemoryMapList::removeMapping(IOAccelMemoryMap*)
+IOAccelMemoryMapList::removeMapping(IOAccelMemoryMap*)::_os_log_fmt
+IOAccelMemoryMap_ktv
+IOAccelMemory_ktv
+IOAccelNamespace::IOAccelNamespace()
+IOAccelNamespace::IOAccelNamespace(OSMetaClass const*)
+IOAccelNamespace::MetaClass::MetaClass()
+IOAccelNamespace::MetaClass::alloc() const
+IOAccelNamespace::MetaClass::~MetaClass()
+IOAccelNamespace::allocId(void*, unsigned int*)
+IOAccelNamespace::alloc_handles()
+IOAccelNamespace::alloc_handles()::_os_log_fmt
+IOAccelNamespace::alloc_handles()::kalloc_type_view_71
+IOAccelNamespace::alloc_handles()::kalloc_type_view_83
+IOAccelNamespace::alloc_handles()::kalloc_type_view_96
+IOAccelNamespace::free()
+IOAccelNamespace::freeId(unsigned int)
+IOAccelNamespace::freeId(unsigned int)::_os_log_fmt
+IOAccelNamespace::free_handles()
+IOAccelNamespace::free_handles()::kalloc_type_view_105
+IOAccelNamespace::gMetaClass
+IOAccelNamespace::getMetaClass() const
+IOAccelNamespace::init()
+IOAccelNamespace::invalidateId(void*, unsigned int)
+IOAccelNamespace::invalidateId(void*, unsigned int)::_os_log_fmt
+IOAccelNamespace::lookupId(unsigned int, void**) const
+IOAccelNamespace::metaClass
+IOAccelNamespace::operator delete(void*, unsigned long)
+IOAccelNamespace::operator new(unsigned long)
+IOAccelNamespace::resurrectId(unsigned int, void*)
+IOAccelNamespace::superClass
+IOAccelNamespace::~IOAccelNamespace()
+IOAccelNamespace_ktv
+IOAccelOrphanedMemoryPool::addMemory(IOAccelMemory*)
+IOAccelOrphanedMemoryPool::addMemory(IOAccelMemory*)::kalloc_type_view_202
+IOAccelOrphanedMemoryPool::free()
+IOAccelOrphanedMemoryPool::free()::kalloc_type_view_101
+IOAccelOrphanedMemoryPool::free()::kalloc_type_view_97
+IOAccelOrphanedMemoryPool::freeWaitToPrepareMap(IOAccelMemoryMap*, bool)
+IOAccelOrphanedMemoryPool::freeWaitToPrepareMemory(IOAccelMemory*, bool)
+IOAccelOrphanedMemoryPool::getMemory(IOAccelShared2*, IOAccelResource2*, unsigned long long, void*)
+IOAccelOrphanedMemoryPool::init(IOGraphicsAccelerator2*, unsigned long long, unsigned int)
+IOAccelOrphanedMemoryPool::init(IOGraphicsAccelerator2*, unsigned long long, unsigned int)::_os_log_fmt
+IOAccelOrphanedMemoryPool::init(IOGraphicsAccelerator2*, unsigned long long, unsigned int)::kalloc_type_view_56
+IOAccelOrphanedMemoryPool::pruneNonReusableOrphanedMemory()
+IOAccelOrphanedMemoryPool::pruneReusableOrphanedMemory()
+IOAccelOrphanedMemoryPool::releaseOrphanedMemory()
+IOAccelOrphanedMemoryPool::removeMemory(IOAccelMemory*)
+IOAccelOrphanedMemoryPool::removeMemory(IOAccelMemory*) (.cold.1)
+IOAccelOrphanedMemoryPool::removeMemory(IOAccelMemory*) (.cold.2)
+IOAccelOrphanedMemoryPool::removeMemory(IOAccelMemory*) (.cold.3)
+IOAccelOrphanedMemoryPool::removeMemory(IOAccelMemory*) (.cold.4)
+IOAccelOrphanedMemoryPool::removeMemory(IOAccelMemory*)::kalloc_type_view_290
+IOAccelOrphanedMemoryPool::sharedRelease(IOAccelShared2*)
+IOAccelOrphanedVidMemoryPool::freeWaitToPrepareMap(IOAccelMemoryMap*, bool)
+IOAccelOrphanedVidMemoryPool::freeWaitToPrepareMemory(IOAccelMemory*, bool)
+IOAccelRangeAllocator::IOAccelRangeAllocator()
+IOAccelRangeAllocator::IOAccelRangeAllocator(OSMetaClass const*)
+IOAccelRangeAllocator::MetaClass::MetaClass()
+IOAccelRangeAllocator::MetaClass::alloc() const
+IOAccelRangeAllocator::MetaClass::~MetaClass()
+IOAccelRangeAllocator::_RESERVEDIOAccelRangeAllocator0()
+IOAccelRangeAllocator::_RESERVEDIOAccelRangeAllocator1()
+IOAccelRangeAllocator::_RESERVEDIOAccelRangeAllocator2()
+IOAccelRangeAllocator::_RESERVEDIOAccelRangeAllocator3()
+IOAccelRangeAllocator::_RESERVEDIOAccelRangeAllocator4()
+IOAccelRangeAllocator::_RESERVEDIOAccelRangeAllocator5()
+IOAccelRangeAllocator::add_to_stack()
+IOAccelRangeAllocator::add_to_stack()::kalloc_type_view_209
+IOAccelRangeAllocator::alloc(IOAccelRangeElement*, unsigned long long, unsigned long long)
+IOAccelRangeAllocator::alloc(IOAccelRangeElement*, unsigned long long, unsigned long long, unsigned long long, unsigned long long)
+IOAccelRangeAllocator::dealloc(IOAccelRangeElement*)
+IOAccelRangeAllocator::free()
+IOAccelRangeAllocator::free()::kalloc_type_view_196
+IOAccelRangeAllocator::gMetaClass
+IOAccelRangeAllocator::getMetaClass() const
+IOAccelRangeAllocator::init()
+IOAccelRangeAllocator::init()::kalloc_type_view_66
+IOAccelRangeAllocator::init_pool(unsigned long long)
+IOAccelRangeAllocator::init_pool(unsigned long long)::kalloc_type_view_87
+IOAccelRangeAllocator::init_pool(unsigned long long, unsigned long long)
+IOAccelRangeAllocator::init_pool(unsigned long long, unsigned long long, unsigned long long)
+IOAccelRangeAllocator::log()
+IOAccelRangeAllocator::log()::_os_log_fmt
+IOAccelRangeAllocator::logMax()
+IOAccelRangeAllocator::logMax()::_os_log_fmt
+IOAccelRangeAllocator::metaClass
+IOAccelRangeAllocator::operator delete(void*, unsigned long)
+IOAccelRangeAllocator::operator new(unsigned long)
+IOAccelRangeAllocator::reserve(IOAccelRangeElement*, unsigned long long, unsigned long long)
+IOAccelRangeAllocator::superClass
+IOAccelRangeAllocator::total_free()
+IOAccelRangeAllocator::~IOAccelRangeAllocator()
+IOAccelRangeAllocator_ktv
+IOAccelRemoteMemory::IOAccelRemoteMemory()
+IOAccelRemoteMemory::IOAccelRemoteMemory(OSMetaClass const*)
+IOAccelRemoteMemory::MetaClass::MetaClass()
+IOAccelRemoteMemory::MetaClass::alloc() const
+IOAccelRemoteMemory::MetaClass::~MetaClass()
+IOAccelRemoteMemory::complete()
+IOAccelRemoteMemory::completeRemoteMemory(IOAccelMemory*)
+IOAccelRemoteMemory::completeRemoteStorage()
+IOAccelRemoteMemory::completeRemoteStorageResource(IOAccelResource2*)
+IOAccelRemoteMemory::decrement_wire_count()
+IOAccelRemoteMemory::gMetaClass
+IOAccelRemoteMemory::getDirtySize() const
+IOAccelRemoteMemory::getMetaClass() const
+IOAccelRemoteMemory::getPhysicalSegment(unsigned long long, unsigned long long*)
+IOAccelRemoteMemory::getPhysicalSegment(unsigned long long, unsigned long long*) (.cold.1)
+IOAccelRemoteMemory::getRemoteMemory() const
+IOAccelRemoteMemory::getRemoteStorageResource() const
+IOAccelRemoteMemory::getResidentSize() const
+IOAccelRemoteMemory::getTag()
+IOAccelRemoteMemory::increment_wire_count()
+IOAccelRemoteMemory::init(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned long long, unsigned int, unsigned int)
+IOAccelRemoteMemory::matchForReuse(void*, unsigned long long)
+IOAccelRemoteMemory::metaClass
+IOAccelRemoteMemory::operator delete(void*, unsigned long)
+IOAccelRemoteMemory::operator new(unsigned long)
+IOAccelRemoteMemory::prepare()
+IOAccelRemoteMemory::prepare()::_os_log_fmt
+IOAccelRemoteMemory::prepareRemoteMemory(IOAccelResource2*)
+IOAccelRemoteMemory::prepareRemoteMemory(IOAccelResource2*)::_os_log_fmt
+IOAccelRemoteMemory::prepareRemoteStorageResource(IOAccelResource2*)
+IOAccelRemoteMemory::setPurgeable(unsigned int, unsigned int*)
+IOAccelRemoteMemory::setTag(unsigned int)
+IOAccelRemoteMemory::superClass
+IOAccelRemoteMemory::unwire()
+IOAccelRemoteMemory::wire()
+IOAccelRemoteMemory::withPeerIDs(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned long long, unsigned int, unsigned int)
+IOAccelRemoteMemory::~IOAccelRemoteMemory()
+IOAccelRemoteMemory_ktv
+IOAccelResidentMemorySet::Iterator::Iterator(IOAccelResidentMemorySet&)
+IOAccelResidentMemorySet::Iterator::getNextMemory()
+IOAccelResidentMemorySet::LRUIterator::LRUIterator(IOAccelResidentMemorySet&)
+IOAccelResidentMemorySet::LRUIterator::getNextMemory()
+IOAccelResidentMemorySet::ReverseIterator::ReverseIterator(IOAccelResidentMemorySet&)
+IOAccelResidentMemorySet::ReverseIterator::getPrevMemory()
+IOAccelResidentMemorySet::addMemory(IOAccelMemory*)
+IOAccelResidentMemorySet::collect()
+IOAccelResidentMemorySet::free()
+IOAccelResidentMemorySet::free()::kalloc_type_view_37
+IOAccelResidentMemorySet::getCount() const
+IOAccelResidentMemorySet::getEarliestExpiredLRUSeed()
+IOAccelResidentMemorySet::init(IOGraphicsAccelerator2*)
+IOAccelResidentMemorySet::init(IOGraphicsAccelerator2*)::kalloc_type_view_24
+IOAccelResidentMemorySet::realloc()
+IOAccelResidentMemorySet::realloc() (.cold.1)
+IOAccelResidentMemorySet::realloc()::kalloc_type_view_107
+IOAccelResidentMemorySet::realloc()::kalloc_type_view_111
+IOAccelResidentMemorySet::removeMemory(IOAccelMemory*)
+IOAccelResidentMemorySet::setCollectionEras(IOAccelCollectionEra*)
+IOAccelResidentMemorySet::setCollectionEras(IOAccelCollectionEra*) (.cold.1)
+IOAccelResidentMemorySet::sort()
+IOAccelResidentMemorySet::updateCollectionLRUs(unsigned int)
+IOAccelResource2::IOAccelResource2(OSMetaClass const*)
+IOAccelResource2::MetaClass::MetaClass()
+IOAccelResource2::MetaClass::alloc() const
+IOAccelResource2::MetaClass::~MetaClass()
+IOAccelResource2::_RESERVEDIOAccelResource2()
+IOAccelResource2::_RESERVEDIOAccelResource3()
+IOAccelResource2::_RESERVEDIOAccelResource4()
+IOAccelResource2::_RESERVEDIOAccelResource5()
+IOAccelResource2::addToChannel(IOAccelChannel2*, unsigned int)
+IOAccelResource2::allocBackingMemory()
+IOAccelResource2::allocBackingMemory()::_os_log_fmt
+IOAccelResource2::allocDataBufferMemory(IOAccelShared2*, bool, unsigned int)
+IOAccelResource2::allocDataBufferMemory(IOAccelShared2*, bool, unsigned int)::_os_log_fmt
+IOAccelResource2::allocFallbackMemory()
+IOAccelResource2::allocMemory(IOAccelShared2*)
+IOAccelResource2::allocMemory(IOAccelShared2*)::_os_log_fmt
+IOAccelResource2::canQuickLockForCPUAccess(eLockType) const
+IOAccelResource2::checkDirty()
+IOAccelResource2::clientRelease(IOAccelShared2*)
+IOAccelResource2::complete()
+IOAccelResource2::copyResourcePrivate(IOAccelResourcePrivate*)
+IOAccelResource2::databuffer_release(IOAccelShared2*)
+IOAccelResource2::deleteBackingMemory()
+IOAccelResource2::describeAllocations(IOAccelAllocationInfo*)
+IOAccelResource2::describeAllocationsWithPID(IOAccelAllocationInfo*, int)
+IOAccelResource2::describeAllocationsWithString(IOAccelAllocationInfo*, char const*)
+IOAccelResource2::describeAllocationsWithSurface(IOAccelAllocationInfo*, unsigned int, char const*, unsigned int, unsigned int, char const*)
+IOAccelResource2::dirtyBufferRange(unsigned int, unsigned int)
+IOAccelResource2::dirtyBufferRange(unsigned long long, unsigned long long)
+IOAccelResource2::dirtyFaceLevels(unsigned int, unsigned int)
+IOAccelResource2::dirtyLevel(unsigned int, unsigned int)
+IOAccelResource2::dirtyLevel(unsigned int, unsigned int)::_os_log_fmt
+IOAccelResource2::dirtyVendorCommand(unsigned int, unsigned long long)
+IOAccelResource2::fallback()
+IOAccelResource2::fallback()::_os_log_fmt
+IOAccelResource2::free()
+IOAccelResource2::free() (.cold.1)
+IOAccelResource2::free() (.cold.2)
+IOAccelResource2::free() (.cold.3)
+IOAccelResource2::free()::_os_log_fmt
+IOAccelResource2::free()::kalloc_type_view_377
+IOAccelResource2::gMetaClass
+IOAccelResource2::gartEvent()
+IOAccelResource2::gartEvent()::_os_log_fmt
+IOAccelResource2::getClientSharedAddresses(unsigned long long*, unsigned long long*)
+IOAccelResource2::getClientSharedROPrivate() const
+IOAccelResource2::getClientSharedRWPrivate() const
+IOAccelResource2::getGPUTask() const
+IOAccelResource2::getGPUVirtualAddressForUserProcess() const
+IOAccelResource2::getKernelData()
+IOAccelResource2::getKernelData()::_os_log_fmt
+IOAccelResource2::getMemoryAllocParameter()
+IOAccelResource2::getMetaClass() const
+IOAccelResource2::getPhysicalOffset(unsigned long long, unsigned long long*)
+IOAccelResource2::getProtectionOptions() const
+IOAccelResource2::getResidentSize()
+IOAccelResource2::getResourceInfo(IOAccelGetResourceInfoReturnData*, unsigned int*)
+IOAccelResource2::getRetainCount() const
+IOAccelResource2::getStorageResource()
+IOAccelResource2::getStorageResource()::_os_log_fmt
+IOAccelResource2::get_surface_buffer_reqbit()
+IOAccelResource2::glkwarning_reading_garbage()
+IOAccelResource2::glkwarning_reading_garbage()::_os_log_fmt
+IOAccelResource2::hasDirtyVidMem() const
+IOAccelResource2::init(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned int)
+IOAccelResource2::init(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned int)::_os_log_fmt
+IOAccelResource2::initClientShared(IOAccelClientSharedRO*, IOAccelClientSharedRW*)
+IOAccelResource2::initSurfaceBuffer(IOAccelSurface*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)
+IOAccelResource2::initSurfaceBuffer(IOAccelSurface*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)::_os_log_fmt
+IOAccelResource2::initialize(IOAccelNewResourceArgs*, unsigned long long)
+IOAccelResource2::initialize(IOAccelNewResourceArgs*, unsigned long long)::kalloc_type_view_1909
+IOAccelResource2::invalidateVidMem()
+IOAccelResource2::isPurgeable()
+IOAccelResource2::isResourcePurgeable()
+IOAccelResource2::load()
+IOAccelResource2::lockForCPUAccess(task*, eLockType, unsigned int, bool, unsigned char, unsigned char, int*)
+IOAccelResource2::lockForCPUAccess(task*, eLockType, unsigned int, bool, unsigned char, unsigned char, int*)::_os_log_fmt
+IOAccelResource2::lock_vidmem(task*, unsigned int)
+IOAccelResource2::map()
+IOAccelResource2::map()::_os_log_fmt
+IOAccelResource2::mapAtAddressLength(unsigned long long, unsigned long long)
+IOAccelResource2::mapAtAddressLength(unsigned long long, unsigned long long)::_os_log_fmt
+IOAccelResource2::metaClass
+IOAccelResource2::newDataBufferResource(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned long long, bool, unsigned int, unsigned int, unsigned int)
+IOAccelResource2::newDataBufferResource(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned long long, bool, unsigned int, unsigned int, unsigned int)::_os_log_fmt
+IOAccelResource2::newResourceWithClientBuffer(IOGraphicsAccelerator2*, IOAccelShared2*, eIOAccelResType, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long*)
+IOAccelResource2::newResourceWithClientBuffer(IOGraphicsAccelerator2*, IOAccelShared2*, eIOAccelResType, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long*)::_os_log_fmt
+IOAccelResource2::newResourceWithIOSurface(IOGraphicsAccelerator2*, IOAccelShared2*, IOSurface*, unsigned int, unsigned int)
+IOAccelResource2::newResourceWithIOSurface(IOGraphicsAccelerator2*, IOAccelShared2*, IOSurface*, unsigned int, unsigned int)::_os_log_fmt
+IOAccelResource2::newResourceWithIOSurfaceDeviceCache(IOGraphicsAccelerator2*, IOSurfaceDeviceCache*)
+IOAccelResource2::newResourceWithIOSurfaceDeviceCache(IOGraphicsAccelerator2*, IOSurfaceDeviceCache*)::_os_log_fmt
+IOAccelResource2::newResourceWithOptions(IOGraphicsAccelerator2*, IOAccelShared2*, eIOAccelResType, unsigned long long, unsigned int, unsigned long long, unsigned long long*)
+IOAccelResource2::newResourceWithOptions(IOGraphicsAccelerator2*, IOAccelShared2*, eIOAccelResType, unsigned long long, unsigned long long, unsigned int, unsigned long long, unsigned long long*, IOAccelNewResourceArgs*)
+IOAccelResource2::newResourceWithOptions(IOGraphicsAccelerator2*, IOAccelShared2*, eIOAccelResType, unsigned long long, unsigned long long, unsigned int, unsigned long long, unsigned long long*, IOAccelNewResourceArgs*)::_os_log_fmt
+IOAccelResource2::newResourceWithParentResourceID(IOGraphicsAccelerator2*, IOAccelShared2*, eIOAccelResType, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long*, unsigned int)
+IOAccelResource2::newResourceWithParentResourceID(IOGraphicsAccelerator2*, IOAccelShared2*, eIOAccelResType, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long*, unsigned int)::_os_log_fmt
+IOAccelResource2::newResourceWithRemoteStorage(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned int, unsigned int)
+IOAccelResource2::newResourceWithRemoteStorage(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned int, unsigned int) (.cold.1)
+IOAccelResource2::newResourceWithSurface(IOGraphicsAccelerator2*, IOAccelShared2*, IOAccelSurface*, unsigned int)
+IOAccelResource2::newResourceWithSurface(IOGraphicsAccelerator2*, IOAccelShared2*, IOAccelSurface*, unsigned int)::_os_log_fmt
+IOAccelResource2::newResourceWithSurface(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned int, eIOAccelGLBufferType)
+IOAccelResource2::newResourceWithSurface(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned int, eIOAccelGLBufferType)::_os_log_fmt
+IOAccelResource2::newResourceWithSurfaceBufferIndex(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned int, unsigned int)
+IOAccelResource2::newResourceWithSurfaceBufferIndex(IOGraphicsAccelerator2*, IOAccelShared2*, unsigned int, unsigned int)::_os_log_fmt
+IOAccelResource2::objTypeName() const
+IOAccelResource2::operator delete(void*, unsigned long)
+IOAccelResource2::operator new(unsigned long)
+IOAccelResource2::pageoff(IOAccelEvent*, bool, bool*)
+IOAccelResource2::pageoff(IOAccelEvent*, bool, bool*, unsigned long long)
+IOAccelResource2::pageoffIfNeeded(unsigned int, unsigned int)
+IOAccelResource2::pageoffIfNeeded(unsigned int, unsigned int)::_os_log_fmt
+IOAccelResource2::pageoffInLinear()
+IOAccelResource2::pageoffWithCPU()
+IOAccelResource2::pageoffWithCPU()::_os_log_fmt
+IOAccelResource2::pageon(IOAccelEvent*, bool)
+IOAccelResource2::pageon(IOAccelEvent*, bool, unsigned long long)
+IOAccelResource2::pageonIfNeeded()
+IOAccelResource2::pageonIfNeeded()::_os_log_fmt
+IOAccelResource2::pageonWithCPU()
+IOAccelResource2::pageonWithCPU()::_os_log_fmt
+IOAccelResource2::prepare()
+IOAccelResource2::prepare()::_os_log_fmt
+IOAccelResource2::prepareBackingInTaskWithOption(IOAccelTask*, unsigned int)
+IOAccelResource2::prepareBackingInTaskWithOption(IOAccelTask*, unsigned int)::_os_log_fmt
+IOAccelResource2::prepareInTaskWithOption(IOAccelTask*, unsigned int)
+IOAccelResource2::prepareInTaskWithOption(IOAccelTask*, unsigned int)::_os_log_fmt
+IOAccelResource2::purgeable()
+IOAccelResource2::release() const
+IOAccelResource2::releaseKernelData()
+IOAccelResource2::removeFromChannel(IOAccelChannel2*)
+IOAccelResource2::requirePageoff() const
+IOAccelResource2::requirePageon() const
+IOAccelResource2::retain() const
+IOAccelResource2::retain() const (.cold.1)
+IOAccelResource2::scrubEvents()
+IOAccelResource2::setBackingMemory(IOAccelSysMemory*, unsigned int, int, bool)
+IOAccelResource2::setOwnership(task*)
+IOAccelResource2::setPrefetch(bool)
+IOAccelResource2::setPurgeable(unsigned int, unsigned int, unsigned int*)
+IOAccelResource2::setPurgeableIOSurface(unsigned int)
+IOAccelResource2::sharedRelease(IOAccelShared2*)
+IOAccelResource2::superClass
+IOAccelResource2::supportsProtectionOptions(unsigned long long) const
+IOAccelResource2::termClientShared(IOAccelClientSharedRO*, IOAccelClientSharedRW*)
+IOAccelResource2::testAllEvents()
+IOAccelResource2::testIOSurfacePurgeable()
+IOAccelResource2::try_unload()
+IOAccelResource2::unload()
+IOAccelResource2::unlockForCPUAccess(task*, eLockType)
+IOAccelResource2::unlockForCPUAccess(task*, eLockType)::_os_log_fmt
+IOAccelResource2::unlock_vidmem(task*)
+IOAccelResource2::unmap()
+IOAccelResource2::unpurge(bool)
+IOAccelResource2::updateReadWriteBits(bool, bool)
+IOAccelResource2::update_iosurface_textures_stamp(IOAccelChannel2*)
+IOAccelResource2::update_iosurface_valid_bits()
+IOAccelResource2::zeroVidMemory(IOAccelEvent*, unsigned long long)
+IOAccelResource2::zero_vidmem()
+IOAccelResource2::~IOAccelResource2()
+IOAccelResource2_ktv
+IOAccelResourceList::Iterator::Iterator(IOAccelResourceList&)
+IOAccelResourceList::Iterator::getNextResource()
+IOAccelResourceList::ReverseIterator::ReverseIterator(IOAccelResourceList&)
+IOAccelResourceList::ReverseIterator::getPrevResource()
+IOAccelResourceList::addResource(IOAccelResource2*)
+IOAccelResourceList::assertListConsistency()
+IOAccelResourceList::getCount() const
+IOAccelResourceList::init()
+IOAccelResourceList::moveResourceToHead(IOAccelResource2*)
+IOAccelResourceList::objectInList(IOAccelResource2*)
+IOAccelResourceList::removeResource(IOAccelResource2*)
+IOAccelResourceList::removeResource(IOAccelResource2*) (.cold.1)
+IOAccelResourceList::removeResource(IOAccelResource2*) (.cold.2)
+IOAccelResourceList::removeResource(IOAccelResource2*) (.cold.3)
+IOAccelResourceList::removeResource(IOAccelResource2*)::_os_log_fmt
+IOAccelSegmentResourceList::IOAccelSegmentResourceList()
+IOAccelSegmentResourceList::IOAccelSegmentResourceList(OSMetaClass const*)
+IOAccelSegmentResourceList::MetaClass::MetaClass()
+IOAccelSegmentResourceList::MetaClass::alloc() const
+IOAccelSegmentResourceList::MetaClass::~MetaClass()
+IOAccelSegmentResourceList::_RESERVEDIOAccelSegmentResourceList0()
+IOAccelSegmentResourceList::_RESERVEDIOAccelSegmentResourceList1()
+IOAccelSegmentResourceList::_RESERVEDIOAccelSegmentResourceList2()
+IOAccelSegmentResourceList::_RESERVEDIOAccelSegmentResourceList3()
+IOAccelSegmentResourceList::_RESERVEDIOAccelSegmentResourceList4()
+IOAccelSegmentResourceList::_RESERVEDIOAccelSegmentResourceList5()
+IOAccelSegmentResourceList::complete()
+IOAccelSegmentResourceList::free()
+IOAccelSegmentResourceList::free()::kalloc_type_view_145
+IOAccelSegmentResourceList::gMetaClass
+IOAccelSegmentResourceList::getMetaClass() const
+IOAccelSegmentResourceList::initWithSharedResourceList(IOAccelShared2*, IOAccelSegmentResourceListHeader const*)
+IOAccelSegmentResourceList::initWithSharedResourceList(IOAccelShared2*, IOAccelSegmentResourceListHeader const*, IOAccelDeviceShmem*)
+IOAccelSegmentResourceList::initWithSharedResourceList(IOAccelShared2*, IOAccelSegmentResourceListHeader const*, IOAccelDeviceShmem*)::kalloc_type_view_49
+IOAccelSegmentResourceList::metaClass
+IOAccelSegmentResourceList::operator delete(void*, unsigned long)
+IOAccelSegmentResourceList::operator new(unsigned long)
+IOAccelSegmentResourceList::prepare()
+IOAccelSegmentResourceList::superClass
+IOAccelSegmentResourceList::~IOAccelSegmentResourceList()
+IOAccelSegmentResourceList_ktv
+IOAccelShared2::IOAccelShared2()
+IOAccelShared2::IOAccelShared2(OSMetaClass const*)
+IOAccelShared2::MetaClass::MetaClass()
+IOAccelShared2::MetaClass::alloc() const
+IOAccelShared2::MetaClass::~MetaClass()
+IOAccelShared2::_RESERVEDIOAccelShared0()
+IOAccelShared2::_RESERVEDIOAccelShared1()
+IOAccelShared2::_RESERVEDIOAccelShared2()
+IOAccelShared2::_RESERVEDIOAccelShared3()
+IOAccelShared2::_RESERVEDIOAccelShared4()
+IOAccelShared2::_RESERVEDIOAccelShared5()
+IOAccelShared2::add_orphaned_mappings(OSSet*)
+IOAccelShared2::allocResourceId(void*, unsigned int*)
+IOAccelShared2::allocate_fence_memory(unsigned long long, unsigned long long*)
+IOAccelShared2::connectPeerShared(IOAccelSharedUserClient2*)
+IOAccelShared2::connectPeerShared(IOAccelSharedUserClient2*)::kalloc_type_view_596
+IOAccelShared2::copyEntitlements()
+IOAccelShared2::create_mtlevent(unsigned long long, IOAccelCreateMTLEventResult*)
+IOAccelShared2::create_shmem(unsigned int, unsigned long long*, unsigned int*, unsigned int*)
+IOAccelShared2::decrement_allocated_size(unsigned long long)
+IOAccelShared2::decrement_ctx_refcount()
+IOAccelShared2::describeDriverAllocations(IOAccelAllocationInfo*)
+IOAccelShared2::destroy_mtlevent(unsigned int)
+IOAccelShared2::destroy_shmem(unsigned int)
+IOAccelShared2::disconnectPeer(unsigned int)
+IOAccelShared2::disconnectPeer(unsigned int)::_os_log_fmt
+IOAccelShared2::doesEntitlementExist(char const*)
+IOAccelShared2::free()
+IOAccelShared2::free()::kalloc_type_view_524
+IOAccelShared2::free()::kalloc_type_view_528
+IOAccelShared2::free()::kalloc_type_view_548
+IOAccelShared2::freeResourceId(unsigned int)
+IOAccelShared2::gMetaClass
+IOAccelShared2::getAllocatedSize(unsigned long long*)
+IOAccelShared2::getClientSharedAllocatedSizeAddress(unsigned long long*)
+IOAccelShared2::getDirtyRingAddresses(unsigned long long*, unsigned long long*, unsigned long long*)
+IOAccelShared2::getLockedPeer(unsigned int)
+IOAccelShared2::getLockedPeer(unsigned int)::_os_log_fmt
+IOAccelShared2::getMemoryData(IOAccelMemoryData*)
+IOAccelShared2::getMetaClass() const
+IOAccelShared2::getPeerIndex() const
+IOAccelShared2::increment_allocated_size(unsigned long long)
+IOAccelShared2::increment_ctx_refcount()
+IOAccelShared2::init(IOGraphicsAccelerator2*, task*)
+IOAccelShared2::lockPeer(unsigned int)
+IOAccelShared2::lockPeer(unsigned int)::_os_log_fmt
+IOAccelShared2::lookupDeviceShmem(unsigned int) const
+IOAccelShared2::lookupMTLEvent(unsigned int) const
+IOAccelShared2::lookupResource(unsigned int, void**)
+IOAccelShared2::memory_with_client_buffer(unsigned long long, unsigned long long)
+IOAccelShared2::memory_with_client_buffer(unsigned long long, unsigned long long)::_os_log_fmt
+IOAccelShared2::memory_with_client_buffer(unsigned long long, unsigned long long)::kalloc_type_view_869
+IOAccelShared2::memory_with_client_buffer(unsigned long long, unsigned long long)::kalloc_type_view_882
+IOAccelShared2::metaClass
+IOAccelShared2::noIgnoreOnGPURestart()
+IOAccelShared2::operator delete(void*, unsigned long)
+IOAccelShared2::operator new(unsigned long)
+IOAccelShared2::orphanClientMappings(OSSet*)
+IOAccelShared2::processResourceDirtyCommands()
+IOAccelShared2::remove_client_memory(IOAccelSysMemory*, unsigned long long, unsigned long long)
+IOAccelShared2::remove_client_memory(IOAccelSysMemory*, unsigned long long, unsigned long long)::kalloc_type_view_814
+IOAccelShared2::scrubEvents()
+IOAccelShared2::setResourceOwnerIdentity(unsigned int, unsigned int)
+IOAccelShared2::set_user_client(IOAccelSharedUserClient2*)
+IOAccelShared2::superClass
+IOAccelShared2::unlockPeer(unsigned int)
+IOAccelShared2::unlockPeer(unsigned int) (.cold.1)
+IOAccelShared2::unlockPeer(unsigned int)::_os_log_fmt
+IOAccelShared2::~IOAccelShared2()
+IOAccelShared2_ktv
+IOAccelSharedEventFence::IOAccelSharedEventFence()
+IOAccelSharedEventFence::IOAccelSharedEventFence(OSMetaClass const*)
+IOAccelSharedEventFence::MetaClass::MetaClass()
+IOAccelSharedEventFence::MetaClass::alloc() const
+IOAccelSharedEventFence::MetaClass::~MetaClass()
+IOAccelSharedEventFence::free()
+IOAccelSharedEventFence::gMetaClass
+IOAccelSharedEventFence::getMetaClass() const
+IOAccelSharedEventFence::initWithSharedEvent(IOSurfaceSharedEvent*, unsigned long long, IOGraphicsAccelerator2*, IOAccelSubmitter2*)
+IOAccelSharedEventFence::metaClass
+IOAccelSharedEventFence::notifyClient()
+IOAccelSharedEventFence::operator delete(void*, unsigned long)
+IOAccelSharedEventFence::operator new(unsigned long)
+IOAccelSharedEventFence::superClass
+IOAccelSharedEventFence::withSharedEvent(IOSurfaceSharedEvent*, unsigned long long, IOGraphicsAccelerator2*, IOAccelSubmitter2*)
+IOAccelSharedEventFence::~IOAccelSharedEventFence()
+IOAccelSharedEventFence_ktv
+IOAccelSharedList::Iterator::Iterator(IOAccelSharedList&)
+IOAccelSharedList::Iterator::getNextShared()
+IOAccelSharedList::addShared(IOAccelShared2*)
+IOAccelSharedList::getCount() const
+IOAccelSharedList::init()
+IOAccelSharedList::removeShared(IOAccelShared2*)
+IOAccelSharedList::removeShared(IOAccelShared2*)::_os_log_fmt
+IOAccelSharedNamespace2::IOAccelSharedNamespace2()
+IOAccelSharedNamespace2::IOAccelSharedNamespace2(OSMetaClass const*)
+IOAccelSharedNamespace2::MetaClass::MetaClass()
+IOAccelSharedNamespace2::MetaClass::alloc() const
+IOAccelSharedNamespace2::MetaClass::~MetaClass()
+IOAccelSharedNamespace2::free()
+IOAccelSharedNamespace2::gMetaClass
+IOAccelSharedNamespace2::getClientSharedAddressesForId(unsigned int, unsigned long long*, unsigned long long*)
+IOAccelSharedNamespace2::getClientSharedROForId(unsigned int, unsigned long long*)
+IOAccelSharedNamespace2::getMetaClass() const
+IOAccelSharedNamespace2::init(IOGraphicsAccelerator2*, task*, IOAccelTask*, IOAccelShared2*)
+IOAccelSharedNamespace2::mapClientSharedForId(unsigned int, IOAccelClientSharedRO**, IOAccelClientSharedRW**)
+IOAccelSharedNamespace2::mapClientSharedROForId(unsigned int, IOAccelClientSharedRO**)
+IOAccelSharedNamespace2::metaClass
+IOAccelSharedNamespace2::operator delete(void*, unsigned long)
+IOAccelSharedNamespace2::operator new(unsigned long)
+IOAccelSharedNamespace2::orphanClientMappings(OSSet*) const
+IOAccelSharedNamespace2::superClass
+IOAccelSharedNamespace2::unmapClientSharedForId(unsigned int)
+IOAccelSharedNamespace2::~IOAccelSharedNamespace2()
+IOAccelSharedNamespace2_ktv
+IOAccelSharedUserClient2::IOAccelSharedUserClient2()
+IOAccelSharedUserClient2::IOAccelSharedUserClient2(OSMetaClass const*)
+IOAccelSharedUserClient2::MetaClass::MetaClass()
+IOAccelSharedUserClient2::MetaClass::alloc() const
+IOAccelSharedUserClient2::MetaClass::~MetaClass()
+IOAccelSharedUserClient2::_RESERVEDIOAccelSharedUserClient0()
+IOAccelSharedUserClient2::_RESERVEDIOAccelSharedUserClient1()
+IOAccelSharedUserClient2::_RESERVEDIOAccelSharedUserClient2()
+IOAccelSharedUserClient2::_RESERVEDIOAccelSharedUserClient3()
+IOAccelSharedUserClient2::_RESERVEDIOAccelSharedUserClient4()
+IOAccelSharedUserClient2::_RESERVEDIOAccelSharedUserClient5()
+IOAccelSharedUserClient2::add_orphaned_mappings(OSSet*)
+IOAccelSharedUserClient2::allocate_fence_memory(unsigned long long*, unsigned long long*)
+IOAccelSharedUserClient2::clientClose()
+IOAccelSharedUserClient2::connectClient(IOUserClient*)
+IOAccelSharedUserClient2::connectClient(IOUserClient*)::_os_log_fmt
+IOAccelSharedUserClient2::create_mtlevent(unsigned long long*, IOAccelCreateMTLEventResult*)
+IOAccelSharedUserClient2::create_shmem(unsigned int, IOAccelDeviceShmemData*)
+IOAccelSharedUserClient2::delete_resource(unsigned int)
+IOAccelSharedUserClient2::destroy_mtlevent(unsigned int)
+IOAccelSharedUserClient2::destroy_shmem(unsigned int)
+IOAccelSharedUserClient2::detach_shared()
+IOAccelSharedUserClient2::didTerminate(IOService*, unsigned int, bool*)
+IOAccelSharedUserClient2::disconnect_peer(unsigned int)
+IOAccelSharedUserClient2::enter_external_rpc()
+IOAccelSharedUserClient2::exit_external_rpc()
+IOAccelSharedUserClient2::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelSharedUserClient2::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)::methods
+IOAccelSharedUserClient2::finish_object_event(unsigned int, unsigned int)
+IOAccelSharedUserClient2::free()
+IOAccelSharedUserClient2::gMetaClass
+IOAccelSharedUserClient2::getMetaClass() const
+IOAccelSharedUserClient2::getPeerAccelerator()
+IOAccelSharedUserClient2::getTargetAndMethodForIndex(IOService**, unsigned int)
+IOAccelSharedUserClient2::get_allocated_size(IOAccelAllocatedSize*)
+IOAccelSharedUserClient2::get_memory_data(IOAccelMemoryData*)
+IOAccelSharedUserClient2::get_resource_info(unsigned int, IOAccelGetResourceInfoReturnData*, unsigned int*)
+IOAccelSharedUserClient2::get_resource_offset(unsigned long long*, unsigned long long*)
+IOAccelSharedUserClient2::get_shared_info(IOAccelSharedGetInfoReturnData*)
+IOAccelSharedUserClient2::get_surface_info(unsigned int, unsigned int*, unsigned int*, unsigned int*, unsigned int*, unsigned int*)
+IOAccelSharedUserClient2::get_surface_info(unsigned int, unsigned int*, unsigned int*, unsigned int*, unsigned int*, unsigned int*)::_os_log_fmt
+IOAccelSharedUserClient2::init(OSDictionary*, task*)
+IOAccelSharedUserClient2::metaClass
+IOAccelSharedUserClient2::new_resource(IOAccelNewResourceArgs*, IOAccelNewResourceReturnData*, unsigned long long, unsigned int*)
+IOAccelSharedUserClient2::new_resource(IOAccelNewResourceArgs*, IOAccelNewResourceReturnData*, unsigned long long, unsigned int*)::_os_log_fmt
+IOAccelSharedUserClient2::operator delete(void*, unsigned long)
+IOAccelSharedUserClient2::operator new(unsigned long)
+IOAccelSharedUserClient2::page_off_resource(IOAccelSharedPageoffResourceArgs*)
+IOAccelSharedUserClient2::process_dirty_commands()
+IOAccelSharedUserClient2::requestTerminate(IOService*, unsigned int)
+IOAccelSharedUserClient2::sSharedMethods
+IOAccelSharedUserClient2::s_new_resource(IOAccelSharedUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelSharedUserClient2::s_new_resource(IOAccelSharedUserClient2*, void*, IOExternalMethodArguments*)::_os_log_fmt
+IOAccelSharedUserClient2::s_set_resources_purgeable(IOAccelSharedUserClient2*, void*, IOExternalMethodArguments*)
+IOAccelSharedUserClient2::set_resource_owner_identity(IOAccelResourceSetResourceOwnerIdentityData*)
+IOAccelSharedUserClient2::set_resource_purgeable(unsigned int, eIOAccelResourcePurgeable, eIOAccelResourcePurgeable*)
+IOAccelSharedUserClient2::set_resources_purgeable(unsigned int const*, eIOAccelResourcePurgeable, eIOAccelResourcePurgeable*, int)
+IOAccelSharedUserClient2::setup_dirty_ring(IOAccelSharedSetupDirtyRingReturnData*)
+IOAccelSharedUserClient2::sharedStart()
+IOAccelSharedUserClient2::sharedStop()
+IOAccelSharedUserClient2::start(IOService*)
+IOAccelSharedUserClient2::stop(IOService*)
+IOAccelSharedUserClient2::stopLocked()
+IOAccelSharedUserClient2::superClass
+IOAccelSharedUserClient2::try_detach_shared()
+IOAccelSharedUserClient2::~IOAccelSharedUserClient2()
+IOAccelSharedUserClient2_ktv
+IOAccelSharedUserClientList::Iterator::Iterator(IOAccelSharedUserClientList&)
+IOAccelSharedUserClientList::Iterator::getNextSharedUserClient()
+IOAccelSharedUserClientList::addSharedUserClient(IOAccelSharedUserClient2*)
+IOAccelSharedUserClientList::getCount() const
+IOAccelSharedUserClientList::getCountWithPID(int) const
+IOAccelSharedUserClientList::init()
+IOAccelSharedUserClientList::removeSharedUserClient(IOAccelSharedUserClient2*)
+IOAccelSharedUserClientList::removeSharedUserClient(IOAccelSharedUserClient2*)::_os_log_fmt
+IOAccelStatistics2::IOAccelStatistics2()
+IOAccelStatistics2::IOAccelStatistics2(OSMetaClass const*)
+IOAccelStatistics2::MetaClass::MetaClass()
+IOAccelStatistics2::MetaClass::alloc() const
+IOAccelStatistics2::MetaClass::~MetaClass()
+IOAccelStatistics2::_RESERVEDIOAccelStatistics0()
+IOAccelStatistics2::_RESERVEDIOAccelStatistics1()
+IOAccelStatistics2::_RESERVEDIOAccelStatistics2()
+IOAccelStatistics2::_RESERVEDIOAccelStatistics3()
+IOAccelStatistics2::_RESERVEDIOAccelStatistics4()
+IOAccelStatistics2::_RESERVEDIOAccelStatistics5()
+IOAccelStatistics2::addChannel(char const*, unsigned long long)
+IOAccelStatistics2::addNumber(OSDictionary*, unsigned int, char const*)
+IOAccelStatistics2::addNumber64(OSDictionary*, unsigned long long, char const*)
+IOAccelStatistics2::configureReport(IOReportChannelList*, unsigned int, void*, void*)
+IOAccelStatistics2::configure_report(IOReportChannelList*, unsigned int, void*, void*)
+IOAccelStatistics2::free()
+IOAccelStatistics2::gMetaClass
+IOAccelStatistics2::getMetaClass() const
+IOAccelStatistics2::init(IOGraphicsAccelerator2*)
+IOAccelStatistics2::metaClass
+IOAccelStatistics2::operator delete(void*, unsigned long)
+IOAccelStatistics2::operator new(unsigned long)
+IOAccelStatistics2::serialize_agc_info(void*, void*, OSSerialize*)
+IOAccelStatistics2::serialize_internal_stats(OSSerialize*, bool)
+IOAccelStatistics2::serialize_internal_stats_noreset(void*, void*, OSSerialize*)
+IOAccelStatistics2::serialize_internal_stats_reset(void*, void*, OSSerialize*)
+IOAccelStatistics2::serialize_performance_stats(OSSerialize*, bool)
+IOAccelStatistics2::serialize_performance_stats_noreset(void*, void*, OSSerialize*)
+IOAccelStatistics2::serialize_performance_stats_reset(void*, void*, OSSerialize*)
+IOAccelStatistics2::serialize_surface_list(void*, void*, OSSerialize*)
+IOAccelStatistics2::setChannelValue(unsigned long long, unsigned long long)
+IOAccelStatistics2::setupChannels()
+IOAccelStatistics2::setupIOReporters()
+IOAccelStatistics2::superClass
+IOAccelStatistics2::updateReport(IOReportChannelList*, unsigned int, void*, void*)
+IOAccelStatistics2::update_report(IOReportChannelList*, unsigned int, void*, void*)
+IOAccelStatistics2::writeInternalStats(OSDictionary*, bool)
+IOAccelStatistics2::writePerformanceStats(OSDictionary*, bool)
+IOAccelStatistics2::write_internal_stats_extra(OSDictionary*, bool)
+IOAccelStatistics2::write_surface_list(OSArray*)
+IOAccelStatistics2::~IOAccelStatistics2()
+IOAccelStatistics2_ktv
+IOAccelSubmitter2::IOAccelSubmitter2(OSMetaClass const*)
+IOAccelSubmitter2::MetaClass::MetaClass()
+IOAccelSubmitter2::MetaClass::alloc() const
+IOAccelSubmitter2::MetaClass::~MetaClass()
+IOAccelSubmitter2::_RESERVEDIOAccelSubmitter0()
+IOAccelSubmitter2::_RESERVEDIOAccelSubmitter1()
+IOAccelSubmitter2::_RESERVEDIOAccelSubmitter2()
+IOAccelSubmitter2::_RESERVEDIOAccelSubmitter3()
+IOAccelSubmitter2::_RESERVEDIOAccelSubmitter4()
+IOAccelSubmitter2::_RESERVEDIOAccelSubmitter5()
+IOAccelSubmitter2::gMetaClass
+IOAccelSubmitter2::getMetaClass() const
+IOAccelSubmitter2::isOpportunisticWorkload() const
+IOAccelSubmitter2::metaClass
+IOAccelSubmitter2::operator delete(void*, unsigned long)
+IOAccelSubmitter2::operator new(unsigned long)
+IOAccelSubmitter2::orphanClientMappings(OSSet*)
+IOAccelSubmitter2::retireCommandBuffer(IOAccelEventFence*)
+IOAccelSubmitter2::setProtectionOptions(unsigned long long)
+IOAccelSubmitter2::setSubmissionError(unsigned int)
+IOAccelSubmitter2::start(IOService*)
+IOAccelSubmitter2::stop(IOService*)
+IOAccelSubmitter2::superClass
+IOAccelSubmitter2::updateLastSubmissionTime()
+IOAccelSubmitter2::~IOAccelSubmitter2()
+IOAccelSubmitter2_ktv
+IOAccelSurface::IOAccelSurface(OSMetaClass const*)
+IOAccelSurface::MetaClass::MetaClass()
+IOAccelSurface::MetaClass::alloc() const
+IOAccelSurface::MetaClass::~MetaClass()
+IOAccelSurface::_RESERVEDIOAccelSurface0()
+IOAccelSurface::_RESERVEDIOAccelSurface1()
+IOAccelSurface::_RESERVEDIOAccelSurface2()
+IOAccelSurface::_RESERVEDIOAccelSurface3()
+IOAccelSurface::_RESERVEDIOAccelSurface4()
+IOAccelSurface::_RESERVEDIOAccelSurface5()
+IOAccelSurface::add_context_to_list(IOAccelContext2*)
+IOAccelSurface::add_orphaned_mappings(OSSet*)
+IOAccelSurface::add_texture(IOAccelResource2*)
+IOAccelSurface::alloc_surfaces_retry(unsigned int, eLockType)
+IOAccelSurface::alloc_surfaces_retry(unsigned int, eLockType)::_os_log_fmt
+IOAccelSurface::attach_buffer_at_index(int, IOAccelResource2*)
+IOAccelSurface::attach_buffer_at_index(int, IOAccelResource2*)::_os_log_fmt
+IOAccelSurface::audit_freed_resource(IOAccelResource2*)
+IOAccelSurface::audit_freed_resource(IOAccelResource2*) (.cold.1)
+IOAccelSurface::audit_freed_resource(IOAccelResource2*)::_os_log_fmt
+IOAccelSurface::clientClose()
+IOAccelSurface::clientClose()::_os_log_fmt
+IOAccelSurface::complete_buffers(unsigned int)
+IOAccelSurface::convertGLIndexToBufferIndex(eIOAccelGLBufferType) const
+IOAccelSurface::convertGLIndexToBufferIndex(eIOAccelGLBufferType) const::_os_log_fmt
+IOAccelSurface::copyFromBufferWithCPU(int, int, int, int, unsigned int, unsigned int, IOAccelResource2*, IOAccelSysMemory*, unsigned int, unsigned long long, unsigned int)
+IOAccelSurface::copyFromBufferWithCPU(int, int, int, int, unsigned int, unsigned int, IOAccelResource2*, IOAccelSysMemory*, unsigned int, unsigned long long, unsigned int)::_os_log_fmt
+IOAccelSurface::copyToBufferWithCPU(int, int, int, int, unsigned int, unsigned int, IOAccelResource2*, IOAccelSysMemory*, unsigned int, unsigned long long, unsigned int)
+IOAccelSurface::copyToBufferWithCPU(int, int, int, int, unsigned int, unsigned int, IOAccelResource2*, IOAccelSysMemory*, unsigned int, unsigned long long, unsigned int)::_os_log_fmt
+IOAccelSurface::describe_allocations(IOAccelAllocationInfo*)
+IOAccelSurface::detach_buffer_at_index(int)
+IOAccelSurface::detach_surface()
+IOAccelSurface::didTerminate(IOService*, unsigned int, bool*)
+IOAccelSurface::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelSurface::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)::_os_log_fmt
+IOAccelSurface::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)::newResourceDispatch
+IOAccelSurface::flip_buffers()
+IOAccelSurface::free()
+IOAccelSurface::gMetaClass
+IOAccelSurface::getFrontBufferResourceId() const
+IOAccelSurface::getMetaClass() const
+IOAccelSurface::getOwningTaskPid() const
+IOAccelSurface::getSurfaceBuffer(eIOAccelGLBufferType) const
+IOAccelSurface::getTargetAndMethodForIndex(IOService**, unsigned int)
+IOAccelSurface::get_drawable(IOAccelShared2*, unsigned int, int, int)
+IOAccelSurface::get_drawable(IOAccelShared2*, unsigned int, int, int)::_os_log_fmt
+IOAccelSurface::get_state(eIOAccelSurfaceStateBits*)
+IOAccelSurface::get_surfaceref_texture(IOAccelShared2*, unsigned int)
+IOAccelSurface::init(OSDictionary*, task*)
+IOAccelSurface::invalidate_contexts()
+IOAccelSurface::isSurfaceSizeSupported(short, short)
+IOAccelSurface::metaClass
+IOAccelSurface::operator delete(void*, unsigned long)
+IOAccelSurface::operator new(unsigned long)
+IOAccelSurface::orphanClientMappings(OSSet*)
+IOAccelSurface::pageoffInLinear()
+IOAccelSurface::prepare_buffers(unsigned int)
+IOAccelSurface::prepare_buffers(unsigned int)::_os_log_fmt
+IOAccelSurface::prune_buffers()
+IOAccelSurface::remove_context_from_list(IOAccelContext2*)
+IOAccelSurface::remove_texture(IOAccelResource2*)
+IOAccelSurface::remove_texture(IOAccelResource2*) (.cold.1)
+IOAccelSurface::remove_texture(IOAccelResource2*) (.cold.2)
+IOAccelSurface::requestTerminate(IOService*, unsigned int)
+IOAccelSurface::reset_access()
+IOAccelSurface::reset_access()::_os_log_fmt
+IOAccelSurface::reset_req_bits()
+IOAccelSurface::reset_req_bits()::_os_log_fmt
+IOAccelSurface::sSignalEventDispatch
+IOAccelSurface::sSurfaceMethods
+IOAccelSurface::s_set_shape(IOAccelSurface*, void*, IOExternalMethodArguments*)
+IOAccelSurface::s_signal_shared_event(IOAccelSurface*, void*, IOExternalMethodArguments*)
+IOAccelSurface::set_compatible_surface_mode(IOAccelContext2*, unsigned long long)
+IOAccelSurface::set_compatible_surface_mode(IOAccelContext2*, unsigned long long)::_os_log_fmt
+IOAccelSurface::set_id_mode(unsigned int, unsigned int)
+IOAccelSurface::set_id_mode(unsigned int, unsigned int)::_os_log_fmt
+IOAccelSurface::set_scale(unsigned int, IOAccelSurfaceScaling*, unsigned long long)
+IOAccelSurface::set_scaling(unsigned int, IOAccelSurfaceScaling*)
+IOAccelSurface::set_scaling(unsigned int, IOAccelSurfaceScaling*)::_os_log_fmt
+IOAccelSurface::set_shape(eIOAccelSurfaceShapeBits, unsigned int, IOAccelDeviceRegion*, unsigned long long)
+IOAccelSurface::set_shape_backing_length_ext(eIOAccelSurfaceShapeBits, unsigned int, unsigned long long, unsigned int, unsigned long long, IOAccelDeviceRegion*, unsigned long long)
+IOAccelSurface::set_shape_backing_length_ext(eIOAccelSurfaceShapeBits, unsigned int, unsigned long long, unsigned int, unsigned long long, IOAccelDeviceRegion*, unsigned long long)::_os_log_fmt
+IOAccelSurface::set_surface_blocking(unsigned int)
+IOAccelSurface::set_volatile_state(eSurfaceVolatileState)
+IOAccelSurface::signal_shared_event(unsigned long long, unsigned int, unsigned long long)
+IOAccelSurface::signal_shared_event(unsigned long long, unsigned int, unsigned long long)::_os_log_fmt
+IOAccelSurface::start(IOService*)
+IOAccelSurface::stop(IOService*)
+IOAccelSurface::stopLocked()
+IOAccelSurface::superClass
+IOAccelSurface::surfaceStart()
+IOAccelSurface::surfaceStart()::_os_log_fmt
+IOAccelSurface::surfaceStop()
+IOAccelSurface::surfaceStop() (.cold.1)
+IOAccelSurface::surfaceStop()::_os_log_fmt
+IOAccelSurface::surface_control(unsigned int, unsigned int, unsigned int*)
+IOAccelSurface::surface_control_with_lock(unsigned int, unsigned int, unsigned int*)
+IOAccelSurface::surface_control_with_lock(unsigned int, unsigned int, unsigned int*)::_os_log_fmt
+IOAccelSurface::surface_lock_options(eLockType, unsigned int, IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurface::surface_lock_options(eLockType, unsigned int, IOAccelSurfaceInformation*, unsigned long long) (.cold.1)
+IOAccelSurface::surface_lock_options(eLockType, unsigned int, IOAccelSurfaceInformation*, unsigned long long)::_os_log_fmt
+IOAccelSurface::surface_query_lock()
+IOAccelSurface::surface_read(IOAccelSurfaceReadData*, unsigned long long)
+IOAccelSurface::surface_read(IOAccelSurfaceReadData*, unsigned long long)::_os_log_fmt
+IOAccelSurface::surface_read_lock(IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurface::surface_read_lock_options(unsigned int, IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurface::surface_read_unlock()
+IOAccelSurface::surface_read_unlock_options(unsigned int)
+IOAccelSurface::surface_unlock_options(eLockType, unsigned int)
+IOAccelSurface::surface_unlock_options(eLockType, unsigned int)::_os_log_fmt
+IOAccelSurface::surface_write_lock(IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurface::surface_write_lock_options(unsigned int, IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurface::surface_write_unlock()
+IOAccelSurface::surface_write_unlock_options(unsigned int)
+IOAccelSurface::update_contexts()
+IOAccelSurface::update_displayable()
+IOAccelSurface::update_previous_swap()
+IOAccelSurface::update_shape()
+IOAccelSurface::update_swap_event(IOAccelEvent*)
+IOAccelSurface::~IOAccelSurface()
+IOAccelSurfaceList::Iterator::Iterator(IOAccelSurfaceList&)
+IOAccelSurfaceList::Iterator::getNextSurface()
+IOAccelSurfaceList::addSurface(IOAccelSurface*)
+IOAccelSurfaceList::findSurfaceForID(unsigned int)
+IOAccelSurfaceList::getCount() const
+IOAccelSurfaceList::init()
+IOAccelSurfaceList::moveSurfaceToHead(IOAccelSurface*)
+IOAccelSurfaceList::removeSurface(IOAccelSurface*)
+IOAccelSurfaceList::removeSurface(IOAccelSurface*)::_os_log_fmt
+IOAccelSurfaceMTL::IOAccelSurfaceMTL()
+IOAccelSurfaceMTL::IOAccelSurfaceMTL(OSMetaClass const*)
+IOAccelSurfaceMTL::MetaClass::MetaClass()
+IOAccelSurfaceMTL::MetaClass::alloc() const
+IOAccelSurfaceMTL::MetaClass::~MetaClass()
+IOAccelSurfaceMTL::_RESERVEDIOAccelSurfaceMTL0()
+IOAccelSurfaceMTL::_RESERVEDIOAccelSurfaceMTL1()
+IOAccelSurfaceMTL::_RESERVEDIOAccelSurfaceMTL2()
+IOAccelSurfaceMTL::_RESERVEDIOAccelSurfaceMTL3()
+IOAccelSurfaceMTL::_RESERVEDIOAccelSurfaceMTL4()
+IOAccelSurfaceMTL::_RESERVEDIOAccelSurfaceMTL5()
+IOAccelSurfaceMTL::add_drawable_to_list(IOAccelGLDrawableUserClient*)
+IOAccelSurfaceMTL::attach_surface_at_index(int, IOSurface*)
+IOAccelSurfaceMTL::clientClose()
+IOAccelSurfaceMTL::clientClose()::_os_log_fmt
+IOAccelSurfaceMTL::convertGLDrawableIndexToBufferIndex(eIOAccelGLDrawableClientBufferType)
+IOAccelSurfaceMTL::convertGLDrawableIndexToBufferIndex(eIOAccelGLDrawableClientBufferType)::_os_log_fmt
+IOAccelSurfaceMTL::detach_surface_at_index(int)
+IOAccelSurfaceMTL::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+IOAccelSurfaceMTL::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)::newResourceDispatch
+IOAccelSurfaceMTL::flip_buffers()
+IOAccelSurfaceMTL::free()
+IOAccelSurfaceMTL::gMetaClass
+IOAccelSurfaceMTL::getMetaClass() const
+IOAccelSurfaceMTL::getOwningTaskPid()
+IOAccelSurfaceMTL::getSurfaceBuffer(eIOAccelGLDrawableClientBufferType)
+IOAccelSurfaceMTL::getTargetAndMethodForIndex(IOService**, unsigned int)
+IOAccelSurfaceMTL::get_state(eIOAccelSurfaceStateBits*)
+IOAccelSurfaceMTL::init(OSDictionary*, task*)
+IOAccelSurfaceMTL::invalidate_drawables()
+IOAccelSurfaceMTL::isSurfaceSizeSupported(short, short)
+IOAccelSurfaceMTL::metaClass
+IOAccelSurfaceMTL::operator delete(void*, unsigned long)
+IOAccelSurfaceMTL::operator new(unsigned long)
+IOAccelSurfaceMTL::prune_buffers()
+IOAccelSurfaceMTL::remove_drawable_from_list(IOAccelGLDrawableUserClient*)
+IOAccelSurfaceMTL::reset_req_bits()
+IOAccelSurfaceMTL::reset_req_bits()::_os_log_fmt
+IOAccelSurfaceMTL::sSignalEventDispatch
+IOAccelSurfaceMTL::sSurfaceMethods
+IOAccelSurfaceMTL::s_set_shape(IOAccelSurfaceMTL*, void*, IOExternalMethodArguments*)
+IOAccelSurfaceMTL::s_signal_shared_event(IOAccelSurfaceMTL*, void*, IOExternalMethodArguments*)
+IOAccelSurfaceMTL::set_compatible_surface_mode(IOAccelGLDrawableUserClient*, unsigned long long)
+IOAccelSurfaceMTL::set_compatible_surface_mode(IOAccelGLDrawableUserClient*, unsigned long long)::_os_log_fmt
+IOAccelSurfaceMTL::set_id_mode(unsigned int, unsigned int)
+IOAccelSurfaceMTL::set_id_mode(unsigned int, unsigned int)::_os_log_fmt
+IOAccelSurfaceMTL::set_scale(unsigned int, IOAccelSurfaceScaling*, unsigned long long)
+IOAccelSurfaceMTL::set_scaling(unsigned int, IOAccelSurfaceScaling*)
+IOAccelSurfaceMTL::set_scaling(unsigned int, IOAccelSurfaceScaling*)::_os_log_fmt
+IOAccelSurfaceMTL::set_shape(eIOAccelSurfaceShapeBits, unsigned int, IOAccelDeviceRegion*, unsigned long long)
+IOAccelSurfaceMTL::set_shape_backing_length_ext(eIOAccelSurfaceShapeBits, unsigned int, unsigned long long, unsigned int, unsigned long long, IOAccelDeviceRegion*, unsigned long long)
+IOAccelSurfaceMTL::set_shape_backing_length_ext(eIOAccelSurfaceShapeBits, unsigned int, unsigned long long, unsigned int, unsigned long long, IOAccelDeviceRegion*, unsigned long long)::_os_log_fmt
+IOAccelSurfaceMTL::set_surface_blocking(unsigned int)
+IOAccelSurfaceMTL::shapeSurface(unsigned int, unsigned short, unsigned short)
+IOAccelSurfaceMTL::shape_buffers(unsigned int, unsigned int, unsigned short, unsigned short, bool)
+IOAccelSurfaceMTL::signal_shared_event(task*, unsigned long long, unsigned int, unsigned long long)
+IOAccelSurfaceMTL::signal_shared_event(task*, unsigned long long, unsigned int, unsigned long long)::_os_log_fmt
+IOAccelSurfaceMTL::start(IOService*)
+IOAccelSurfaceMTL::stop(IOService*)
+IOAccelSurfaceMTL::stopLocked()
+IOAccelSurfaceMTL::superClass
+IOAccelSurfaceMTL::surfaceStart()
+IOAccelSurfaceMTL::surfaceStop()
+IOAccelSurfaceMTL::surfaceStop()::_os_log_fmt
+IOAccelSurfaceMTL::surface_control(unsigned int, unsigned int, unsigned int*)
+IOAccelSurfaceMTL::surface_control_with_lock(unsigned int, unsigned int, unsigned int*)
+IOAccelSurfaceMTL::surface_flush(unsigned int, unsigned int)
+IOAccelSurfaceMTL::surface_lock_options(eLockType, unsigned int, IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurfaceMTL::surface_query_lock()
+IOAccelSurfaceMTL::surface_read(IOAccelSurfaceReadData*, unsigned long long)
+IOAccelSurfaceMTL::surface_read_lock(IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurfaceMTL::surface_read_lock_options(unsigned int, IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurfaceMTL::surface_read_unlock()
+IOAccelSurfaceMTL::surface_read_unlock_options(unsigned int)
+IOAccelSurfaceMTL::surface_unlock_options(eLockType, unsigned int)
+IOAccelSurfaceMTL::surface_write_lock(IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurfaceMTL::surface_write_lock_options(unsigned int, IOAccelSurfaceInformation*, unsigned long long)
+IOAccelSurfaceMTL::surface_write_unlock()
+IOAccelSurfaceMTL::surface_write_unlock_options(unsigned int)
+IOAccelSurfaceMTL::update_shape()
+IOAccelSurfaceMTL::~IOAccelSurfaceMTL()
+IOAccelSurfaceMTLList::Iterator::Iterator(IOAccelSurfaceMTLList&)
+IOAccelSurfaceMTLList::Iterator::getNextSurface()
+IOAccelSurfaceMTLList::addSurface(IOAccelSurfaceMTL*)
+IOAccelSurfaceMTLList::findSurfaceForID(unsigned int)
+IOAccelSurfaceMTLList::getCount() const
+IOAccelSurfaceMTLList::init()
+IOAccelSurfaceMTLList::moveSurfaceToHead(IOAccelSurfaceMTL*)
+IOAccelSurfaceMTLList::removeSurface(IOAccelSurfaceMTL*)
+IOAccelSurfaceMTLList::removeSurface(IOAccelSurfaceMTL*)::_os_log_fmt
+IOAccelSurfaceMTL_ktv
+IOAccelSurface_ktv
+IOAccelSysMemory::IOAccelSysMemory(OSMetaClass const*)
+IOAccelSysMemory::MetaClass::MetaClass()
+IOAccelSysMemory::MetaClass::alloc() const
+IOAccelSysMemory::MetaClass::~MetaClass()
+IOAccelSysMemory::_RESERVEDIOAccelSysMemory0()
+IOAccelSysMemory::_RESERVEDIOAccelSysMemory1()
+IOAccelSysMemory::_RESERVEDIOAccelSysMemory2()
+IOAccelSysMemory::_RESERVEDIOAccelSysMemory3()
+IOAccelSysMemory::_RESERVEDIOAccelSysMemory4()
+IOAccelSysMemory::_RESERVEDIOAccelSysMemory5()
+IOAccelSysMemory::client_address_persistent()
+IOAccelSysMemory::complete()
+IOAccelSysMemory::decrement_wire_count()
+IOAccelSysMemory::flushProcessorCacheForIn()
+IOAccelSysMemory::flushProcessorCacheForOut()
+IOAccelSysMemory::free()
+IOAccelSysMemory::free()::_os_log_fmt
+IOAccelSysMemory::free()::kalloc_type_view_97
+IOAccelSysMemory::gMetaClass
+IOAccelSysMemory::getDirtySize() const
+IOAccelSysMemory::getMetaClass() const
+IOAccelSysMemory::getPageCounts(unsigned long long*, unsigned long long*)
+IOAccelSysMemory::getPhysicalSegment(unsigned long long, unsigned long long*)
+IOAccelSysMemory::getPhysicalSegment(unsigned long long, unsigned long long*)::_os_log_fmt
+IOAccelSysMemory::getResidentSize() const
+IOAccelSysMemory::getTag()
+IOAccelSysMemory::increment_wire_count()
+IOAccelSysMemory::init(IOGraphicsAccelerator2*)
+IOAccelSysMemory::lockForCPUAccess(task*, unsigned int)
+IOAccelSysMemory::lockForCPUAccess(task*, unsigned int)::_os_log_fmt
+IOAccelSysMemory::matchForReuse(void*, unsigned long long)
+IOAccelSysMemory::metaClass
+IOAccelSysMemory::operator delete(void*, unsigned long)
+IOAccelSysMemory::operator new(unsigned long)
+IOAccelSysMemory::orphanIt()
+IOAccelSysMemory::setPurgeable(unsigned int, unsigned int*)
+IOAccelSysMemory::setTag(unsigned int)
+IOAccelSysMemory::superClass
+IOAccelSysMemory::unlockForCPUAccess(task*)
+IOAccelSysMemory::unlockForCPUAccess(task*)::_os_log_fmt
+IOAccelSysMemory::unorphanIt(IOAccelShared2*)
+IOAccelSysMemory::unwire()
+IOAccelSysMemory::unwire()::_os_log_fmt
+IOAccelSysMemory::wire()
+IOAccelSysMemory::wire()::_os_log_fmt
+IOAccelSysMemory::withClientBuffer(IOGraphicsAccelerator2*, task*, IOAccelShared2*, unsigned long long, unsigned long long)
+IOAccelSysMemory::withClientBuffer(IOGraphicsAccelerator2*, task*, IOAccelShared2*, unsigned long long, unsigned long long)::_os_log_fmt
+IOAccelSysMemory::withMemoryDescriptor(IOGraphicsAccelerator2*, IOAccelResource2*, IOMemoryDescriptor*)
+IOAccelSysMemory::withMemoryDescriptor(IOGraphicsAccelerator2*, IOAccelResource2*, IOMemoryDescriptor*)::_os_log_fmt
+IOAccelSysMemory::withOptions(IOGraphicsAccelerator2*, task*, IOAccelShared2*, IOAccelResource2*, unsigned int, unsigned long long)
+IOAccelSysMemory::withOptions(IOGraphicsAccelerator2*, task*, IOAccelShared2*, IOAccelResource2*, unsigned int, unsigned long long, bool)
+IOAccelSysMemory::withOptions(IOGraphicsAccelerator2*, task*, IOAccelShared2*, IOAccelResource2*, unsigned int, unsigned long long, bool)::_os_log_fmt
+IOAccelSysMemory::withOptions(IOGraphicsAccelerator2*, task*, IOAccelShared2*, IOAccelResource2*, unsigned int, unsigned long long, bool)::kalloc_type_view_389
+IOAccelSysMemory::withOptions(IOGraphicsAccelerator2*, task*, IOAccelShared2*, IOAccelResource2*, unsigned int, unsigned long long, bool)::kalloc_type_view_408
+IOAccelSysMemory::withOptions(IOGraphicsAccelerator2*, task*, IOAccelShared2*, IOAccelResource2*, unsigned int, unsigned long long, bool)::kalloc_type_view_432
+IOAccelSysMemory::~IOAccelSysMemory()
+IOAccelSysMemoryList::Iterator::Iterator(IOAccelSysMemoryList&)
+IOAccelSysMemoryList::Iterator::getNextMemory()
+IOAccelSysMemoryList::OrderedReverseIterator::OrderedReverseIterator(IOAccelSysMemoryList&)
+IOAccelSysMemoryList::OrderedReverseIterator::getPrevMemory()
+IOAccelSysMemoryList::ReverseIterator::ReverseIterator(IOAccelSysMemoryList&)
+IOAccelSysMemoryList::ReverseIterator::getPrevMemory()
+IOAccelSysMemoryList::addMemory(IOAccelSysMemory*)
+IOAccelSysMemoryList::getCount() const
+IOAccelSysMemoryList::init()
+IOAccelSysMemoryList::moveMemoryToHead(IOAccelSysMemory*)
+IOAccelSysMemoryList::moveMemoryToTail(IOAccelSysMemory*)
+IOAccelSysMemoryList::removeMemory(IOAccelSysMemory*)
+IOAccelSysMemoryList::removeMemory(IOAccelSysMemory*)::_os_log_fmt
+IOAccelSysMemoryList::sort()
+IOAccelSysMemoryList::sort()::kalloc_type_view_1122
+IOAccelSysMemoryList::sort()::kalloc_type_view_1158
+IOAccelSysMemory_ktv
+IOAccelTask::IOAccelTask()
+IOAccelTask::IOAccelTask(OSMetaClass const*)
+IOAccelTask::MetaClass::MetaClass()
+IOAccelTask::MetaClass::alloc() const
+IOAccelTask::MetaClass::~MetaClass()
+IOAccelTask::_RESERVEDIOAccelTask0()
+IOAccelTask::_RESERVEDIOAccelTask1()
+IOAccelTask::_RESERVEDIOAccelTask2()
+IOAccelTask::_RESERVEDIOAccelTask3()
+IOAccelTask::_RESERVEDIOAccelTask4()
+IOAccelTask::_RESERVEDIOAccelTask5()
+IOAccelTask::allocate(IOAccelMemoryMap const*)
+IOAccelTask::deallocate(IOAccelMemoryMap const*, unsigned long long)
+IOAccelTask::describeDriverAllocations(IOAccelAllocationInfo*)
+IOAccelTask::free()
+IOAccelTask::free()::_os_log_fmt
+IOAccelTask::freeAllDynamicGPUVirtualAddress()
+IOAccelTask::freeAllGPUMappings()
+IOAccelTask::freeAllSysMemoryMappings()
+IOAccelTask::freeAllVidMemoryMappings()
+IOAccelTask::freeToAllocGPUAddress(IOAccelMemoryMap*)
+IOAccelTask::freeToAllocGPUAddress(IOAccelMemoryMap*)::_os_log_fmt
+IOAccelTask::freeWaitToAllocGPUAddress(IOAccelMemoryMap*, bool)
+IOAccelTask::free_orphaned_mappings()
+IOAccelTask::gMetaClass
+IOAccelTask::getMetaClass() const
+IOAccelTask::getProcessIDAndName(char*, int) const
+IOAccelTask::init(IOGraphicsAccelerator2*, unsigned int, IORangeAllocator**)
+IOAccelTask::metaClass
+IOAccelTask::operator delete(void*, unsigned long)
+IOAccelTask::operator new(unsigned long)
+IOAccelTask::printAllMappings()
+IOAccelTask::prune_orphaned_mappings()
+IOAccelTask::release() const
+IOAccelTask::reserve(unsigned int, unsigned long long, unsigned long long)
+IOAccelTask::searchMapForGPUVirtualAddress(unsigned long long, IOAccelMemoryMap**)
+IOAccelTask::superClass
+IOAccelTask::~IOAccelTask()
+IOAccelTaskList::Iterator::Iterator(IOAccelTaskList&)
+IOAccelTaskList::Iterator::getNextTask()
+IOAccelTaskList::addTask(IOAccelTask*)
+IOAccelTaskList::getCount() const
+IOAccelTaskList::init()
+IOAccelTaskList::removeTask(IOAccelTask*)
+IOAccelTaskList::removeTask(IOAccelTask*)::_os_log_fmt
+IOAccelTask_ktv
+IOAccelTraceStream2::IOAccelTraceStream2(OSMetaClass const*)
+IOAccelTraceStream2::MetaClass::MetaClass()
+IOAccelTraceStream2::MetaClass::alloc() const
+IOAccelTraceStream2::MetaClass::~MetaClass()
+IOAccelTraceStream2::_RESERVEDIOAccelTraceStream0()
+IOAccelTraceStream2::_RESERVEDIOAccelTraceStream1()
+IOAccelTraceStream2::_RESERVEDIOAccelTraceStream2()
+IOAccelTraceStream2::_RESERVEDIOAccelTraceStream3()
+IOAccelTraceStream2::_RESERVEDIOAccelTraceStream4()
+IOAccelTraceStream2::_RESERVEDIOAccelTraceStream5()
+IOAccelTraceStream2::_RESERVEDIOAccelTraceStream6()
+IOAccelTraceStream2::_RESERVEDIOAccelTraceStream7()
+IOAccelTraceStream2::enter(unsigned int, unsigned long long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long)
+IOAccelTraceStream2::free()
+IOAccelTraceStream2::gMetaClass
+IOAccelTraceStream2::getMetaClass() const
+IOAccelTraceStream2::init()
+IOAccelTraceStream2::metaClass
+IOAccelTraceStream2::operator delete(void*, unsigned long)
+IOAccelTraceStream2::operator new(unsigned long)
+IOAccelTraceStream2::registerCallback()
+IOAccelTraceStream2::superClass
+IOAccelTraceStream2::~IOAccelTraceStream2()
+IOAccelTraceStream2_ktv
+IOAccelTraceStreamConnection::IOAccelTraceStreamConnection()
+IOAccelTraceStreamConnection::IOAccelTraceStreamConnection(OSMetaClass const*)
+IOAccelTraceStreamConnection::MetaClass::MetaClass()
+IOAccelTraceStreamConnection::MetaClass::alloc() const
+IOAccelTraceStreamConnection::MetaClass::~MetaClass()
+IOAccelTraceStreamConnection::flush()
+IOAccelTraceStreamConnection::free()
+IOAccelTraceStreamConnection::gMetaClass
+IOAccelTraceStreamConnection::getMetaClass() const
+IOAccelTraceStreamConnection::initWithName(char const*)
+IOAccelTraceStreamConnection::metaClass
+IOAccelTraceStreamConnection::operator delete(void*, unsigned long)
+IOAccelTraceStreamConnection::operator new(unsigned long)
+IOAccelTraceStreamConnection::orphan()
+IOAccelTraceStreamConnection::registerCallback()
+IOAccelTraceStreamConnection::superClass
+IOAccelTraceStreamConnection::withName(char const*)
+IOAccelTraceStreamConnection::withName(char const*) (.cold.1)
+IOAccelTraceStreamConnection::withName(char const*) (.cold.2)
+IOAccelTraceStreamConnection::~IOAccelTraceStreamConnection()
+IOAccelTraceStreamConnection_ktv
+IOAccelVidMemory::IOAccelVidMemory(OSMetaClass const*)
+IOAccelVidMemory::MetaClass::MetaClass()
+IOAccelVidMemory::MetaClass::alloc() const
+IOAccelVidMemory::MetaClass::~MetaClass()
+IOAccelVidMemory::_RESERVEDIOAccelVidMemory0()
+IOAccelVidMemory::_RESERVEDIOAccelVidMemory1()
+IOAccelVidMemory::_RESERVEDIOAccelVidMemory2()
+IOAccelVidMemory::_RESERVEDIOAccelVidMemory3()
+IOAccelVidMemory::_RESERVEDIOAccelVidMemory4()
+IOAccelVidMemory::_RESERVEDIOAccelVidMemory5()
+IOAccelVidMemory::canDoAsyncPageTableUpdate() const
+IOAccelVidMemory::complete()
+IOAccelVidMemory::decrement_wire_count()
+IOAccelVidMemory::free()
+IOAccelVidMemory::gMetaClass
+IOAccelVidMemory::getDirtySize() const
+IOAccelVidMemory::getMetaClass() const
+IOAccelVidMemory::getPhysicalSegment(unsigned long long, unsigned long long*)
+IOAccelVidMemory::getResidentSize() const
+IOAccelVidMemory::getTag()
+IOAccelVidMemory::increment_wire_count()
+IOAccelVidMemory::init(IOGraphicsAccelerator2*, IOAccelShared2*, IOAccelResource2*, unsigned long long, void*)
+IOAccelVidMemory::matchForReuse(void*, unsigned long long)
+IOAccelVidMemory::metaClass
+IOAccelVidMemory::operator delete(void*, unsigned long)
+IOAccelVidMemory::operator new(unsigned long)
+IOAccelVidMemory::orphanIt()
+IOAccelVidMemory::prepare()
+IOAccelVidMemory::requirePageoff()
+IOAccelVidMemory::setPurgeable(unsigned int, unsigned int*)
+IOAccelVidMemory::setPurgeable(unsigned int, unsigned int*)::_os_log_fmt
+IOAccelVidMemory::setTag(unsigned int)
+IOAccelVidMemory::superClass
+IOAccelVidMemory::unorphanIt(IOAccelShared2*)
+IOAccelVidMemory::unwire()
+IOAccelVidMemory::wire()
+IOAccelVidMemory::withPhysicalAddress(IOGraphicsAccelerator2*, unsigned long long, unsigned long long)
+IOAccelVidMemory::~IOAccelVidMemory()
+IOAccelVidMemoryList::Iterator::Iterator(IOAccelVidMemoryList&)
+IOAccelVidMemoryList::Iterator::getNextMemory()
+IOAccelVidMemoryList::Iterator::~Iterator()
+IOAccelVidMemoryList::ReverseIterator::ReverseIterator(IOAccelVidMemoryList&)
+IOAccelVidMemoryList::ReverseIterator::getPrevMemory()
+IOAccelVidMemoryList::ReverseIterator::~ReverseIterator()
+IOAccelVidMemoryList::addMemory(IOAccelVidMemory*)
+IOAccelVidMemoryList::getCount() const
+IOAccelVidMemoryList::init()
+IOAccelVidMemoryList::moveMemoryToHead(IOAccelVidMemory*)
+IOAccelVidMemoryList::moveMemoryToTail(IOAccelVidMemory*)
+IOAccelVidMemoryList::removeMemory(IOAccelVidMemory*)
+IOAccelVidMemoryList::removeMemory(IOAccelVidMemory*)::_os_log_fmt
+IOAccelVidMemory_ktv
+IOAccelVideoContext2::IOAccelVideoContext2(OSMetaClass const*)
+IOAccelVideoContext2::MetaClass::MetaClass()
+IOAccelVideoContext2::MetaClass::alloc() const
+IOAccelVideoContext2::MetaClass::~MetaClass()
+IOAccelVideoContext2::_RESERVEDIOAccelVideoContext0()
+IOAccelVideoContext2::_RESERVEDIOAccelVideoContext1()
+IOAccelVideoContext2::_RESERVEDIOAccelVideoContext2()
+IOAccelVideoContext2::_RESERVEDIOAccelVideoContext3()
+IOAccelVideoContext2::_RESERVEDIOAccelVideoContext4()
+IOAccelVideoContext2::_RESERVEDIOAccelVideoContext5()
+IOAccelVideoContext2::contextStart()
+IOAccelVideoContext2::contextStop()
+IOAccelVideoContext2::discardSidebandToken(IOAccelCommandStreamInfo&)
+IOAccelVideoContext2::gMetaClass
+IOAccelVideoContext2::getMetaClass() const
+IOAccelVideoContext2::metaClass
+IOAccelVideoContext2::operator delete(void*, unsigned long)
+IOAccelVideoContext2::operator new(unsigned long)
+IOAccelVideoContext2::processDataBuffers(unsigned int)
+IOAccelVideoContext2::processDataBuffers(unsigned int)::_os_log_fmt
+IOAccelVideoContext2::processSidebandToken(IOAccelCommandStreamInfo&)
+IOAccelVideoContext2::superClass
+IOAccelVideoContext2::~IOAccelVideoContext2()
+IOAccelVideoContext2_ktv
+IOAcceleratorKDCallback(void*, kd_callback_type, void*)
+IOAcceleratorKDCallback(void*, kd_callback_type, void*)::flushedSinceEnable
+IOGraphicsAccelerator2::IOGraphicsAccelerator2(OSMetaClass const*)
+IOGraphicsAccelerator2::MetaClass::MetaClass()
+IOGraphicsAccelerator2::MetaClass::alloc() const
+IOGraphicsAccelerator2::MetaClass::~MetaClass()
+IOGraphicsAccelerator2::_RESERVEDIOGraphicsAccelerator3()
+IOGraphicsAccelerator2::_RESERVEDIOGraphicsAccelerator4()
+IOGraphicsAccelerator2::_RESERVEDIOGraphicsAccelerator5()
+IOGraphicsAccelerator2::accel_transaction_finished(DisplayTransactionListHead*)
+IOGraphicsAccelerator2::accel_transaction_finished(DisplayTransactionListHead*) (.cold.1)
+IOGraphicsAccelerator2::accel_transaction_finished(DisplayTransactionListHead*) (.cold.2)
+IOGraphicsAccelerator2::acceleratorDidLock(char const*, int)
+IOGraphicsAccelerator2::acceleratorFinalize()
+IOGraphicsAccelerator2::acceleratorLock()
+IOGraphicsAccelerator2::acceleratorUnlock()
+IOGraphicsAccelerator2::acceleratorWaitEnabled()
+IOGraphicsAccelerator2::acceleratorWillUnlock(char const*, int)
+IOGraphicsAccelerator2::appendLog(unsigned char)
+IOGraphicsAccelerator2::audit_freed_resource(IOAccelResource2*)
+IOGraphicsAccelerator2::calcMaxGPUPhysicalMemoryBytes(unsigned long long)
+IOGraphicsAccelerator2::collectBlockFences()
+IOGraphicsAccelerator2::collectBlockFences() (.cold.1)
+IOGraphicsAccelerator2::collectBlockFences() (.cold.2)
+IOGraphicsAccelerator2::collectGartWirings()
+IOGraphicsAccelerator2::configIsHeadless()
+IOGraphicsAccelerator2::configureReport(IOReportChannelList*, unsigned int, void*, void*)
+IOGraphicsAccelerator2::createAllocationList()
+IOGraphicsAccelerator2::createAllocationList()::_os_log_fmt
+IOGraphicsAccelerator2::createAllocationListTotals(OSDictionary*, IOAccelMemoryInfoAllocTotals*)
+IOGraphicsAccelerator2::createBufferMemoryDescriptorInTaskWithOptions(task*, unsigned int, unsigned long, unsigned long)
+IOGraphicsAccelerator2::createBufferMemoryDescriptorWithOptions(unsigned int, unsigned long, unsigned long)
+IOGraphicsAccelerator2::createCommandDescriptor()
+IOGraphicsAccelerator2::createDMACommandPool()
+IOGraphicsAccelerator2::createDMACommandPool() (.cold.1)
+IOGraphicsAccelerator2::createDMACommandPool() (.cold.2)
+IOGraphicsAccelerator2::createDMACommandPool()::_os_log_fmt
+IOGraphicsAccelerator2::createDisplayPipe(IOFramebuffer*, unsigned int)
+IOGraphicsAccelerator2::createDrawable(IOAccelSurface*, IOAccelShared2*, bool)
+IOGraphicsAccelerator2::createEventMachine()
+IOGraphicsAccelerator2::createGlobalCommPageClientMapping(task*)
+IOGraphicsAccelerator2::createIODMACommand()
+IOGraphicsAccelerator2::createMemoryDescriptorWithAddressRange(unsigned long long, unsigned long long, unsigned int, task*)
+IOGraphicsAccelerator2::createMemoryDescriptorWithPersistentMemoryDescriptor(IOMemoryDescriptor*)
+IOGraphicsAccelerator2::createMemoryMap(IOAccelTask*, IOAccelMemory*, unsigned int)
+IOGraphicsAccelerator2::createRemoteMemory(IOAccelShared2*, unsigned long long, unsigned int, unsigned int)
+IOGraphicsAccelerator2::createResource(IOAccelShared2*, unsigned int)
+IOGraphicsAccelerator2::createShared(task*)
+IOGraphicsAccelerator2::createSysMemory()
+IOGraphicsAccelerator2::createVidMemory(IOAccelShared2*, IOAccelResource2*, unsigned long long, void*)
+IOGraphicsAccelerator2::decrement_busy_count()
+IOGraphicsAccelerator2::deleteClientSharedRO(IOAccelClientSharedRO*)
+IOGraphicsAccelerator2::deleteClientSharedRW(IOAccelClientSharedRW*)
+IOGraphicsAccelerator2::deleteCommandDescriptor(IOAccelCommandDescriptor*)
+IOGraphicsAccelerator2::describeDriverAllocations(IOAccelAllocationInfo*)
+IOGraphicsAccelerator2::deviceCacheControl(IOSurfaceDeviceCache*, unsigned int, unsigned long long, unsigned long long)
+IOGraphicsAccelerator2::deviceCacheControl(IOSurfaceDeviceCache*, unsigned int, unsigned long long, unsigned long long)::_os_log_fmt
+IOGraphicsAccelerator2::deviceCacheForIOSurface(IOSurface*, unsigned int)
+IOGraphicsAccelerator2::deviceCacheForIOSurface(IOSurface*, unsigned int)::_os_log_fmt
+IOGraphicsAccelerator2::deviceTerminatedUnlocked()
+IOGraphicsAccelerator2::didTerminate(IOService*, unsigned int, bool*)
+IOGraphicsAccelerator2::disableAccelerator()
+IOGraphicsAccelerator2::disable_gart_collector()
+IOGraphicsAccelerator2::display_pipe_terminated()
+IOGraphicsAccelerator2::display_post_transaction_interrupt()
+IOGraphicsAccelerator2::emitFirstFlushEvents()
+IOGraphicsAccelerator2::enableAccelerator()
+IOGraphicsAccelerator2::enable_gart_collector()
+IOGraphicsAccelerator2::fence_collector(IOInterruptEventSource*, int)
+IOGraphicsAccelerator2::finalize(unsigned int)
+IOGraphicsAccelerator2::finalize_if_possible()
+IOGraphicsAccelerator2::finalize_interrupt(IOInterruptEventSource*, int)
+IOGraphicsAccelerator2::find_vram_descriptor()
+IOGraphicsAccelerator2::free()
+IOGraphicsAccelerator2::freeAllDynamicGPUVirtualAddress()
+IOGraphicsAccelerator2::freeAllGPUMappings()
+IOGraphicsAccelerator2::freeAllSysMemoryMappings()
+IOGraphicsAccelerator2::freeAllVidMemoryMappings()
+IOGraphicsAccelerator2::freeToMapKernelMemory(IOAccelKernelMappedMemory*)
+IOGraphicsAccelerator2::freeToPrepareMapping(IOAccelMemoryMap*)
+IOGraphicsAccelerator2::freeToPrepareMapping(IOAccelMemoryMap*)::_os_log_fmt
+IOGraphicsAccelerator2::freeToPrepareMemory(IOAccelMemory*)
+IOGraphicsAccelerator2::freeToPrepareMemory(IOAccelMemory*)::_os_log_fmt
+IOGraphicsAccelerator2::freeWaitToPrepareSysMap(IOAccelMemoryMap*, bool)
+IOGraphicsAccelerator2::freeWaitToPrepareSysMemory(IOAccelSysMemory*, bool)
+IOGraphicsAccelerator2::freeWaitToPrepareVidMap(IOAccelMemoryMap*, bool, bool)
+IOGraphicsAccelerator2::freeWaitToPrepareVidMemory(IOAccelVidMemory*, bool, bool)
+IOGraphicsAccelerator2::free_orphaned_gputasks()
+IOGraphicsAccelerator2::gMetaClass
+IOGraphicsAccelerator2::garbage_collector(IOInterruptEventSource*, int)
+IOGraphicsAccelerator2::garbage_collector_timer(IOTimerEventSource*)
+IOGraphicsAccelerator2::gart_collector(IOInterruptEventSource*, int)
+IOGraphicsAccelerator2::gart_collector_timer(IOTimerEventSource*)
+IOGraphicsAccelerator2::getCommPageTraceEnable() const
+IOGraphicsAccelerator2::getDMACommand()
+IOGraphicsAccelerator2::getDMACommand() (.cold.1)
+IOGraphicsAccelerator2::getDataBufferKernelAddress(IOAccelResource2*)
+IOGraphicsAccelerator2::getHardwareWorkLoop() const
+IOGraphicsAccelerator2::getMaxResourceSize()
+IOGraphicsAccelerator2::getMaxSingleSysMemorySize()
+IOGraphicsAccelerator2::getMaxWiredSysMemorySize()
+IOGraphicsAccelerator2::getMetaClass() const
+IOGraphicsAccelerator2::getModelName() const
+IOGraphicsAccelerator2::getWorkLoop() const
+IOGraphicsAccelerator2::increment_busy_count()
+IOGraphicsAccelerator2::initGlobalCommPage()
+IOGraphicsAccelerator2::initLog(char const*)
+IOGraphicsAccelerator2::initializeConfigStructure()
+IOGraphicsAccelerator2::insert_kernel_mapped_memory(IOAccelKernelMappedMemory*)
+IOGraphicsAccelerator2::isIdle()
+IOGraphicsAccelerator2::isLockedByCurrentThread() const
+IOGraphicsAccelerator2::kickDisplayPostTransaction()
+IOGraphicsAccelerator2::kickFenceCollector()
+IOGraphicsAccelerator2::kickMemoryPoolTimer()
+IOGraphicsAccelerator2::kickNonReusableOrphanedMemoryPoolCollector(bool)
+IOGraphicsAccelerator2::kickOrphanResourceTimer()
+IOGraphicsAccelerator2::kickReusableOrphanedMemoryPoolCollector()
+IOGraphicsAccelerator2::ktraceStateChanged()
+IOGraphicsAccelerator2::lockPeerAccelerator(IOGraphicsAccelerator2*)
+IOGraphicsAccelerator2::lock_busy()
+IOGraphicsAccelerator2::logAllSysMemory()
+IOGraphicsAccelerator2::logAllVidMemory()
+IOGraphicsAccelerator2::memory_pool_interrupt(IOInterruptEventSource*, int)
+IOGraphicsAccelerator2::memory_pool_timer(IOTimerEventSource*)
+IOGraphicsAccelerator2::message(unsigned int, IOService*, void*)
+IOGraphicsAccelerator2::metaClass
+IOGraphicsAccelerator2::newBlockFence()
+IOGraphicsAccelerator2::newClientSharedRO()
+IOGraphicsAccelerator2::newClientSharedRW()
+IOGraphicsAccelerator2::newCommandDescriptor()
+IOGraphicsAccelerator2::newCommandQueue()
+IOGraphicsAccelerator2::newContext(unsigned int)
+IOGraphicsAccelerator2::newContext(unsigned int)::_os_log_fmt
+IOGraphicsAccelerator2::newContextEventFence()
+IOGraphicsAccelerator2::newDevice()
+IOGraphicsAccelerator2::newDisplayPipe()
+IOGraphicsAccelerator2::newDrawable()
+IOGraphicsAccelerator2::newGLDrawableClient()
+IOGraphicsAccelerator2::newRemoteMemory()
+IOGraphicsAccelerator2::newShared()
+IOGraphicsAccelerator2::newSharedUserClient()
+IOGraphicsAccelerator2::newStatistics()
+IOGraphicsAccelerator2::newSurfaceMTL()
+IOGraphicsAccelerator2::newUserClient(task*, void*, unsigned int, IOUserClient**)
+IOGraphicsAccelerator2::newUserClient(task*, void*, unsigned int, IOUserClient**) (.cold.1)
+IOGraphicsAccelerator2::newUserClient(task*, void*, unsigned int, IOUserClient**) (.cold.2)
+IOGraphicsAccelerator2::newUserClient(task*, void*, unsigned int, IOUserClient**) (.cold.3)
+IOGraphicsAccelerator2::newUserClient(task*, void*, unsigned int, IOUserClient**) (.cold.4)
+IOGraphicsAccelerator2::newUserClient(task*, void*, unsigned int, IOUserClient**) (.cold.5)
+IOGraphicsAccelerator2::newUserClient(task*, void*, unsigned int, IOUserClient**) (.cold.6)
+IOGraphicsAccelerator2::newUserClient(task*, void*, unsigned int, IOUserClient**)::_os_log_fmt
+IOGraphicsAccelerator2::nonreusable_orphaned_memory_pool_collector(IOInterruptEventSource*, int)
+IOGraphicsAccelerator2::nonreusable_orphaned_memory_pool_timer(IOTimerEventSource*)
+IOGraphicsAccelerator2::oneTimeSetup()
+IOGraphicsAccelerator2::oneTimeSetup()::_os_log_fmt
+IOGraphicsAccelerator2::operator delete(void*, unsigned long)
+IOGraphicsAccelerator2::operator new(unsigned long)
+IOGraphicsAccelerator2::pageoffSurfaceInLinear()
+IOGraphicsAccelerator2::purgeAllSysMemory()
+IOGraphicsAccelerator2::purgeAllVidMemory()
+IOGraphicsAccelerator2::releaseDMACommandPool()
+IOGraphicsAccelerator2::releaseDMACommandPool() (.cold.1)
+IOGraphicsAccelerator2::releaseDataBufferKernelAddress(IOAccelResource2*)
+IOGraphicsAccelerator2::remove_kernel_mapped_memory(IOAccelKernelMappedMemory*)
+IOGraphicsAccelerator2::remove_kernel_mapped_memory(IOAccelKernelMappedMemory*) (.cold.1)
+IOGraphicsAccelerator2::remove_kernel_mapped_memory(IOAccelKernelMappedMemory*) (.cold.2)
+IOGraphicsAccelerator2::reportGPURestart(IOAccelSubmitter2*, char const*, unsigned int, unsigned long long)
+IOGraphicsAccelerator2::reportGPURestart(IOAccelSubmitter2*, char const*, unsigned int, unsigned long long)::_os_log_fmt
+IOGraphicsAccelerator2::requestProbe(unsigned int)
+IOGraphicsAccelerator2::requestTerminate(IOService*, unsigned int)
+IOGraphicsAccelerator2::request_power_up()
+IOGraphicsAccelerator2::resourceTypeForIOSurface(IOSurface*)
+IOGraphicsAccelerator2::returnDMACommand(IODMACommand*)
+IOGraphicsAccelerator2::returnDMACommand(IODMACommand*) (.cold.1)
+IOGraphicsAccelerator2::reusable_orphaned_memory_pool_collector(IOInterruptEventSource*, int)
+IOGraphicsAccelerator2::reusable_orphaned_memory_pool_timer(IOTimerEventSource*)
+IOGraphicsAccelerator2::scrubEvents()
+IOGraphicsAccelerator2::searchResourceForMemory(IOAccelMemory*)
+IOGraphicsAccelerator2::sendAGCStatusMessage()
+IOGraphicsAccelerator2::send_agc_status_message()
+IOGraphicsAccelerator2::setProperties(OSObject*)
+IOGraphicsAccelerator2::signalStampsUpdated()
+IOGraphicsAccelerator2::start(IOService*)
+IOGraphicsAccelerator2::start(IOService*) (.cold.1)
+IOGraphicsAccelerator2::start(IOService*)::_os_log_fmt
+IOGraphicsAccelerator2::stop(IOService*)
+IOGraphicsAccelerator2::submitSwapCopy(IOAccelEvent*, IOAccelResource2*, IOAccelResource2*)
+IOGraphicsAccelerator2::submitSwapCopy(IOAccelEvent*, IOAccelResource2*, IOAccelResource2*)::_os_log_fmt
+IOGraphicsAccelerator2::superClass
+IOGraphicsAccelerator2::sysmem_unwired(IOAccelSysMemory*)
+IOGraphicsAccelerator2::sysmem_wired(IOAccelSysMemory*)
+IOGraphicsAccelerator2::systemDidChangeSpeed()
+IOGraphicsAccelerator2::systemDidWake()
+IOGraphicsAccelerator2::systemWillChangeSpeed()
+IOGraphicsAccelerator2::systemWillSleep()
+IOGraphicsAccelerator2::system_did_change_speed()
+IOGraphicsAccelerator2::system_did_wake(int, bool)
+IOGraphicsAccelerator2::system_will_change_speed()
+IOGraphicsAccelerator2::system_will_sleep(int, bool)
+IOGraphicsAccelerator2::terminate(unsigned int)
+IOGraphicsAccelerator2::tmpTotalVRAM()
+IOGraphicsAccelerator2::totalTextureMemory()
+IOGraphicsAccelerator2::triage(char**, unsigned long long*)
+IOGraphicsAccelerator2::try_unload_dirty_resources(unsigned int)
+IOGraphicsAccelerator2::unload_dirty_resources()
+IOGraphicsAccelerator2::unlockPeerAccelerator(IOGraphicsAccelerator2*)
+IOGraphicsAccelerator2::unlock_busy()
+IOGraphicsAccelerator2::unwireAllSysMemory()
+IOGraphicsAccelerator2::unwireAllVidMemory()
+IOGraphicsAccelerator2::updateGlobalCommPage()
+IOGraphicsAccelerator2::updateReport(IOReportChannelList*, unsigned int, void*, void*)
+IOGraphicsAccelerator2::update_gart_collector_age()
+IOGraphicsAccelerator2::update_gc_low_water_mark(unsigned long long)
+IOGraphicsAccelerator2::validateConfigStructure()
+IOGraphicsAccelerator2::validateConfigStructure()::_os_log_fmt
+IOGraphicsAccelerator2::vidmem_unwired(IOAccelVidMemory*)
+IOGraphicsAccelerator2::vidmem_wired(IOAccelVidMemory*)
+IOGraphicsAccelerator2::~IOGraphicsAccelerator2()
+IOGraphicsAccelerator2_ktv
+IOMallocTypeMixin<IOAccelResidentMemorySet>::operator delete(void*, unsigned long)::kalloc_type_view_75
+IOMallocTypeMixin<IOAccelResidentMemorySet>::operator new(unsigned long)::kalloc_type_view_67
+IOSurfaceMTLSharedEventFence::IOSurfaceMTLSharedEventFence()
+IOSurfaceMTLSharedEventFence::IOSurfaceMTLSharedEventFence(OSMetaClass const*)
+IOSurfaceMTLSharedEventFence::MetaClass::MetaClass()
+IOSurfaceMTLSharedEventFence::MetaClass::alloc() const
+IOSurfaceMTLSharedEventFence::MetaClass::~MetaClass()
+IOSurfaceMTLSharedEventFence::free()
+IOSurfaceMTLSharedEventFence::gMetaClass
+IOSurfaceMTLSharedEventFence::getMetaClass() const
+IOSurfaceMTLSharedEventFence::initWithSharedEvent(IOSurfaceSharedEvent*, unsigned long long)
+IOSurfaceMTLSharedEventFence::metaClass
+IOSurfaceMTLSharedEventFence::notifyClient()
+IOSurfaceMTLSharedEventFence::operator delete(void*, unsigned long)
+IOSurfaceMTLSharedEventFence::operator new(unsigned long)
+IOSurfaceMTLSharedEventFence::superClass
+IOSurfaceMTLSharedEventFence::withSharedEvent(IOSurfaceSharedEvent*, unsigned long long)
+IOSurfaceMTLSharedEventFence::~IOSurfaceMTLSharedEventFence()
+IOSurfaceMTLSharedEventFence_ktv
+_ZN15IOAccelChannel210gMetaClassF
+_ZN15IOAccelChannel210hMetaClassE
+__GLOBAL__D_a
+__GLOBAL__sub_I_IOAccel2DContext.cpp
+__GLOBAL__sub_I_IOAccelAllocationInfo.cpp
+__GLOBAL__sub_I_IOAccelBlockFence.cpp
+__GLOBAL__sub_I_IOAccelBufferMemoryDescriptorPool.cpp
+__GLOBAL__sub_I_IOAccelCLContext.cpp
+__GLOBAL__sub_I_IOAccelChannel.cpp
+__GLOBAL__sub_I_IOAccelCommandBuffer.cpp
+__GLOBAL__sub_I_IOAccelCommandQueue.cpp
+__GLOBAL__sub_I_IOAccelContext.cpp
+__GLOBAL__sub_I_IOAccelDevice.cpp
+__GLOBAL__sub_I_IOAccelDeviceShmem.cpp
+__GLOBAL__sub_I_IOAccelDisplayMachine.cpp
+__GLOBAL__sub_I_IOAccelDisplayPipe.cpp
+__GLOBAL__sub_I_IOAccelDisplayPipeUserClient.cpp
+__GLOBAL__sub_I_IOAccelDrawable.cpp
+__GLOBAL__sub_I_IOAccelEventMachine.cpp
+__GLOBAL__sub_I_IOAccelEventMachineFast.cpp
+__GLOBAL__sub_I_IOAccelExternalEvent.cpp
+__GLOBAL__sub_I_IOAccelGLContext.cpp
+__GLOBAL__sub_I_IOAccelGLDrawableUserClient.cpp
+__GLOBAL__sub_I_IOAccelGPURestartReport.cpp
+__GLOBAL__sub_I_IOAccelLegacyDisplayMachine.cpp
+__GLOBAL__sub_I_IOAccelLegacyDisplayPipe.cpp
+__GLOBAL__sub_I_IOAccelLegacySurface.cpp
+__GLOBAL__sub_I_IOAccelMemory.cpp
+__GLOBAL__sub_I_IOAccelMemoryAllocator.cpp
+__GLOBAL__sub_I_IOAccelMemoryInfoUserClient.cpp
+__GLOBAL__sub_I_IOAccelMemoryMap.cpp
+__GLOBAL__sub_I_IOAccelMetalEvent.cpp
+__GLOBAL__sub_I_IOAccelNamespace.cpp
+__GLOBAL__sub_I_IOAccelRangeAllocator.cpp
+__GLOBAL__sub_I_IOAccelRemoteMemory.cpp
+__GLOBAL__sub_I_IOAccelResource.cpp
+__GLOBAL__sub_I_IOAccelSegmentResourceList.cpp
+__GLOBAL__sub_I_IOAccelShared.cpp
+__GLOBAL__sub_I_IOAccelStatistics.cpp
+__GLOBAL__sub_I_IOAccelSubmitter.cpp
+__GLOBAL__sub_I_IOAccelSurface.cpp
+__GLOBAL__sub_I_IOAccelSurfaceMTL.cpp
+__GLOBAL__sub_I_IOAccelSysMemory.cpp
+__GLOBAL__sub_I_IOAccelTask.cpp
+__GLOBAL__sub_I_IOAccelTraceStream.cpp
+__GLOBAL__sub_I_IOAccelVidMemory.cpp
+__GLOBAL__sub_I_IOAccelVideoContext.cpp
+__GLOBAL__sub_I_IOGraphicsAccelerator.cpp
+___ZN19IOAccelFIFOChannel24initEP22IOGraphicsAccelerator2iii
+___accumulatedGPUTimeSymbol
+___block_descriptor_tmp
+___globalObjectIDCounter
+___ktrace_display_enabled
+___ktrace_enable_callback_registered
+___ktrace_enable_filter
+___ktrace_end_of_last_flush
+___ktrace_kernel_enabled
+___ktrace_vendor_legacy_enabled
+___lastSubmissionTimeSymbol
+__global_comm_page_memory_descriptor
+_kmod_info
+describeIOSurfaceAllocation(void*, IOMemoryDescriptor*, unsigned int, int*, int)
+fUniqueMemoryIdentifierSource
+gTraceStreamInit
+gTraceStreamList
+gTraceStreamLock
+gaps
+glkBfLog(char**, unsigned long long*, char const*, ...)
+invocation function for block in IOAccelEventMachine2::stop()
+invocation function for block in IOAccelFenceMachine::free()
+invocation function for block in IOGraphicsAccelerator2::stop(IOService*)
+kTraceDebugCallback(void*, kd_callback_type, void*)
+sGLContextMethodsDispatch
+sPurgeablePoolInfo
+sWiredPoolInfo
+setUInt32(OSDictionary*, char const*, unsigned int)
+stats
+vtable for IOAccel2DContext2
+vtable for IOAccel2DContext2::MetaClass
+vtable for IOAccelAllocationInfo
+vtable for IOAccelAllocationInfo::MetaClass
+vtable for IOAccelBlockFence
+vtable for IOAccelBlockFence::MetaClass
+vtable for IOAccelBlockFencePort2
+vtable for IOAccelBlockFencePort2::MetaClass
+vtable for IOAccelBufferMemoryDescriptorPool2
+vtable for IOAccelBufferMemoryDescriptorPool2::MetaClass
+vtable for IOAccelCLContext2
+vtable for IOAccelCLContext2::MetaClass
+vtable for IOAccelChannel2
+vtable for IOAccelChannel2::MetaClass
+vtable for IOAccelCommandBufferPool2
+vtable for IOAccelCommandBufferPool2::MetaClass
+vtable for IOAccelCommandDescriptor
+vtable for IOAccelCommandQueue
+vtable for IOAccelCommandQueue::MetaClass
+vtable for IOAccelContext2
+vtable for IOAccelContext2::MetaClass
+vtable for IOAccelContextEventFence
+vtable for IOAccelContextEventFence::MetaClass
+vtable for IOAccelDevice2
+vtable for IOAccelDevice2::MetaClass
+vtable for IOAccelDeviceShmem
+vtable for IOAccelDeviceShmem::MetaClass
+vtable for IOAccelDisplayMachine
+vtable for IOAccelDisplayMachine::MetaClass
+vtable for IOAccelDisplayPipe
+vtable for IOAccelDisplayPipe::MetaClass
+vtable for IOAccelDisplayPipeGammaTable2
+vtable for IOAccelDisplayPipeGammaTable2::MetaClass
+vtable for IOAccelDisplayPipePostCSCGammaVID
+vtable for IOAccelDisplayPipePostCSCGammaVID::MetaClass
+vtable for IOAccelDisplayPipePreCSCLinearizationVID
+vtable for IOAccelDisplayPipePreCSCLinearizationVID::MetaClass
+vtable for IOAccelDisplayPipeTransaction2
+vtable for IOAccelDisplayPipeTransaction2::MetaClass
+vtable for IOAccelDisplayPipeUserClient2
+vtable for IOAccelDisplayPipeUserClient2::MetaClass
+vtable for IOAccelDrawable2
+vtable for IOAccelDrawable2::MetaClass
+vtable for IOAccelEventFence
+vtable for IOAccelEventFence::MetaClass
+vtable for IOAccelEventMachine2
+vtable for IOAccelEventMachine2::MetaClass
+vtable for IOAccelEventMachineFast2
+vtable for IOAccelEventMachineFast2::MetaClass
+vtable for IOAccelExternalEvent
+vtable for IOAccelExternalEvent::MetaClass
+vtable for IOAccelExternalEventFence
+vtable for IOAccelExternalEventFence::MetaClass
+vtable for IOAccelFIFOChannel2
+vtable for IOAccelFIFOChannel2::MetaClass
+vtable for IOAccelFenceMachine
+vtable for IOAccelFenceMachine::MetaClass
+vtable for IOAccelGLContext2
+vtable for IOAccelGLContext2::MetaClass
+vtable for IOAccelGLDrawableUserClient
+vtable for IOAccelGLDrawableUserClient::MetaClass
+vtable for IOAccelGPURestartReport2
+vtable for IOAccelGPURestartReport2::MetaClass
+vtable for IOAccelKernelMappedMemory
+vtable for IOAccelKernelMappedMemory::MetaClass
+vtable for IOAccelLegacyDisplayMachine
+vtable for IOAccelLegacyDisplayMachine::MetaClass
+vtable for IOAccelLegacyDisplayPipe
+vtable for IOAccelLegacyDisplayPipe::MetaClass
+vtable for IOAccelLegacySurface
+vtable for IOAccelLegacySurface::MetaClass
+vtable for IOAccelMTLEvent2
+vtable for IOAccelMTLEvent2::MetaClass
+vtable for IOAccelMemory
+vtable for IOAccelMemory::MetaClass
+vtable for IOAccelMemoryAllocator2
+vtable for IOAccelMemoryAllocator2::MetaClass
+vtable for IOAccelMemoryInfoUserClient
+vtable for IOAccelMemoryInfoUserClient::MetaClass
+vtable for IOAccelMemoryMap
+vtable for IOAccelMemoryMap::MetaClass
+vtable for IOAccelNamespace
+vtable for IOAccelNamespace::MetaClass
+vtable for IOAccelOrphanedMemoryPool
+vtable for IOAccelOrphanedVidMemoryPool
+vtable for IOAccelRangeAllocator
+vtable for IOAccelRangeAllocator::MetaClass
+vtable for IOAccelRemoteMemory
+vtable for IOAccelRemoteMemory::MetaClass
+vtable for IOAccelResource2
+vtable for IOAccelResource2::MetaClass
+vtable for IOAccelSegmentResourceList
+vtable for IOAccelSegmentResourceList::MetaClass
+vtable for IOAccelShared2
+vtable for IOAccelShared2::MetaClass
+vtable for IOAccelSharedEventFence
+vtable for IOAccelSharedEventFence::MetaClass
+vtable for IOAccelSharedNamespace2
+vtable for IOAccelSharedNamespace2::MetaClass
+vtable for IOAccelSharedUserClient2
+vtable for IOAccelSharedUserClient2::MetaClass
+vtable for IOAccelStatistics2
+vtable for IOAccelStatistics2::MetaClass
+vtable for IOAccelSubmitter2
+vtable for IOAccelSubmitter2::MetaClass
+vtable for IOAccelSurface
+vtable for IOAccelSurface::MetaClass
+vtable for IOAccelSurfaceMTL
+vtable for IOAccelSurfaceMTL::MetaClass
+vtable for IOAccelSysMemory
+vtable for IOAccelSysMemory::MetaClass
+vtable for IOAccelTask
+vtable for IOAccelTask::MetaClass
+vtable for IOAccelTraceStream2
+vtable for IOAccelTraceStream2::MetaClass
+vtable for IOAccelTraceStreamConnection
+vtable for IOAccelTraceStreamConnection::MetaClass
+vtable for IOAccelVidMemory
+vtable for IOAccelVidMemory::MetaClass
+vtable for IOAccelVideoContext2
+vtable for IOAccelVideoContext2::MetaClass
+vtable for IOGraphicsAccelerator2
+vtable for IOGraphicsAccelerator2::MetaClass
+vtable for IOSurfaceMTLSharedEventFence
+vtable for IOSurfaceMTLSharedEventFence::MetaClass
+waiting_for_fEnabled(_IOLock*, IOGraphicsAccelerator2*)
+waiting_for_fEnabled_after_displayModeChange(_IOLock*, IOGraphicsAccelerator2*)
+waiting_for_fEnabled_after_poweredOffByAGC(_IOLock*, IOGraphicsAccelerator2*)

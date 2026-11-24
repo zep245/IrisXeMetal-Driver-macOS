@@ -1,0 +1,6 @@
+settings set target.x86-disassembly-flavor intel
+b main
+run
+command script import tools/mps-research/mps.py
+mpsdump
+quit

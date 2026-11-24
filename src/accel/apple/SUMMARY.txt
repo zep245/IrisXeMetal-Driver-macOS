@@ -1,0 +1,210 @@
+IOGraphicsAccelerator2 : IOService  own slots 268..351  (17 own pure)  vtable 352 slots  parent-name mismatches 0
+  subclass must implement 19:
+    pure  273 AppleParavirtAccelerator::getStampMemory(unsigned int*)
+    pure  275 AppleParavirtAccelerator::newEventMachine()
+    pure  309 AppleParavirtAccelerator::createUserGPUTask()
+    pure  312 AppleParavirtAccelerator::populateAccelConfig(IOAccelConfig*)
+    pure  314 AppleParavirtAccelerator::configureDevice(IOPCIDevice*)
+    pure  315 AppleParavirtAccelerator::teardownDevice(IOPCIDevice*)
+    pure  316 AppleParavirtAccelerator::createKernelGPUTask()
+    pure  322 AppleParavirtAccelerator::newDisplayMachine()
+    pure  326 AppleParavirtAccelerator::newGLContext()
+    pure  327 AppleParavirtAccelerator::newCLContext()
+    pure  328 AppleParavirtAccelerator::newSurface()
+    pure  329 AppleParavirtAccelerator::new2DContext()
+    pure  330 AppleParavirtAccelerator::newVideoContext()
+    pure  334 AppleParavirtAccelerator::newSysMemory()
+    pure  335 AppleParavirtAccelerator::newVidMemory()
+    pure  336 AppleParavirtAccelerator::newResource()
+    pure  339 AppleParavirtAccelerator::newMemoryMap()
+    noexp 270 IOGraphicsAccelerator2::tmpTotalVRAM()
+    noexp 271 IOGraphicsAccelerator2::totalTextureMemory()
+IOAccelEventMachine2 : OSObject  own slots 37..85  (34 own pure)  vtable 86 slots  parent-name mismatches 0
+  subclass must implement 35:
+    pure   38 IOAccelEventMachineFast2::getClientTestEventFunc()
+    pure   42 IOAccelEventMachineFast2::initEvent(IOAccelEvent*)
+    pure   43 IOAccelEventMachineFast2::cleanEvent(IOAccelEvent*)
+    pure   44 IOAccelEventMachineFast2::finishStamp(int)
+    pure   45 IOAccelEventMachineFast2::finishAllStamps()
+    pure   46 IOAccelEventMachineFast2::testStamp(int)
+    pure   47 IOAccelEventMachineFast2::testAllStamps()
+    pure   48 IOAccelEventMachineFast2::testAllStampsUnlocked()
+    pure   49 IOAccelEventMachineFast2::finishEventUnlocked(IOAccelEvent*)
+    pure   50 IOAccelEventMachineFast2::testEventUnlocked(IOAccelEvent*)
+    pure   51 IOAccelEventMachineFast2::finishEvent(IOAccelEvent*)
+    pure   52 IOAccelEventMachineFast2::testEvent(IOAccelEvent*)
+    pure   53 IOAccelEventMachineFast2::finishEventExcluding(IOAccelEvent*, int)
+    pure   54 IOAccelEventMachineFast2::testEventExcluding(IOAccelEvent*, int)
+    pure   55 IOAccelEventMachineFast2::moveEvent(IOAccelEvent*, IOAccelEvent*)
+    pure   56 IOAccelEventMachineFast2::copyEvent(IOAccelEvent*, IOAccelEvent*)
+    pure   57 IOAccelEventMachineFast2::mergeEvent(IOAccelEvent*, IOAccelEvent*)
+    pure   58 IOAccelEventMachineFast2::copyEventExcluding(IOAccelEvent*, IOAccelEvent*, int)
+    pure   59 IOAccelEventMachineFast2::mergeEventExcluding(IOAccelEvent*, IOAccelEvent*, int)
+    pure   60 IOAccelEventMachineFast2::setEventStamp(int, IOAccelEvent*)
+    pure   61 IOAccelEventMachineFast2::incrementStamp(int)
+    pure   62 IOAccelEventMachineFast2::writeStampCommand(int, IOAccelEventQueue*, vendevtCommandRec*)
+    pure   63 IOAccelEventMachineFast2::writeEventStampCommand(int, IOAccelEventQueue*, IOAccelEvent*, vendevtCommandRec*)
+    pure   64 IOAccelEventMachineFast2::writeEventBarrierCommand(IOAccelEventQueue*, IOAccelEvent*, vendevtBarrierRec*, int)
+    pure   65 IOAccelEventMachineFast2::logCommandSubmission(int)
+    pure   66 IOAccelEventMachineFast2::stampIsIncremented()
+    pure   67 IOAccelEventMachineFast2::getStamp(int)
+    pure   68 IOAccelEventMachineFast2::checkGPUProgress()
+    pure   69 IOAccelEventMachineFast2::checkChannelProgress(int)
+    pure   70 IOAccelEventMachineFast2::eventTimeout(int)
+    pure   77 IOAccelEventMachineFast2::enableEventStampInterrupts(IOAccelEvent const*)
+    pure   78 IOAccelEventMachineFast2::disableEventStampInterrupts(IOAccelEvent const*)
+    pure   80 IOAccelEventMachineFast2::scrubEvent(IOAccelEvent*)
+    pure   81 IOAccelEventMachineFast2::triage(char**, unsigned long long*)
+    noexp  72 IOAccelEventMachine2::collectAllLiveEventIfNeeded()
+IOAccelEventMachineFast2 : IOAccelEventMachine2  own slots 86..96  (4 own pure)  vtable 97 slots  parent-name mismatches 2
+  subclass must implement 5:
+    pure   86 AppleParavirtEventMachine::writeStamp(int, vendevtCommandRec*, unsigned int)
+    pure   87 AppleParavirtEventMachine::prepareBarrier(vendevtBarrierRec*)
+    pure   88 AppleParavirtEventMachine::completeBarrier(vendevtBarrierRec*)
+    pure   89 AppleParavirtEventMachine::writeBarrierElement(vendevtBarrierRec*, int, unsigned int)
+    noexp  72 IOAccelEventMachine2::collectAllLiveEventIfNeeded()
+IOAccelSubmitter2 : IOUserClient  own slots 302..317  (5 own pure)  vtable 318 slots  parent-name mismatches 0
+  subclass must implement 8:
+    pure  302 IOAccelContext2::getOwningTask() const
+    pure  303 IOAccelContext2::getGPUTask() const
+    pure  304 IOAccelContext2::getOwningTaskPid() const
+    pure  305 IOAccelContext2::affectedByHardwareReset(bool, unsigned int)
+    pure  307 IOAccelContext2::shouldHardwareCommandNooped()
+    noexp 306 IOAccelSubmitter2::retireCommandBuffer(IOAccelEventFence*)
+    noexp 310 IOAccelSubmitter2::setSubmissionError(unsigned int)
+    noexp 317 IOAccelSubmitter2::isOpportunisticWorkload() const
+IOAccelContext2 : IOAccelSubmitter2  own slots 318..361  (0 own pure)  vtable 362 slots  parent-name mismatches 2
+  subclass must implement 11:
+    noexp 302 IOAccelContext2::getOwningTask() const
+    noexp 303 IOAccelContext2::getGPUTask() const
+    noexp 304 IOAccelContext2::getOwningTaskPid() const
+    noexp 306 IOAccelSubmitter2::retireCommandBuffer(IOAccelEventFence*)
+    noexp 310 IOAccelSubmitter2::setSubmissionError(unsigned int)
+    noexp 317 IOAccelSubmitter2::isOpportunisticWorkload() const
+    noexp 326 IOAccelContext2::postTokenSanityCheck(IOAccelCommandStreamInfo&)
+    noexp 337 IOAccelContext2::getDataBufferPrivate(IOAccelResource2*, IOAccelResourcePrivate*, unsigned long long)
+    noexp 338 IOAccelContext2::validateDataBuffer(unsigned long long, IOBufferMemoryDescriptor*, IOAccelResource2*)
+    noexp 343 IOAccelContext2::invalidate()
+    noexp 344 IOAccelContext2::getFrameDelimiter()
+IOAccelGLContext2 : IOAccelContext2  own slots 362..374  (4 own pure)  vtable 375 slots  parent-name mismatches 2
+  subclass must implement 15:
+    pure  362 IGAccelGLContext::addDrawableToChannel(IOAccelDrawable2*)
+    pure  363 IGAccelGLContext::removeDrawableFromChannel(IOAccelDrawable2*)
+    pure  364 IGAccelGLContext::setCompatibleSurfaceMode(unsigned long long*, unsigned long long, int)
+    pure  367 IGAccelGLContext::get_temp_allocation_info(IOAccelDrawable2*, unsigned int*, unsigned int*)
+    noexp 302 IOAccelContext2::getOwningTask() const
+    noexp 303 IOAccelContext2::getGPUTask() const
+    noexp 304 IOAccelContext2::getOwningTaskPid() const
+    noexp 306 IOAccelSubmitter2::retireCommandBuffer(IOAccelEventFence*)
+    noexp 310 IOAccelSubmitter2::setSubmissionError(unsigned int)
+    noexp 317 IOAccelSubmitter2::isOpportunisticWorkload() const
+    noexp 326 IOAccelContext2::postTokenSanityCheck(IOAccelCommandStreamInfo&)
+    noexp 337 IOAccelContext2::getDataBufferPrivate(IOAccelResource2*, IOAccelResourcePrivate*, unsigned long long)
+    noexp 338 IOAccelContext2::validateDataBuffer(unsigned long long, IOBufferMemoryDescriptor*, IOAccelResource2*)
+    noexp 343 IOAccelContext2::invalidate()
+    noexp 344 IOAccelContext2::getFrameDelimiter()
+IOAccel2DContext2 : IOAccelContext2  own slots 362..369  (2 own pure)  vtable 370 slots  parent-name mismatches 2
+  subclass must implement 13:
+    pure  362 AppleParavirt2DContext::blitCopy(IOAccelEvent*, IOAccelResource2*, IOAccelResource2*, IOAccel2DBlitRectStruc*, unsigned int)
+    pure  363 AppleParavirt2DContext::blitFill(IOAccelEvent*, unsigned int, IOAccelResource2*, IOAccel2DBlitRectStruc*, unsigned int)
+    noexp 302 IOAccelContext2::getOwningTask() const
+    noexp 303 IOAccelContext2::getGPUTask() const
+    noexp 304 IOAccelContext2::getOwningTaskPid() const
+    noexp 306 IOAccelSubmitter2::retireCommandBuffer(IOAccelEventFence*)
+    noexp 310 IOAccelSubmitter2::setSubmissionError(unsigned int)
+    noexp 317 IOAccelSubmitter2::isOpportunisticWorkload() const
+    noexp 326 IOAccelContext2::postTokenSanityCheck(IOAccelCommandStreamInfo&)
+    noexp 337 IOAccelContext2::getDataBufferPrivate(IOAccelResource2*, IOAccelResourcePrivate*, unsigned long long)
+    noexp 338 IOAccelContext2::validateDataBuffer(unsigned long long, IOBufferMemoryDescriptor*, IOAccelResource2*)
+    noexp 343 IOAccelContext2::invalidate()
+    noexp 344 IOAccelContext2::getFrameDelimiter()
+IOAccelVideoContext2 : IOAccelContext2  own slots 362..367  (0 own pure)  vtable 368 slots  parent-name mismatches 2
+  subclass must implement 11:
+    noexp 302 IOAccelContext2::getOwningTask() const
+    noexp 303 IOAccelContext2::getGPUTask() const
+    noexp 304 IOAccelContext2::getOwningTaskPid() const
+    noexp 306 IOAccelSubmitter2::retireCommandBuffer(IOAccelEventFence*)
+    noexp 310 IOAccelSubmitter2::setSubmissionError(unsigned int)
+    noexp 317 IOAccelSubmitter2::isOpportunisticWorkload() const
+    noexp 326 IOAccelContext2::postTokenSanityCheck(IOAccelCommandStreamInfo&)
+    noexp 337 IOAccelContext2::getDataBufferPrivate(IOAccelResource2*, IOAccelResourcePrivate*, unsigned long long)
+    noexp 338 IOAccelContext2::validateDataBuffer(unsigned long long, IOBufferMemoryDescriptor*, IOAccelResource2*)
+    noexp 343 IOAccelContext2::invalidate()
+    noexp 344 IOAccelContext2::getFrameDelimiter()
+IOAccelDevice2 : IOUserClient  own slots 302..310  (0 own pure)  vtable 311 slots  parent-name mismatches 0
+  subclass must implement 0:
+IOAccelSurface : IOUserClient  own slots 302..328  (5 own pure)  vtable 329 slots  parent-name mismatches 0
+  subclass must implement 5:
+    pure  302 IGAccelSurface::copyFromBuffer(int, int, int, int, unsigned int, unsigned int, IOAccelEvent*, IOAccelResource2*, IOAccelSysMemory*, unsigned int, unsigned long long, unsigned int)
+    pure  303 IGAccelSurface::copyToBuffer(int, int, int, int, unsigned int, unsigned int, IOAccelEvent*, IOAccelResource2*, IOAccelSysMemory*, unsigned int, unsigned long long, unsigned int)
+    pure  304 IGAccelSurface::submitSwapCopy(IOAccelEvent*, IOAccelResource2*, IOAccelResource2*)
+    pure  308 IGAccelSurface::shapeSurface(unsigned int, unsigned short, unsigned short)
+    pure  309 IGAccelSurface::getDirtyBufferBitsFromPrivateModeBits(unsigned long long)
+IOAccelMemory : OSObject  own slots 37..61  (11 own pure)  vtable 62 slots  parent-name mismatches 0
+  subclass must implement 12:
+    pure   39 IOAccelSysMemory::getDirtySize() const
+    pure   40 IOAccelSysMemory::getResidentSize() const
+    pure   45 IOAccelSysMemory::getPhysicalSegment(unsigned long long, unsigned long long*)
+    pure   46 IOAccelSysMemory::setPurgeable(unsigned int, unsigned int*)
+    pure   47 IOAccelSysMemory::setTag(unsigned int)
+    pure   48 IOAccelSysMemory::getTag()
+    pure   49 IOAccelSysMemory::matchForReuse(void*, unsigned long long)
+    pure   56 IOAccelSysMemory::wire()
+    pure   57 IOAccelSysMemory::unwire()
+    pure   60 IOAccelSysMemory::increment_wire_count()
+    pure   61 IOAccelSysMemory::decrement_wire_count()
+    noexp  38 IOAccelMemory::getLength() const
+IOAccelVidMemory : IOAccelMemory  own slots 62..70  (2 own pure)  vtable 71 slots  parent-name mismatches 2
+  subclass must implement 6:
+    pure   45 AppleParavirtVidMemory::getPhysicalSegment(unsigned long long, unsigned long long*)
+    pure   63 AppleParavirtVidMemory::allocPhysical()
+    pure   64 AppleParavirtVidMemory::deallocPhysical()
+    noexp  38 IOAccelMemory::getLength() const
+    noexp  47 IOAccelVidMemory::setTag(unsigned int)
+    noexp  48 IOAccelVidMemory::getTag()
+IOAccelSysMemory : IOAccelMemory  own slots 62..67  (0 own pure)  vtable 68 slots  parent-name mismatches 2
+  subclass must implement 3:
+    noexp  38 IOAccelMemory::getLength() const
+    noexp  47 IOAccelSysMemory::setTag(unsigned int)
+    noexp  48 IOAccelSysMemory::getTag()
+IOAccelCommandQueue : IOAccelSubmitter2  own slots 318..338  (0 own pure)  vtable 339 slots  parent-name mismatches 2
+  subclass must implement 10:
+    noexp 302 IOAccelCommandQueue::getOwningTask() const
+    noexp 303 IOAccelCommandQueue::getGPUTask() const
+    noexp 304 IOAccelCommandQueue::getOwningTaskPid() const
+    noexp 305 IOAccelCommandQueue::affectedByHardwareReset(bool, unsigned int)
+    noexp 306 IOAccelSubmitter2::retireCommandBuffer(IOAccelEventFence*)
+    noexp 307 IOAccelCommandQueue::shouldHardwareCommandNooped()
+    noexp 310 IOAccelSubmitter2::setSubmissionError(unsigned int)
+    noexp 317 IOAccelSubmitter2::isOpportunisticWorkload() const
+    noexp 337 IOAccelCommandQueue::canSubmitCommandBuffer()
+    noexp 338 IOAccelCommandQueue::pauseSubmitCommandBuffer()
+IOAccelSegmentResourceList : OSObject  own slots 37..46  (0 own pure)  vtable 47 slots  parent-name mismatches 0
+  subclass must implement 0:
+IOAccelMemoryMap : OSObject  own slots 37..58  (3 own pure)  vtable 59 slots  parent-name mismatches 0
+  subclass must implement 5:
+    pure   48 AppleParavirtMemoryMap::commitIntoGPUPageTable()
+    pure   49 AppleParavirtMemoryMap::releaseFromGPUPageTable()
+    pure   50 AppleParavirtMemoryMap::updateGPUPageTable()
+    noexp  38 IOAccelMemoryMap::matchOptionBits(unsigned int)
+    noexp  47 IOAccelMemoryMap::getLength() const
+IOAccelResource2 : OSObject  own slots 37..80  (7 own pure)  vtable 81 slots  parent-name mismatches 0
+  subclass must implement 12:
+    pure   60 AppleParavirtResource::rebuildPagingBuffer()
+    pure   62 AppleParavirtResource::getLevelOffset(unsigned char, unsigned char, int*)
+    pure   63 AppleParavirtResource::getBackingLevelOffset(unsigned char, unsigned char, int*)
+    pure   64 AppleParavirtResource::calculateIOSurfaceDeviceCacheVRAMBytes(unsigned long long*, unsigned long long*)
+    pure   65 AppleParavirtResource::addToAperture()
+    pure   66 AppleParavirtResource::removeFromAperture()
+    pure   67 AppleParavirtResource::getApertureMemoryDescriptor(unsigned long long*)
+    noexp  56 IOAccelResource2::pageon(IOAccelEvent*, bool)
+    noexp  57 IOAccelResource2::pageon(IOAccelEvent*, bool, unsigned long long)
+    noexp  58 IOAccelResource2::pageoff(IOAccelEvent*, bool, bool*)
+    noexp  59 IOAccelResource2::pageoff(IOAccelEvent*, bool, bool*, unsigned long long)
+    noexp  61 IOAccelResource2::getMemoryAllocParameter()
+IOAccelDisplayMachine : IOService  own slots 268..285  (2 own pure)  vtable 286 slots  parent-name mismatches 0
+  subclass must implement 2:
+    pure  271 AppleParavirtDisplayMachine::displayModeWillChange()
+    pure  272 AppleParavirtDisplayMachine::displayModeDidChange()
+IOAccelDisplayPipe : IOService  own slots 268..307  (0 own pure)  vtable 308 slots  parent-name mismatches 0
+  subclass must implement 0:

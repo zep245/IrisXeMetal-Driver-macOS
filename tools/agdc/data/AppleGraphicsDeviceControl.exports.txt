@@ -1,0 +1,87 @@
+AGDCPlugin::AGDCPlugin(OSMetaClass const*)
+AGDCPlugin::MetaClass::MetaClass()
+AGDCPlugin::MetaClass::alloc() const
+AGDCPlugin::_RESERVEDAGDCPlugin0()
+AGDCPlugin::_RESERVEDAGDCPlugin1()
+AGDCPlugin::_RESERVEDAGDCPlugin2()
+AGDCPlugin::_RESERVEDAGDCPlugin3()
+AGDCPlugin::_RESERVEDAGDCPlugin4()
+AGDCPlugin::_RESERVEDAGDCPlugin5()
+AGDCPlugin::_RESERVEDAGDCPlugin6()
+AGDCPlugin::_RESERVEDAGDCPlugin7()
+AGDCPlugin::doDeviceAttribute(unsigned int, void*, unsigned long, void*, unsigned long)
+AGDCPlugin::doPluginAttribute(AppleGraphicsDeviceControl*, unsigned int, void*, unsigned long, void*, unsigned long, AGDCClientState_t*)
+AGDCPlugin::gMetaClass
+AGDCPlugin::getMetaClass() const
+AGDCPlugin::metaClass
+AGDCPlugin::operator delete(void*, unsigned long)
+AGDCPlugin::operator new(unsigned long)
+AGDCPlugin::probe(IOService*, int*)
+AGDCPlugin::start(IOService*)
+AGDCPlugin::start(IOService*, unsigned long long, unsigned int, unsigned int)
+AGDCPlugin::stop(IOService*)
+AGDCPlugin::superClass
+AGDCPlugin::terminate(unsigned int)
+AGDCPlugin::~AGDCPlugin()
+AppleGraphicsDeviceControl::AppleGraphicsDeviceControl(OSMetaClass const*)
+AppleGraphicsDeviceControl::MetaClass::MetaClass()
+AppleGraphicsDeviceControl::MetaClass::alloc() const
+AppleGraphicsDeviceControl::UserKernelTransfer(unsigned int, AGDCClientState_t*)
+AppleGraphicsDeviceControl::_RESERVEDAppleGraphicsDeviceControl0()
+AppleGraphicsDeviceControl::_RESERVEDAppleGraphicsDeviceControl1()
+AppleGraphicsDeviceControl::_RESERVEDAppleGraphicsDeviceControl2()
+AppleGraphicsDeviceControl::_RESERVEDAppleGraphicsDeviceControl3()
+AppleGraphicsDeviceControl::_RESERVEDAppleGraphicsDeviceControl4()
+AppleGraphicsDeviceControl::_RESERVEDAppleGraphicsDeviceControl5()
+AppleGraphicsDeviceControl::_RESERVEDAppleGraphicsDeviceControl6()
+AppleGraphicsDeviceControl::_RESERVEDAppleGraphicsDeviceControl7()
+AppleGraphicsDeviceControl::_actionWrapper(OSObject*, void*, void*, void*, void*)
+AppleGraphicsDeviceControl::actionWrapper(AGDCPlugin*, void*)
+AppleGraphicsDeviceControl::backlightHandleCount
+AppleGraphicsDeviceControl::doDeviceAttribute(unsigned int, unsigned long*, unsigned long, unsigned long*, unsigned long*)
+AppleGraphicsDeviceControl::doPlugin_Command(unsigned int, unsigned long long, AppleGraphicsDeviceControl*)
+AppleGraphicsDeviceControl::filtered_doDeviceAttribute(AppleGraphicsDeviceControl::agdc_filtered_api_t, unsigned int, unsigned long*, unsigned long, unsigned long*, unsigned long*, AGDCClientState_t*)
+AppleGraphicsDeviceControl::gMetaClass
+AppleGraphicsDeviceControl::getDeviceAttribute(unsigned int, unsigned long*, unsigned long*)
+AppleGraphicsDeviceControl::getMetaClass() const
+AppleGraphicsDeviceControl::message(unsigned int, IOService*, void*)
+AppleGraphicsDeviceControl::metaClass
+AppleGraphicsDeviceControl::newUserClient(task*, void*, unsigned int, OSDictionary*, IOUserClient**)
+AppleGraphicsDeviceControl::operator delete(void*, unsigned long)
+AppleGraphicsDeviceControl::operator new(unsigned long)
+AppleGraphicsDeviceControl::publishHdaGfxProperties()
+AppleGraphicsDeviceControl::sWindowServerReady
+AppleGraphicsDeviceControl::setDeviceAttribute(unsigned int, unsigned long*, unsigned long)
+AppleGraphicsDeviceControl::start(IOService*)
+AppleGraphicsDeviceControl::stop(IOService*)
+AppleGraphicsDeviceControl::superClass
+AppleGraphicsDeviceControl::terminate(unsigned int)
+AppleGraphicsDeviceControl::vendor_doDeviceAttribute(unsigned int, unsigned long*, unsigned long, unsigned long*, unsigned long*, AGDCClientState_t*)
+AppleGraphicsDeviceControl::~AppleGraphicsDeviceControl()
+AppleGraphicsDeviceControlClient::AppleGraphicsDeviceControlClient()
+AppleGraphicsDeviceControlClient::AppleGraphicsDeviceControlClient(OSMetaClass const*)
+AppleGraphicsDeviceControlClient::MetaClass::MetaClass()
+AppleGraphicsDeviceControlClient::MetaClass::alloc() const
+AppleGraphicsDeviceControlClient::authorizeTask(AppleGraphicsDeviceControl*, task*, unsigned int)
+AppleGraphicsDeviceControlClient::clientClose()
+AppleGraphicsDeviceControlClient::clientDied()
+AppleGraphicsDeviceControlClient::externalMethod(unsigned int, IOExternalMethodArguments*, IOExternalMethodDispatch*, OSObject*, void*)
+AppleGraphicsDeviceControlClient::free()
+AppleGraphicsDeviceControlClient::gMetaClass
+AppleGraphicsDeviceControlClient::getMetaClass() const
+AppleGraphicsDeviceControlClient::initWithTask(task*, void*, unsigned int)
+AppleGraphicsDeviceControlClient::message(unsigned int, IOService*, void*)
+AppleGraphicsDeviceControlClient::metaClass
+AppleGraphicsDeviceControlClient::operator delete(void*, unsigned long)
+AppleGraphicsDeviceControlClient::operator new(unsigned long)
+AppleGraphicsDeviceControlClient::start(IOService*)
+AppleGraphicsDeviceControlClient::stop(IOService*)
+AppleGraphicsDeviceControlClient::superClass
+AppleGraphicsDeviceControlClient::~AppleGraphicsDeviceControlClient()
+_kmod_info
+vtable for AGDCPlugin
+vtable for AGDCPlugin::MetaClass
+vtable for AppleGraphicsDeviceControl
+vtable for AppleGraphicsDeviceControl::MetaClass
+vtable for AppleGraphicsDeviceControlClient
+vtable for AppleGraphicsDeviceControlClient::MetaClass
