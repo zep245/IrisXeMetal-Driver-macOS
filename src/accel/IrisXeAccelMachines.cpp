@@ -705,6 +705,8 @@ static int sAsyncOK = -1;                         // -1 not checked, 0 refused, 
 static char sAsyncWhy[160] = "not used yet";
 static bool sCbAsync;                             // this command buffer left a job running
 static UInt32 sCbSeq, sCbV;
+static bool sCbWork;                              // v0.68.40: this command buffer queued draws for the worker
+static void workSignal(UInt32 v);                 // v0.68.40 (below)
 static UInt64 sCbEv[8] __attribute__((aligned(16)));
 static volatile UInt32 *sStampPtr;
 static UInt64 sAsyncCbs, sAsyncSignals, sAsyncTimeouts, sAsyncInline;
@@ -823,8 +825,18 @@ IRISXE_SLOT_RET IrisXeCommandQueue::processCommandBuffer(unsigned int a, unsigne
     trace(this, 0, a, b);
     uint64_t t0 = mach_absolute_time();
     sCbAsync = false; sCbSeq = 0;                        // v0.63.0
+    sCbWork = false;                                     // v0.68.40
     IRISXE_SLOT_RET r = IOAccelCommandQueue::processCommandBuffer(a, b);
-    if (sCbAsync && IrisXeAccelerator::sInstance) asyncFinishCb(this, IrisXeAccelerator::sInstance);
+    if (sCbAsync && sCbWork && IrisXeAccelerator::sInstance) {
+        // v0.68.40: draws went to the worker: the stamp goes into the queue's event now, the worker passes it after
+        // the command buffer's last job (a signal item behind them)
+        IrisXeAccelerator *ax = IrisXeAccelerator::sInstance;
+        sCbAsync = false;
+        IOAccelEventMachine2 *em = asyncEM(ax);
+        em->setEventStamp(kAsyncStamp, (IOAccelEvent *)((UInt8 *)this + kQEvent));
+        sAsyncCbs++;
+        workSignal(sCbV);
+    } else if (sCbAsync && IrisXeAccelerator::sInstance) asyncFinishCb(this, IrisXeAccelerator::sInstance);
     UInt64 ns = ktNs(mach_absolute_time() - t0);
     if (!sKtSince) sKtSince = t0;
     sKtCb++; sKtNs += ns; if (ns > sKtMaxNs) sKtMaxNs = ns;
@@ -1063,6 +1075,118 @@ static void hungPublish(IrisXeAccelerator *ax, const char *who, const XeDrawDesc
              d.nrt ? d.rt[0].width : 0, d.nrt ? d.rt[0].height : 0, d.nrt ? d.rt[0].format : 0, d.ntex);
     ax->setProperty("IrisXe-HungDraws", t);
 }
+// ---- v0.68.40: the GPU worker ------------------------------------------------------------------------------------
+// Before, the program's thread ran every GPU job of a command buffer itself and waited for each but the last (Maps:
+// ~12 jobs, ~5 ms per command buffer), so the program and the GPU took turns. Now (with background completion on)
+// the draws go into a queue and a kernel thread feeds them to the GPU in order; the command buffer gets its stamp
+// right away and is finished when the worker has run its last job. The program prepares its next frame meanwhile.
+// Everything else the GPU does for a command buffer (blits, fills, compute) first waits until the queue is empty, so
+// the order inside and between command buffers stays what the programs sent. Off: boot-arg -irisxenoworker, or live
+// sudo sysctl debug.irisxe_worker=0.
+struct XeWork { UInt32 kind, space, cnt, v; char who[20]; XeDrawDesc d[XE_ACCEL_BATCH]; };   // kind 0 draws, 1 signal
+#define XE_WORK_N 32
+static XeWork *sWork;                              // XE_WORK_N items (IOMalloc, ~1.6 MB)
+static UInt32 sWorkHead, sWorkTail;                // head = next to run, tail = next free
+static bool sWorkBusy, sWorkThreadOn;
+static IOLock *sWorkLock;
+static UInt64 sWorkJobs, sWorkWaitsFull, sWorkDrains;
+int gIrisXeWorker = -1;                            // IrisXeAccel.cpp: debug.irisxe_worker
+static bool workerOn() {
+    if (gIrisXeWorker < 0) gIrisXeWorker = PE_parse_boot_argn("-irisxenoworker", nullptr, 0) ? 0 : 1;
+    return gIrisXeWorker == 1;
+}
+static void drawResult(IrisXeAccelerator *ax, const XeDrawDesc *batch, UInt32 cnt, UInt32 space, int r, const char *who) {
+    ax->countMetal(r == 0 ? 9 : 10, cnt);
+    if (!r) return;
+    IOLog("IrisXeAccel: %u draw(s), first of %u vertices, failed (%d) - %s, code vs 0x%llx ps 0x%llx, target %ux%u format %u, %u textures\n",
+          cnt, batch[0].vertexCount, r, who, batch[0].vsVA, batch[0].psVA, batch[0].nrt ? batch[0].rt[0].width : 0,
+          batch[0].nrt ? batch[0].rt[0].height : 0, batch[0].nrt ? batch[0].rt[0].format : 0, batch[0].ntex);
+    // v0.68.33: it hung - remember it. Only a single draw: in a batch the one that hung is not known, and
+    // skipping a common shader (the desktop's own) would leave parts of the screen undrawn
+    if (r == -9 && cnt == 1) {
+        if (batch[0].vertexCount && !hungKnown(space, batch[0])) {
+            sHung[sHungN % 32] = { space, batch[0].vsVA, batch[0].psVA };
+            sHungN++;
+        }
+        hungPublish(ax, who, batch[0]);
+    }
+}
+static void workPublish(IrisXeAccelerator *ax) {
+    char t[200];
+    snprintf(t, sizeof(t), "%s | %llu GPU jobs run by the worker, %llu times the queue was full, %llu waits for it to empty",
+             workerOn() ? "on" : "off", sWorkJobs, sWorkWaitsFull, sWorkDrains);
+    ax->setProperty("IrisXe-Worker", t);
+}
+static void workThread(void *, wait_result_t) {
+    IrisXeAccelerator *ax = IrisXeAccelerator::sInstance;
+    for (;;) {
+        IOLockLock(sWorkLock);
+        while (sWorkHead == sWorkTail) IOLockSleep(sWorkLock, &sWorkHead, 0 /* THREAD_UNINT */);
+        XeWork &w = sWork[sWorkHead % XE_WORK_N];
+        sWorkBusy = true;
+        IOLockUnlock(sWorkLock);
+        if (ax && w.kind == 0) {
+            int r = ax->coreDraws(w.space, w.d, w.cnt, 2000, nullptr);
+            drawResult(ax, w.d, w.cnt, w.space, r, w.who);
+            sWorkJobs++;
+            if ((sWorkJobs & 1023) == 1) workPublish(ax);
+        } else if (ax && w.kind == 1) {
+            IOAccelEventMachine2 *em = asyncEM(ax);
+            if (em) asyncWrite(em, w.v);
+        }
+        IOLockLock(sWorkLock);
+        sWorkHead++;
+        sWorkBusy = false;
+        IOLockWakeup(sWorkLock, &sWorkTail, false);         // a full queue / a drain may go on
+        IOLockUnlock(sWorkLock);
+    }
+}
+static bool workStart() {
+    if (sWorkThreadOn) return true;
+    if (!sWork) {
+        sWork = (XeWork *)IOMalloc(sizeof(XeWork) * XE_WORK_N);
+        if (!sWork) return false;
+    }
+    if (!sWorkLock && !(sWorkLock = IOLockAlloc())) return false;
+    thread_t th = nullptr;
+    if (kernel_thread_start(&workThread, nullptr, &th) != KERN_SUCCESS) return false;
+    thread_deallocate(th);
+    sWorkThreadOn = true;
+    return true;
+}
+// put an item into the queue (waits while it is full)
+static XeWork *workSlot() {
+    IOLockLock(sWorkLock);
+    if (sWorkTail - sWorkHead >= XE_WORK_N) {
+        sWorkWaitsFull++;
+        while (sWorkTail - sWorkHead >= XE_WORK_N) IOLockSleep(sWorkLock, &sWorkTail, 0);
+    }
+    XeWork *w = &sWork[sWorkTail % XE_WORK_N];
+    IOLockUnlock(sWorkLock);
+    return w;                                       // one producer at a time (Apple's queue lock), see workPush
+}
+static void workPush() {
+    IOLockLock(sWorkLock);
+    sWorkTail++;
+    IOLockWakeup(sWorkLock, &sWorkHead, false);
+    IOLockUnlock(sWorkLock);
+}
+// wait until everything queued has run (before GPU work that is not a queued draw)
+void irisxeWorkDrain() {
+    if (!sWorkThreadOn || !sWorkLock) return;
+    IOLockLock(sWorkLock);
+    if (sWorkHead != sWorkTail || sWorkBusy) {
+        sWorkDrains++;
+        while (sWorkHead != sWorkTail || sWorkBusy) IOLockSleep(sWorkLock, &sWorkTail, 0);
+    }
+    IOLockUnlock(sWorkLock);
+}
+static void workSignal(UInt32 v) {                  // the stamp value to pass after everything queued so far
+    XeWork *w = workSlot();
+    w->kind = 1; w->v = v; w->cnt = 0;
+    workPush();
+}
+
 static IRISXE_SLOT_RET runDraw(IOAccelCommandQueue *q, IrisXeAccelerator *ax, IOAccelTask *task,
                                const XeDrawCmd *k, const UInt8 *end, IOAccelSegmentResourceList *list) {
     static XeDrawDesc batch[XE_ACCEL_BATCH];
@@ -1099,31 +1223,33 @@ static IRISXE_SLOT_RET runDraw(IOAccelCommandQueue *q, IrisXeAccelerator *ax, IO
     uint64_t tDraw = mach_absolute_time();
     // v0.63.0: debug.irisxe_async - the last job is left running; the command buffer completes later
     bool wantAsync = IrisXeAsyncMode() && ax->coreABI() >= 10 && asyncCheck(q, ax);
+    // v0.68.40: the worker runs the draws (needs background completion: the stamp)
+    if (wantAsync && workerOn() && workStart()) {
+        XeWork *w = workSlot();
+        w->kind = 0; w->space = (UInt32)space; w->cnt = cnt; w->v = 0;
+        memcpy(w->d, batch, sizeof(XeDrawDesc) * cnt);
+        char who[32] = "?"; proc_selfname(who, sizeof(who)); strlcpy(w->who, who, sizeof(w->who));
+        asyncNote(q, ax, list, 0);
+        sCbWork = true;
+        workPush();
+        sKtLookNs += ktNs(tDraw - tLook); sKtDrawNs += ktNs(mach_absolute_time() - tDraw);
+        sKtJobs++; sKtDraws += cnt;
+        if (cnt > 1) { ax->countMetal(11, 1); sBatchJobs++; sBatchDraws += cnt; }
+        return 0;
+    }
     UInt32 aseq = 0;
+    irisxeWorkDrain();                              // v0.68.40: the worker was just switched off: its queue first
     int r = ax->coreDraws((UInt32)space, batch, cnt, 2000, wantAsync ? &aseq : nullptr);
     if (aseq) asyncNote(q, ax, list, aseq);
     sKtLookNs += ktNs(tDraw - tLook); sKtDrawNs += ktNs(mach_absolute_time() - tDraw);   // v0.60.0
     sKtJobs++; sKtDraws += cnt;
-    ax->countMetal(r == 0 ? 9 : 10, cnt);
     if (cnt > 1) { ax->countMetal(11, 1); sBatchJobs++; sBatchDraws += cnt; }   // v0.49.0: batched jobs
     static UInt32 pubN;
     if (cnt > 1 || (++pubN & 63) == 1) batchStatPublish(cnt);
-    if (r) {
+    {
         char who[32] = "?";
-        proc_selfname(who, sizeof(who));
-        IOLog("IrisXeAccel: %u draw(s), first of %u vertices, failed (%d) - %s, code vs 0x%llx ps 0x%llx, target %ux%u format %u, %u textures\n",
-              cnt, batch[0].vertexCount, r, who, batch[0].vsVA, batch[0].psVA, batch[0].nrt ? batch[0].rt[0].width : 0,
-              batch[0].nrt ? batch[0].rt[0].height : 0, batch[0].nrt ? batch[0].rt[0].format : 0, batch[0].ntex);
-        // v0.68.33: it hung - remember it. Only a single draw: in a batch the one that hung is not known, and
-        // skipping a common shader (the desktop's own) would leave parts of the screen undrawn
-        if (r == -9 && cnt == 1) {
-            for (UInt32 i = 0; i < cnt; i++) {
-                if (!batch[i].vertexCount || hungKnown((UInt32)space, batch[i])) continue;
-                sHung[sHungN % 32] = { (UInt32)space, batch[i].vsVA, batch[i].psVA };
-                sHungN++;
-            }
-            hungPublish(ax, who, batch[0]);
-        }
+        if (r) proc_selfname(who, sizeof(who));
+        drawResult(ax, batch, cnt, (UInt32)space, r, who);
     }
     return 0;
 }
@@ -1138,6 +1264,7 @@ IRISXE_SLOT_RET IrisXeCommandQueue::processSegmentKernelCommand(IOAccelSegmentRe
     }
     IrisXeAccelerator *ax = IrisXeAccelerator::sInstance;
     if (w[0] == XE_KCMD_DRAW && skipDone(cmd)) return 0;   // v0.49.0: already run with the draw before it
+    if (w[0] != XE_KCMD_DRAW) irisxeWorkDrain();          // v0.68.40: queued draws first (order)
     if (ax && w[0] == XE_KCMD_DRAW)
         return runDraw(this, ax, (IOAccelTask *)getGPUTask(), (const XeDrawCmd *)cmd, (const UInt8 *)end, list);
     if (ax && w[0] == XE_KCMD_DISPATCH)

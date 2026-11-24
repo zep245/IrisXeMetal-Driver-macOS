@@ -351,6 +351,19 @@ static int sysctlBatch SYSCTL_HANDLER_ARGS {
 }
 SYSCTL_PROC(_debug, OID_AUTO, irisxe_batch, CTLTYPE_INT | CTLFLAG_RW | CTLFLAG_LOCKED, nullptr, 0, sysctlBatch, "I",
             "draws per GPU job (1..8), 0: IrisXeCore's default (4); 6 by default from 90 s after boot (v0.68.35)");
+// v0.68.40: sudo sysctl debug.irisxe_worker=0/1 - the GPU worker (draws run by a kernel thread, the program does not
+// wait); boot-arg -irisxenoworker starts at 0
+extern int gIrisXeWorker;                    // IrisXeAccelMachines.cpp
+static int sysctlWorker SYSCTL_HANDLER_ARGS {
+    int v = gIrisXeWorker < 0 ? (PE_parse_boot_argn("-irisxenoworker", nullptr, 0) ? 0 : 1) : gIrisXeWorker;
+    int err = sysctl_handle_int(oidp, &v, 0, req);
+    if (err || !req->newptr) return err;
+    if (v < 0 || v > 1) return EINVAL;
+    gIrisXeWorker = v;
+    return 0;
+}
+SYSCTL_PROC(_debug, OID_AUTO, irisxe_worker, CTLTYPE_INT | CTLFLAG_RW | CTLFLAG_LOCKED, nullptr, 0, sysctlWorker, "I",
+            "1: a kernel thread runs the draws (programs do not wait for the GPU), 0: each program runs its own");
 extern void IrisXeKernelTimingReset();       // IrisXeAccelMachines.cpp
 // v0.59.1: sudo sysctl debug.irisxe_timing=1 - the stutter meter (IrisXe-FrameTiming) starts from zero
 static int sysctlTiming SYSCTL_HANDLER_ARGS {
@@ -389,6 +402,7 @@ void IrisXeRegisterSysctl() {
     sysctl_register_oid(&sysctl__debug_irisxe_async);       // v0.63.0
     sysctl_register_oid(&sysctl__debug_irisxe_flush);       // v0.63.1
     sysctl_register_oid(&sysctl__debug_irisxe_batch);
+    sysctl_register_oid(&sysctl__debug_irisxe_worker);
     sysctl_register_oid(&sysctl__debug_irisxe_pstest);      // v0.63.2
     sysctl_register_oid(&sysctl__debug_irisxe_vcstest);     // v0.67.0
     sSysctlOn = true;
