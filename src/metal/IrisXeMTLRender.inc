@@ -1196,7 +1196,11 @@ static void drawWith(id cb, XeRState *st, NSUInteger prim, NSUInteger start, NSU
     // two draws of one job; 49 hangs in 5 minutes, 0 with one job per draw). IRISXE_BATCH=1 or "batch" in the
     // desktop test turns batching back on (for testing the kext fix)
     static int noBatch = -1;
-    if (noBatch < 0) noBatch = !(getenv("IRISXE_BATCH") != NULL || gDesktopBatch);
+    // v0.68.39: batched for every program, not only WindowServer. Maps ran one GPU job per draw (50 jobs per command
+    // buffer, ~0.18 ms of GPU setup each); the hangs of v0.51 batching were most likely the ring overrun fixed in
+    // v0.68.34 (big jobs ran from their middle). Off: IRISXE_NOBATCH=1, "nobatch" test word, or live for everyone
+    // with sudo sysctl debug.irisxe_batch=1 (one draw per GPU job in the kernel).
+    if (noBatch < 0) noBatch = getenv("IRISXE_NOBATCH") != NULL || gDesktopNoBatch;
     const unsigned long csize = (sizeof(XeDrawCmd) + 63) & ~63ul;      // commands 64-byte aligned, back to back
     bool fresh = noBatch || st->segCB != cb || st->segDraws >= 16;
     if (fresh && st->segCB) { endKernelCommand(st->segCB); st->segCB = nil; }
