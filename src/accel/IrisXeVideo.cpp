@@ -225,7 +225,11 @@ static UInt64 surfVA(IOAccelResource2 *r, void *task, UInt32 *pitch) {
     if (pitch) *pitch = 0;
     const UInt8 *me = (const UInt8 *)r;
     if (!r || me[0x14] != 0x82 || !sVideoAccel) return 0;
-    IOSurface *sf = *(IOSurface * const *)(me + 0xe0);
+    // v0.69.1: the IOSurface is at (resource +0xe0) +0x10, as IrisXeResource::calculateIOSurfaceDeviceCacheVRAMBytes
+    // reads it (research round 31). v0.68.17 - v0.69.0 took +0xe0 itself as the IOSurface: kernel panic (page fault in
+    // resolveId) on the first decode job of v0.69.0 stage B.
+    const UInt8 *dc = *(const UInt8 * const *)(me + 0xe0);
+    IOSurface *sf = dc ? *(IOSurface * const *)(dc + 0x10) : nullptr;
     if (!sf) return 0;
     UInt32 plane = *(const UInt32 *)(me + 0xf8);
     UInt64 poff = _ZNK9IOSurface14getPlaneOffsetEj(sf, plane);

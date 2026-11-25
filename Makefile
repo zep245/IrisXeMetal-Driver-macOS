@@ -3,7 +3,7 @@
 #   IrisXeFB.kext   - display (IOGraphicsFamily)           -> installed in /Library/Extensions
 #   IrisXeAccel.kext - Metal accelerator (IOAcceleratorFamily2), milestone 1 -> /Library/Extensions
 #   IrisXeAGDC.kext  - AppleGraphicsDeviceControl for WindowServer (v0.52.0), idle until sysctl -> /Library/Extensions
-VERSION ?= 0.69.0
+VERSION ?= 0.69.1
 SDK     ?= $(shell xcrun --sdk macosx --show-sdk-path)
 KERNHDR := $(SDK)/System/Library/Frameworks/Kernel.framework/Headers
 CLANGINC := $(shell xcrun clang -print-resource-dir)/include

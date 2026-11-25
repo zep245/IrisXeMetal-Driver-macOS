@@ -1,5 +1,5 @@
 #!/bin/bash
-# IrisXe v0.69.0 hardware video decoding test (H.264 on Tiger Lake's video engine VCS0).
+# IrisXe v0.69.1 hardware video decoding test (H.264 on Tiger Lake's video engine VCS0).
 # Apple's Ice Lake video driver is allowed to use our decoder for ONE boot (the switch erases itself at the start of
 # that boot, so the boot after it is normal again). On that boot this script goes through the stages live - no more
 # restarts:
@@ -17,7 +17,7 @@ if [ "$1" = prepare ]; then
     exit 0
 fi
 if ! sysctl -n debug.irisxe_video > /dev/null 2>&1; then
-    echo "IrisXeAccel is older than v0.69.0: run bash install-all.sh from this release, allow it in Privacy & Security, restart, run this again."
+    echo "IrisXeAccel is older than v0.69.1: run bash install-all.sh from this release, allow it in Privacy & Security, restart, run this again."
     exit 1
 fi
 U=$(stat -f %Su /dev/console)
