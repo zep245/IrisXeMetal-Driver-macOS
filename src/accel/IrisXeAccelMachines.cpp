@@ -1091,8 +1091,10 @@ static bool sWorkBusy, sWorkThreadOn;
 static IOLock *sWorkLock;
 static UInt64 sWorkJobs, sWorkWaitsFull, sWorkDrains;
 int gIrisXeWorker = -1;                            // IrisXeAccel.cpp: debug.irisxe_worker
+// v0.68.44: off by default - the A/B test on one Maps view: worker off 25-26 fps, on 15 fps (WindowServer has to wait
+// for the queue before its draws, v0.68.43). Boot-arg -irisxeworker or sysctl debug.irisxe_worker=1: on.
 static bool workerOn() {
-    if (gIrisXeWorker < 0) gIrisXeWorker = PE_parse_boot_argn("-irisxenoworker", nullptr, 0) ? 0 : 1;
+    if (gIrisXeWorker < 0) gIrisXeWorker = PE_parse_boot_argn("-irisxeworker", nullptr, 0) ? 1 : 0;
     return gIrisXeWorker == 1;
 }
 static void drawResult(IrisXeAccelerator *ax, const XeDrawDesc *batch, UInt32 cnt, UInt32 space, int r, const char *who) {

@@ -529,6 +529,7 @@ typedef struct {
     id depthTex, stencilTex; bool clearDepth, clearStencil; float depthClear; uint32_t stencilClear;
     id dss; uint32_t frontRef, backRef; float bias[3]; NSUInteger clipMode;
     NSMutableArray *keep;                 // setVertexBytes / setFragmentBytes buffers
+    id arena; uint8_t *arenaPtr; NSUInteger arenaOff, arenaLen;   // v0.68.45: their bytes, packed (see bytesBuffer)
     // v0.66.0: multisample resolve (a copy: multisample textures have one sample, see xe_newTexture)
     id resolve[XE_DRAW_MAX_RT]; uint32_t resolveLevel[XE_DRAW_MAX_RT]; uint32_t resolveOn;
 } XeRState;
@@ -544,6 +545,7 @@ static id xe_renderCommandEncoder(id self, SEL _cmd, id pass) {
     ((void (*)(id, SEL, id))objc_msgSend)(self, sel_registerName("setCurrentCommandEncoder:"), enc);
     XeRState *st = rstate(enc);
     st->keep = [[NSMutableArray alloc] init];
+    __atomic_add_fetch(&gEncSerial, 1, __ATOMIC_RELAXED);      // v0.68.45: shadowed buffer textures refresh again
     st->cull = MTLCullModeNone; st->winding = MTLWindingClockwise; st->fill = MTLTriangleFillModeFill;
     id cas = ((id (*)(id, SEL))objc_msgSend)(pass, sel_registerName("colorAttachments"));
     for (unsigned k = 0; k < XE_DRAW_MAX_RT; k++) {
@@ -650,24 +652,55 @@ static void xe_rSetVBs(id self, SEL _cmd, id const *bs, const NSUInteger *offs, 
 static void xe_rSetFBs(id self, SEL _cmd, id const *bs, const NSUInteger *offs, NSRange r) {
     for (NSUInteger i = 0; i < r.length; i++) xe_rSetFB(self, _cmd, bs[i], offs ? offs[i] : 0, r.location + i);
 }
-static id bytesBuffer(id enc, const void *bytes, NSUInteger len) {
+// v0.68.45: setVertexBytes / setFragmentBytes made a new GPU buffer (a kernel call) for every call - WindowServer
+// does it for nearly every draw (CPU profile while dragging in Maps: the biggest piece of our code's time). Now the
+// bytes are packed into a 64 KB buffer per encoder (256-byte steps); only bigger ones (> 8 KB) get their own.
+// IRISXE_NOARENA=1: one buffer per call, as before.
+static id bytesBuffer(id enc, const void *bytes, NSUInteger len, NSUInteger *offOut) {
+    *offOut = 0;
+    if (!len) len = 4;
+    XeRState *st = rstate(enc);
+    static int noArena = -1;
+    if (noArena < 0) noArena = getenv("IRISXE_NOARENA") ? 1 : 0;
+    const NSUInteger kArena = 64 * 1024, kBig = 8 * 1024;
+    NSUInteger need = (len + 255) & ~(NSUInteger)255;
+    if (!noArena && len <= kBig) {
+        if (st->arena && st->arenaOff + need <= st->arenaLen) {
+            memcpy(st->arenaPtr + st->arenaOff, bytes, len);
+            *offOut = st->arenaOff;
+            st->arenaOff += need;
+            return st->arena;
+        }
+    }
     id cb = ((id (*)(id, SEL))objc_msgSend)(enc, sel_registerName("commandBuffer"));
     id dev = ((id (*)(id, SEL))objc_msgSend)(cb, sel_registerName("device"));
-    id b = ((id (*)(id, SEL, const void *, NSUInteger, NSUInteger))objc_msgSend)(dev, sel_registerName("newBufferWithBytes:length:options:"),
-                                                                                bytes, len ? len : 4, MTLResourceStorageModeShared);
-    if (b) {
-        XeRState *st = rstate(enc);
-        if (!st->keep.count)                                     // lives as long as the command buffer (the GPU reads it later)
-            objc_setAssociatedObject(cb, st->keep, st->keep, OBJC_ASSOCIATION_RETAIN);
-        [st->keep addObject:b]; [b release];
+    const bool arena = !noArena && len <= kBig;
+    id b = arena ? ((id (*)(id, SEL, NSUInteger, NSUInteger))objc_msgSend)(dev, sel_registerName("newBufferWithLength:options:"),
+                                                                        kArena, MTLResourceStorageModeShared)
+                 : ((id (*)(id, SEL, const void *, NSUInteger, NSUInteger))objc_msgSend)(dev, sel_registerName("newBufferWithBytes:length:options:"),
+                                                                                         bytes, len, MTLResourceStorageModeShared);
+    if (!b) return nil;
+    if (!st->keep.count)                                     // lives as long as the command buffer (the GPU reads it later)
+        objc_setAssociatedObject(cb, st->keep, st->keep, OBJC_ASSOCIATION_RETAIN);
+    [st->keep addObject:b]; [b release];
+    if (arena) {
+        st->arena = b; st->arenaLen = kArena;
+        st->arenaPtr = ((uint8_t *(*)(id, SEL))objc_msgSend)(b, sel_registerName("contents"));
+        if (!st->arenaPtr) { st->arena = nil; return nil; }
+        memcpy(st->arenaPtr, bytes, len);
+        st->arenaOff = need;
     }
     return b;
 }
 static void xe_rSetVBytes(id self, SEL _cmd, const void *bytes, NSUInteger len, NSUInteger idx) {
-    xe_rSetVB(self, _cmd, bytesBuffer(self, bytes, len), 0, idx);
+    NSUInteger off = 0;
+    id b = bytesBuffer(self, bytes, len, &off);
+    xe_rSetVB(self, _cmd, b, off, idx);
 }
 static void xe_rSetFBytes(id self, SEL _cmd, const void *bytes, NSUInteger len, NSUInteger idx) {
-    xe_rSetFB(self, _cmd, bytesBuffer(self, bytes, len), 0, idx);
+    NSUInteger off = 0;
+    id b = bytesBuffer(self, bytes, len, &off);
+    xe_rSetFB(self, _cmd, b, off, idx);
 }
 static void xe_rSetFTex(id self, SEL _cmd, id t, NSUInteger idx) {
     if (idx >= XE_DRAW_MAX_FTEX) { os_log_error(gLog, "IrisXeMTL: fragment texture %lu: only 0..15 yet", (unsigned long)idx); return; }

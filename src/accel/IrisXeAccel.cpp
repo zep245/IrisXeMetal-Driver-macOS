@@ -294,17 +294,9 @@ SYSCTL_PROC(_debug, OID_AUTO, irisxe_async, CTLTYPE_INT | CTLFLAG_RW | CTLFLAG_L
 int gIrisXeFlush = -1, gIrisXeBatch = -1;
 int gIrisXePSTest = 0;
 UInt32 IrisXeDrawFlags() {
-    // v0.68.42: smart flushing on by default from 90 s after boot (with the GPU worker the GPU is the limit: Maps'
-    // draws cost ~25% less GPU time with it, v0.68.39 test). Boot-arg -irisxenoflush: never; -irisxeflush: from boot.
-    if (gIrisXeFlush < 0) {
-        if (PE_parse_boot_argn("-irisxenoflush", nullptr, 0)) gIrisXeFlush = 0;
-        else if (PE_parse_boot_argn("-irisxeflush", nullptr, 0)) gIrisXeFlush = 1;
-        else {
-            uint64_t ns = 0;
-            absolutetime_to_nanoseconds(mach_absolute_time(), &ns);
-            if (ns >= 90ULL * 1000000000ULL) gIrisXeFlush = 1;
-        }
-    }
+    // v0.68.42: smart flushing on by default from 90 s after boot; v0.68.44: off again - the A/B test on one Maps view
+    // showed no gain (26.3 fps / 38% on time off, 25.2 / 26% on). Boot-arg -irisxeflush or sysctl: on.
+    if (gIrisXeFlush < 0) gIrisXeFlush = PE_parse_boot_argn("-irisxeflush", nullptr, 0) ? 1 : 0;
     // v0.68.35: 6 draws per GPU job by default (batch test after the ring fix: no hangs at 5..8, Maps 56 fps / 86%
     // on time at 6) - like background completion, only from 90 s after boot; boot-arg irisxebatch=N sets it
     UInt32 batchNow = 0;
@@ -365,7 +357,7 @@ SYSCTL_PROC(_debug, OID_AUTO, irisxe_batch, CTLTYPE_INT | CTLFLAG_RW | CTLFLAG_L
 // wait); boot-arg -irisxenoworker starts at 0
 extern int gIrisXeWorker;                    // IrisXeAccelMachines.cpp
 static int sysctlWorker SYSCTL_HANDLER_ARGS {
-    int v = gIrisXeWorker < 0 ? (PE_parse_boot_argn("-irisxenoworker", nullptr, 0) ? 0 : 1) : gIrisXeWorker;
+    int v = gIrisXeWorker < 0 ? (PE_parse_boot_argn("-irisxeworker", nullptr, 0) ? 1 : 0) : gIrisXeWorker;
     int err = sysctl_handle_int(oidp, &v, 0, req);
     if (err || !req->newptr) return err;
     if (v < 0 || v > 1) return EINVAL;

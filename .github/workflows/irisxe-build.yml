@@ -6,7 +6,7 @@ on:
       version:
         description: "Version number"
         required: true
-        default: "0.68.43"
+        default: "0.68.45"
 
 jobs:
   build:
@@ -70,10 +70,10 @@ jobs:
 
       - name: Package
         run: |
-          cp scripts/install-*.sh scripts/irisxe-pipe-test.sh scripts/irisxe-fulltest.sh scripts/irisxe-linetest.sh scripts/irisxe-pstest.sh scripts/irisxe-wallpapertest.sh scripts/irisxe-videotest.sh scripts/irisxe-videorecord.sh scripts/irisxe-brighttest.sh scripts/irisxe-lidtest.sh scripts/irisxe-bootlog.sh scripts/irisxe-apptest.sh scripts/irisxe-bravetest.sh scripts/irisxe-speedtest.sh scripts/irisxe-batchtest.sh scripts/irisxe-hangdump.sh scripts/irisxe-airdump.sh scripts/irisxe-fps.sh build/
+          cp scripts/install-*.sh scripts/irisxe-pipe-test.sh scripts/irisxe-fulltest.sh scripts/irisxe-linetest.sh scripts/irisxe-pstest.sh scripts/irisxe-wallpapertest.sh scripts/irisxe-videotest.sh scripts/irisxe-videorecord.sh scripts/irisxe-brighttest.sh scripts/irisxe-lidtest.sh scripts/irisxe-bootlog.sh scripts/irisxe-apptest.sh scripts/irisxe-bravetest.sh scripts/irisxe-speedtest.sh scripts/irisxe-batchtest.sh scripts/irisxe-hangdump.sh scripts/irisxe-airdump.sh scripts/irisxe-fps.sh scripts/irisxe-profile.sh build/
           cd build
           chmod +x install-*.sh
-          zip -r "IrisXe-${{ inputs.version }}.zip" irisxe-pipe-test.sh irisxe-fulltest.sh irisxe-linetest.sh irisxe-pstest.sh irisxe-wallpapertest.sh irisxe-videotest.sh irisxe-videorecord.sh irisxe-brighttest.sh irisxe-lidtest.sh irisxe-bootlog.sh irisxe-apptest.sh irisxe-bravetest.sh irisxe-speedtest.sh irisxe-batchtest.sh irisxe-hangdump.sh irisxe-airdump.sh irisxe-fps.sh irisxe-vtdecode install-all.sh install-accel.sh install-fb.sh install-bundle.sh install-core.sh install-agdc.sh install-kext-common.sh irisxe-mps-research.txt IrisXeCore.kext IrisXeFB.kext IrisXeAccel.kext IrisXeAGDC.kext irisxe-agdctest IrisXeMTLDriver.bundle irisxe-metaltest irisxe-kernels.metallib irisxe-kernels.ll irisxe-mtkdemo irisxe-mtkdemo.metallib
+          zip -r "IrisXe-${{ inputs.version }}.zip" irisxe-pipe-test.sh irisxe-fulltest.sh irisxe-linetest.sh irisxe-pstest.sh irisxe-wallpapertest.sh irisxe-videotest.sh irisxe-videorecord.sh irisxe-brighttest.sh irisxe-lidtest.sh irisxe-bootlog.sh irisxe-apptest.sh irisxe-bravetest.sh irisxe-speedtest.sh irisxe-batchtest.sh irisxe-hangdump.sh irisxe-airdump.sh irisxe-fps.sh irisxe-profile.sh irisxe-vtdecode install-all.sh install-accel.sh install-fb.sh install-bundle.sh install-core.sh install-agdc.sh install-kext-common.sh irisxe-mps-research.txt IrisXeCore.kext IrisXeFB.kext IrisXeAccel.kext IrisXeAGDC.kext irisxe-agdctest IrisXeMTLDriver.bundle irisxe-metaltest irisxe-kernels.metallib irisxe-kernels.ll irisxe-mtkdemo irisxe-mtkdemo.metallib
 
       - uses: actions/upload-artifact@v4
         with:

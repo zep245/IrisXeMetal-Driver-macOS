@@ -44,6 +44,7 @@ typedef struct {
     // v0.51.31: a texture on a buffer at an offset the GPU core can't use (not 4 KB aligned: Core Animation's images and
     // text are 32 / 256 bytes into their buffers): it has its own memory, filled from the buffer before every GPU read
     id srcBuf; NSUInteger srcOff, srcBpr; bool srcWritten;
+    uint32_t srcSerial;                  // v0.68.45: the render encoder it was last refreshed for (gEncSerial)
     bool tiledColor;             // v0.57.7: a Y-tiled colour texture (test: IRISXE_TILED=1; 2D, one level, own memory)
 } XeTex;
 // v0.57.7: textures made inside other paths (IOSurface, buffer textures) get their memory replaced: never tiled
@@ -439,9 +440,18 @@ static void srcCopy(XeTex *x, bool toBuffer) {
         else          memcpy(tb + y * x->pitch, sb + y * x->srcBpr, rb);
     }
 }
+// v0.68.45: a shadowed buffer texture is refreshed from its buffer once per render encoder, not before every draw
+// that reads it (WindowServer reads the same image in many draws: a whole-image memcpy each time showed up in the
+// CPU profile). The CPU cannot change the buffer for the GPU between two draws of one encoder anyway.
+static volatile uint32_t gEncSerial = 1;
 static void iosRefresh(XeTex *x) {
     if (x && x->ios && !x->iosDirect && !x->iosWritten) iosCopy(x, false);
-    if (x && x->srcBuf && !x->srcWritten) srcCopy(x, false);         // v0.51.31
+    if (x && x->srcBuf && !x->srcWritten) {                        // v0.51.31
+        static int all = -1;
+        if (all < 0) all = getenv("IRISXE_SRCCOPYALL") ? 1 : 0;
+        uint32_t ser = gEncSerial;
+        if (x->srcSerial != ser || all) { srcCopy(x, false); x->srcSerial = ser; }
+    }
 }
 static void texDesc(id t, XeTexDescU *d, id *bufOut) {
     XeTex *x = tex(t);
