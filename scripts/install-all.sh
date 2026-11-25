@@ -1,5 +1,5 @@
 #!/bin/bash
-# IrisXe v0.68.41: installs everything in one go - IrisXeCore into the OpenCore EFI, IrisXeFB / IrisXeAccel / IrisXeAGDC
+# IrisXe v0.68.43: installs everything in one go - IrisXeCore into the OpenCore EFI, IrisXeFB / IrisXeAccel / IrisXeAGDC
 # into /Library/Extensions (one kext cache rebuild), IrisXeMTLDriver.bundle into /Library/GPUBundles.
 # Restart afterwards (after allowing the kexts in Privacy & Security if macOS asks).
 # Run: bash install-all.sh

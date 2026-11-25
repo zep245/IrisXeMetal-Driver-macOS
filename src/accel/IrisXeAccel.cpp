@@ -294,7 +294,17 @@ SYSCTL_PROC(_debug, OID_AUTO, irisxe_async, CTLTYPE_INT | CTLFLAG_RW | CTLFLAG_L
 int gIrisXeFlush = -1, gIrisXeBatch = -1;
 int gIrisXePSTest = 0;
 UInt32 IrisXeDrawFlags() {
-    if (gIrisXeFlush < 0) gIrisXeFlush = PE_parse_boot_argn("-irisxeflush", nullptr, 0) ? 1 : 0;
+    // v0.68.42: smart flushing on by default from 90 s after boot (with the GPU worker the GPU is the limit: Maps'
+    // draws cost ~25% less GPU time with it, v0.68.39 test). Boot-arg -irisxenoflush: never; -irisxeflush: from boot.
+    if (gIrisXeFlush < 0) {
+        if (PE_parse_boot_argn("-irisxenoflush", nullptr, 0)) gIrisXeFlush = 0;
+        else if (PE_parse_boot_argn("-irisxeflush", nullptr, 0)) gIrisXeFlush = 1;
+        else {
+            uint64_t ns = 0;
+            absolutetime_to_nanoseconds(mach_absolute_time(), &ns);
+            if (ns >= 90ULL * 1000000000ULL) gIrisXeFlush = 1;
+        }
+    }
     // v0.68.35: 6 draws per GPU job by default (batch test after the ring fix: no hangs at 5..8, Maps 56 fps / 86%
     // on time at 6) - like background completion, only from 90 s after boot; boot-arg irisxebatch=N sets it
     UInt32 batchNow = 0;
@@ -308,7 +318,7 @@ UInt32 IrisXeDrawFlags() {
         }
     }
     batchNow = gIrisXeBatch < 0 ? 0 : (UInt32)gIrisXeBatch;
-    UInt32 f = (gIrisXeFlush ? 2u : 0u) | (batchNow << 8);
+    UInt32 f = (gIrisXeFlush > 0 ? 2u : 0u) | (batchNow << 8);
     if (gIrisXePSTest > 0) {                                  // v0.63.2: only for the test program's own draws
         char nm[32] = {};
         proc_selfname(nm, sizeof(nm));
@@ -331,7 +341,7 @@ SYSCTL_PROC(_debug, OID_AUTO, irisxe_pstest, CTLTYPE_INT | CTLFLAG_RW | CTLFLAG_
             "fill-rate test for irisxe-metaltest: 1 = SIMD8 test shader, 2 = SIMD16, 3 = render targets LLC bypassed, 4 = L3 bypassed");
 static int sysctlFlush SYSCTL_HANDLER_ARGS {
     IrisXeDrawFlags();
-    int v = gIrisXeFlush;
+    int v = gIrisXeFlush < 0 ? 0 : gIrisXeFlush;
     int err = sysctl_handle_int(oidp, &v, 0, req);
     if (err || !req->newptr) return err;
     if (v < 0 || v > 1) return EINVAL;

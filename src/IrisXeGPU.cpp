@@ -2539,7 +2539,10 @@ int IrisXeProbe::mtlRunDraw3D(const XeSpaceArgs *a, UInt32 *seqOut) {
                 const XeDrawDesc *pd = &ds[i - 1];
                 bool clears = d->clearMask || d->ds.clearDepth || d->ds.clearStencil ||
                               pd->clearMask || pd->ds.clearDepth || pd->ds.clearStencil;
-                needFlush = clears || drawReadsWritten(d) || drawWritesRead(d);
+                // v0.68.42: also after a draw whose shaders may write memory (kill bit 2 = "writes none", set by the
+                // Metal driver): its buffer writes are not in the written list
+                const bool pdWritesMem = pd->vertexCount && pd->instanceCount && !(pd->kill & 2);
+                needFlush = clears || pdWritesMem || drawReadsWritten(d) || drawWritesRead(d);
                 if (needFlush) { sFlushDone++; sWrN = 0; sRdN = 0; } else sFlushSkipped++;
             }
             if (slot && needFlush) {

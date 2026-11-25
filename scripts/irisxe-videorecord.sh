@@ -1,5 +1,5 @@
 #!/bin/bash
-# IrisXe v0.68.41 video record test (hardware video decoding, step V2b). Apple's Ice Lake video driver is allowed to
+# IrisXe v0.68.43 video record test (hardware video decoding, step V2b). Apple's Ice Lake video driver is allowed to
 # talk to our accelerator for ONE boot; our video context accepts and RECORDS its command streams (nothing runs on
 # the GPU). The record shows exactly what Apple's driver sends - the base for running it on the video engine.
 #   sudo bash irisxe-videorecord.sh prepare   switch the test on for the next boot (then restart)

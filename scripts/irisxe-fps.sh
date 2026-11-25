@@ -11,7 +11,7 @@ echo "GO - keep dragging..."
 for i in 20 15 10 5; do echo "  $i seconds left"; sleep 5; done
 echo "STOP."
 OUT="irisxe-fps-$(date +%Y%m%d-%H%M%S).txt"
-{ echo "async $(sysctl -n debug.irisxe_async 2>/dev/null), batch $(sysctl -n debug.irisxe_batch 2>/dev/null), worker $(sysctl -n debug.irisxe_worker 2>/dev/null)"
+{ echo "async $(sysctl -n debug.irisxe_async 2>/dev/null), flush $(sysctl -n debug.irisxe_flush 2>/dev/null), batch $(sysctl -n debug.irisxe_batch 2>/dev/null), worker $(sysctl -n debug.irisxe_worker 2>/dev/null)"
   ioreg -l -w0 | grep -E '"IrisXe-(FrameTiming|KernelTiming|DrawPhases|AccelMaps|Resets|HungDraws|AsyncState|Worker)"' | sed -E 's/^[ |]*//'
   sw_vers; } > "$OUT"
 chown "$(stat -f %Su /dev/console)" "$OUT" 2>/dev/null

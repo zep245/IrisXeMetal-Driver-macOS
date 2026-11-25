@@ -1225,11 +1225,17 @@ static IRISXE_SLOT_RET runDraw(IOAccelCommandQueue *q, IrisXeAccelerator *ax, IO
     // v0.63.0: debug.irisxe_async - the last job is left running; the command buffer completes later
     bool wantAsync = IrisXeAsyncMode() && ax->coreABI() >= 10 && asyncCheck(q, ax);
     // v0.68.40: the worker runs the draws (needs background completion: the stamp)
-    if (wantAsync && workerOn() && workStart()) {
+    // v0.68.43: not WindowServer's own draws. With them in the worker, the screen sometimes showed a frame before it
+    // was finished (short horizontal lines on Dock hover / in windows, gone with the worker off). WindowServer runs
+    // its draws itself again, after everything queued (the programs' frames it composites are complete then).
+    char who[32] = "?";
+    proc_selfname(who, sizeof(who));
+    const bool isWS = !strcmp(who, "WindowServer");
+    if (wantAsync && !isWS && workerOn() && workStart()) {
         XeWork *w = workSlot();
         w->kind = 0; w->space = (UInt32)space; w->cnt = cnt; w->v = 0;
         memcpy(w->d, batch, sizeof(XeDrawDesc) * cnt);
-        char who[32] = "?"; proc_selfname(who, sizeof(who)); strlcpy(w->who, who, sizeof(w->who));
+        strlcpy(w->who, who, sizeof(w->who));
         asyncNote(q, ax, list, 0);
         sCbWork = true;
         workPush();
@@ -1247,11 +1253,7 @@ static IRISXE_SLOT_RET runDraw(IOAccelCommandQueue *q, IrisXeAccelerator *ax, IO
     if (cnt > 1) { ax->countMetal(11, 1); sBatchJobs++; sBatchDraws += cnt; }   // v0.49.0: batched jobs
     static UInt32 pubN;
     if (cnt > 1 || (++pubN & 63) == 1) batchStatPublish(cnt);
-    {
-        char who[32] = "?";
-        if (r) proc_selfname(who, sizeof(who));
-        drawResult(ax, batch, cnt, (UInt32)space, r, who);
-    }
+    drawResult(ax, batch, cnt, (UInt32)space, r, who);
     return 0;
 }
 
