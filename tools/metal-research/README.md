@@ -15,6 +15,11 @@ runners and collects how Metal finds and talks to an Intel GPU driver:
 
 Purpose: interoperability - writing our own Metal driver bundle for Iris Xe.
 
+## Round 48 (hardware video decoding, research R4 / R6 / R7 of docs/VIDEO-DECODER.md)
+`run.sh`, on macos-15-intel and macos-26-intel: what Apple's Intel kernel driver does after a frame's End token (fences,
+stamps, media ring submission, interrupts, hang handling), HEVC / VP9 / HuC in the kernel and the VA driver, and the
+same on Tahoe (outputs compared offline). Python + capstone + otool only. Text output only. Round 47 is kept as `run47.sh`.
+
 ## Round 39 (hardware video decoding, part 7)
 `run.sh`: every IntelAccelerator function, filtered to those that write the hardware caps / WA / SKU / GT system info range (+0xf36..+0x11c0), and the hardware-info functions in full. Python + capstone only. Text output only. Round 38 is kept as `run38.sh`.
 
