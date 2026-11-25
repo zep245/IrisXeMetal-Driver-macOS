@@ -45,6 +45,12 @@ public:
 
     // v0.67.0: the video engine (VCS0, the media engine's VDBox 0): a one-shot test (kXeSpaceVcsTest)
     IOReturn vcsTest(char *rep, UInt32 repLen);
+    // v0.69.0: video decode jobs on VCS0 (kXeSpaceVideoRun) and the stage A self-test (kXeSpaceVideoSelfTest)
+    bool     vcsPrepare();
+    bool     vcsReset();
+    void     vcsPublish();
+    int      vcsRunJob(UInt64 bbAddr, bool ppgtt, UInt32 timeoutMS, UInt32 *usOut);
+    int      vcsSelfTest(UInt32 rounds, bool hang, char *rep, UInt32 repLen);
     IOBufferMemoryDescriptor     *vcsMem   = nullptr;
     volatile UInt32              *vcsVA    = nullptr;
     UInt64                        vcsPhys  = 0;

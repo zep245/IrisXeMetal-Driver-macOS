@@ -61,6 +61,8 @@ public:
                    UInt32 *asyncSeq = nullptr);   // v0.49.0; v0.63.0: asyncSeq: leave the last job running, its seq
     int  coreWaitSeq(UInt32 seq, UInt32 timeoutMS);
     int  coreVcsTest(char *rep, UInt32 len);          // v0.67.0: video engine test (IrisXeCore ABI 11)   // v0.63.0: 0 ended, -3 timeout, -9 GPU reset, -2 core too old
+    int  coreVideoRun(UInt32 space, UInt64 batchVA, UInt32 timeoutMS, UInt32 *usOut);   // v0.69.0 (IrisXeCore ABI 12)
+    int  coreVideoSelfTest(UInt32 rounds, bool hang, char *rep, UInt32 len);
     OSObject *eventMachine() const { return fEM; }    // v0.63.0
     volatile UInt32 *stampEnd() const { return fStampVA ? fStampVA + 0x1000 / 4 : nullptr; }
     int  coreCompute(UInt32 space, const UInt32 *kernel, UInt32 dwords, const UInt32 ctd[8],

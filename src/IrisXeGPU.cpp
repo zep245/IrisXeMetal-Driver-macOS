@@ -2869,6 +2869,35 @@ IOReturn IrisXeProbe::mtlSpaceOp(UInt32 op, void *argp) {
         return ok ? kIOReturnSuccess : kIOReturnNoMemory;
     }
 
+    case kXeSpaceVideoSelfTest: {                          // v0.69.0: stage A
+        static char rep[600];
+        IOLockLock(mtlJobLock);
+        mtlFinishAsync();
+        rep[0] = 0;
+        int r = vcsSelfTest(a->count ? a->count : 100, a->tpg & 1, rep, sizeof(rep));
+        IOLockUnlock(mtlJobLock);
+        setProperty("IrisXe-VideoSelfTest", rep);
+        IOLog("IrisXeGPU: video self-test: %s\n", rep);
+        if (a->va && a->len) strlcpy((char *)(uintptr_t)a->va, rep, (size_t)a->len);
+        a->result = r;
+        return kIOReturnSuccess;
+    }
+    case kXeSpaceVideoRun: {                               // v0.69.0: one decode job of a process, on VCS0
+        IOLockLock(mtlJobLock); mtlFinishAsync();
+        int err = 0;
+        if (!a->space || !mtlSwitchSpace(a->space, &err)) {
+            IOLockUnlock(mtlJobLock);
+            a->result = a->space ? err : -5;
+            return kIOReturnSuccess;
+        }
+        UInt32 us = 0;
+        a->result = vcsRunJob(a->va, true, a->timeoutMS ? a->timeoutMS : 2000, &us);
+        a->count = us;
+        IOLockUnlock(mtlJobLock);
+        static UInt32 n;
+        if (a->result || (++n & 63) == 1) vcsPublish();
+        return kIOReturnSuccess;
+    }
     case kXeSpaceVcsTest: {                                // v0.67.0: the video engine, one test job (polled)
         static char rep[512];
         IOLockLock(mtlJobLock);                            // no Metal job submits meanwhile (forcewake)

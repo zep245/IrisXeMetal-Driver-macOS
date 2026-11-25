@@ -6,14 +6,14 @@ An open-source macOS driver for Intel Tiger Lake Iris Xe graphics (PCI ID `8086:
 
 ## Progress
 
-Rough estimates, updated with each build (v0.68.45):
+Rough estimates, updated with each build (v0.69.0):
 
 ```
 Display (panel, HiDPI, EDID)       ████████████████████ 100%
 Brightness, sleep and wake         █████████████████░░░  85%
 GPU-drawn desktop (from boot)      ██████████████████░░  90%
 Metal for apps                     █████████████░░░░░░░  65%
-Hardware video decoding            ███████░░░░░░░░░░░░░  35%
+Hardware video decoding            ██████████░░░░░░░░░░  50%
 Full acceleration overall          ███████████████░░░░░  75%
 ```
 
@@ -28,7 +28,7 @@ Full acceleration overall          ███████████████
 
 ### In progress
 
-- 🚧 Hardware video decoding (YouTube without heat). macOS now finds the GPU's H.264 decoder and opens it. Next: running the decode on the GPU's video engine. This is a test-boot feature for now.
+- 🚧 Hardware video decoding (YouTube without heat). H.264 decoding now runs on the GPU's video engine, with a self-test and hang recovery that resets only the video engine. This is a test-boot feature for now (`irisxe-videodecode.sh`).
 - 🚧 Opening the lid does not wake the laptop (press a key or the trackpad); needs an OpenCore ACPI patch, not the GPU driver
 - 🚧 Metal for every app (today only the desktop, wallpapers and listed apps use the GPU)
 
@@ -60,7 +60,7 @@ flowchart TD
 
 You need: a Tiger Lake laptop with Iris Xe (`8086:9a49`), macOS Sequoia, and OpenCore.
 
-**1. Build.** Upload this source to your GitHub repository. Open **Actions → IrisXe build → Run workflow**, enter the version (for example `0.68.45`) and run it. Download the `IrisXe-<version>` artifact and unzip it.
+**1. Build.** Upload this source to your GitHub repository. Open **Actions → IrisXe build → Run workflow**, enter the version (for example `0.69.0`) and run it. Download the `IrisXe-<version>` artifact and unzip it.
 
 **2. First time only: add IrisXeCore to OpenCore.** In `EFI/OC/config.plist`, under **Kernel → Add**, add an entry:
 
@@ -149,7 +149,7 @@ Useful extras:
 | Script | Tests |
 |---|---|
 | `sudo bash irisxe-fulltest.sh` | Speed, memory and the GPU desktop; results in `~/Downloads/irisxe-results` |
-| `sudo bash irisxe-videorecord.sh prepare` | Hardware video decoding test (one boot): run, restart, then run it again without `prepare` |
+| `sudo bash irisxe-videodecode.sh prepare` | Hardware video decoding test (one boot): run, restart, wait 2 minutes, then run it again without `prepare` |
 | `sudo bash irisxe-wallpapertest.sh` | Live wallpapers on the GPU |
 | `./irisxe-metaltest --missing` | Metal calls apps made that the driver doesn't handle yet |
 

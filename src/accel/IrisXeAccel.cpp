@@ -395,6 +395,21 @@ static int sysctlVcsTest SYSCTL_HANDLER_ARGS {
 }
 SYSCTL_PROC(_debug, OID_AUTO, irisxe_vcstest, CTLTYPE_INT | CTLFLAG_RW | CTLFLAG_LOCKED, nullptr, 0, sysctlVcsTest, "I",
             "1: run one test job on the video engine VCS0 (report in IrisXe-VCSTest)");
+// v0.69.0: sudo sysctl debug.irisxe_video=N - hardware video decoding (only after the one-boot video test switch:
+// sudo nvram irisxe-videotest=1, restart). 0 = record only (nothing runs on the GPU; pictures stay empty)
+// 1 = stage A: run the video engine self-test now (100 jobs + a forced hang and recovery; IrisXe-VideoSelfTest),
+//     then back to the previous stage | 2 = decode on VCS0 + record the first jobs | 3 = decode on VCS0
+// After 3 GPU timeouts in one boot hardware decoding switches itself off (streams fail; the app decodes in software).
+extern int IrisXeVideoStage();
+extern int IrisXeVideoSetStage(int v);          // IrisXeVideo.cpp: returns errno
+static int sysctlVideo SYSCTL_HANDLER_ARGS {
+    int v = IrisXeVideoStage();
+    int err = sysctl_handle_int(oidp, &v, 0, req);
+    if (err || !req->newptr) return err;
+    return IrisXeVideoSetStage(v);
+}
+SYSCTL_PROC(_debug, OID_AUTO, irisxe_video, CTLTYPE_INT | CTLFLAG_RW | CTLFLAG_LOCKED, nullptr, 0, sysctlVideo, "I",
+            "hardware video decoding: 0 record only, 1 self-test, 2 decode + record, 3 decode");
 static bool sSysctlOn;
 void IrisXeRegisterSysctl() {
     if (sSysctlOn) return;
@@ -407,6 +422,7 @@ void IrisXeRegisterSysctl() {
     sysctl_register_oid(&sysctl__debug_irisxe_worker);
     sysctl_register_oid(&sysctl__debug_irisxe_pstest);      // v0.63.2
     sysctl_register_oid(&sysctl__debug_irisxe_vcstest);     // v0.67.0
+    sysctl_register_oid(&sysctl__debug_irisxe_video);       // v0.69.0
     sSysctlOn = true;
 }
 
@@ -676,6 +692,25 @@ int IrisXeAccelerator::coreVcsTest(char *rep, UInt32 len) {
     XeSpaceArgs a = {};
     a.va = (UInt64)(uintptr_t)rep; a.len = len; a.result = -12;
     spaceCall(c, fSymSpace, kXeSpaceVcsTest, &a);
+    return a.result;
+}
+// v0.69.0: hardware video decoding (IrisXeCore ABI 12)
+int IrisXeAccelerator::coreVideoRun(UInt32 space, UInt64 batchVA, UInt32 timeoutMS, UInt32 *usOut) {
+    IOService *c = findCore();
+    if (usOut) *usOut = 0;
+    if (!c || fSpaceABI < 12) return -10;
+    XeSpaceArgs a = {};
+    a.space = space; a.va = batchVA; a.timeoutMS = timeoutMS; a.result = -12;
+    spaceCall(c, fSymSpace, kXeSpaceVideoRun, &a);
+    if (usOut) *usOut = a.count;
+    return a.result;
+}
+int IrisXeAccelerator::coreVideoSelfTest(UInt32 rounds, bool hang, char *rep, UInt32 len) {
+    IOService *c = findCore();
+    if (!c || fSpaceABI < 12) { strlcpy(rep, "IrisXeCore v0.69.0 or newer needed (install-core.sh, restart)", len); return -10; }
+    XeSpaceArgs a = {};
+    a.count = rounds; a.tpg = hang ? 1 : 0; a.va = (UInt64)(uintptr_t)rep; a.len = len; a.result = -12;
+    spaceCall(c, fSymSpace, kXeSpaceVideoSelfTest, &a);
     return a.result;
 }
 int IrisXeAccelerator::coreWaitSeq(UInt32 seq, UInt32 timeoutMS) {

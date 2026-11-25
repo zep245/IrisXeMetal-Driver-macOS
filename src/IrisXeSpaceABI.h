@@ -8,7 +8,8 @@
 #pragma once
 #include <libkern/OSTypes.h>
 
-#define IRISXE_SPACE_ABI     11     // 11 = v0.67.0: kXeSpaceVcsTest (video engine test, report: va = buffer, len = size)
+#define IRISXE_SPACE_ABI     12     // 12 = v0.69.0: kXeSpaceVideoRun, kXeSpaceVideoSelfTest (hardware video decoding)
+// #define IRISXE_SPACE_ABI     11     // 11 = v0.67.0: kXeSpaceVcsTest (video engine test, report: va = buffer, len = size)
                                    // 10 = v0.63.0: kXeSpaceDraw tpg bit 0 = leave the last job running (seq in va); kXeSpaceWaitSeq
 // #define IRISXE_SPACE_ABI     9      // 9 = v0.58.7: a space also maps GPU VA 1 GB .. 4 GB (IRISXE_HI_VA..IRISXE_HI_END)
                                    // 8 = v0.51.17: compute thread groups of W x H x D (tpgHD, gridYZ)
@@ -31,6 +32,10 @@ enum {
     kXeSpaceRun      = 6,   // in:  space, cmds[count], count, timeoutMS (blitter job; result as mtlRunBlit)
     kXeSpaceVersion  = 7,   // out: result = IRISXE_SPACE_ABI
     kXeSpaceVcsTest  = 11,  // v0.67.0 (ABI 11): run a tiny job on the video engine VCS0; va = char *report, len = its size
+    kXeSpaceVideoRun = 12,  // v0.69.0 (ABI 12): in: space, va = batch buffer (GPU VA in that space), timeoutMS: run it on VCS0 and
+                            //      wait. result 0 ended, -3 timeout (VCS0 reset), -9 reset failed, -4 busy, -5 no space, -1/-2 not ready
+                            //      out: count = GPU time in us
+    kXeSpaceVideoSelfTest = 13, // v0.69.0: count = jobs, tpg = 1: also a forced hang + recovery; va = char *report, len = its size
     kXeSpaceWaitSeq  = 10,  // in: count = seq of a render job, timeoutMS: wait until it ended (ABI 10); result 0, -3 timeout, -9 GPU reset
     kXeSpaceDraw     = 9,   // in:  space, draw (IrisXeDrawABI.h), timeoutMS: a Metal draw (milestone 5c); result as compute,
                             //      -8 = bad description

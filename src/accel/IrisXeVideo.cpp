@@ -4,6 +4,9 @@
 #include <IOKit/IODeviceTreeSupport.h>
 #include <IOKit/IOLib.h>
 #include <libkern/libkern.h>
+#include <sys/errno.h>
+#include "apple/IOAccelEventMachine2.h"
+#include "../IrisXeSpaceABI.h"
 
 OSDefineMetaClassAndStructors(IrisXeVideoContext, IOAccelVideoContext2)
 // the family's IOAccelContext2::getTargetAndMethodForIndex (exported; our generated header lists only a class's own
@@ -12,6 +15,7 @@ extern "C" IOExternalMethod *_ZN15IOAccelContext226getTargetAndMethodForIndexEPP
 
 // ---------------------------------------------------------------- test switch (one boot)
 static bool sVideoTest;
+static void videoPublish();             // v0.69.0 (below)
 static IrisXeAccelerator *sVideoAccel;
 bool IrisXeVideoTestOn() { return sVideoTest; }
 // v0.68.5: populateAccelConfig runs inside the family's start, before IrisXeVideoTestStart reads (and erases) the
@@ -49,8 +53,10 @@ void IrisXeVideoTestStart(IrisXeAccelerator *accel) {
     accel->setProperty("IOGVACodec", "Gen11");
     accel->setProperty("IOGVAXDecode", "2");
     accel->setProperty("IOVARendererID", 17301632ULL, 32);
-    accel->setProperty("IrisXe-Video", "RECORD-ONLY test this boot: video contexts accept and record command streams, "
-                                       "nothing runs on the GPU (IrisXe-VideoRecord)");
+    accel->setProperty("IrisXe-Video", "video test boot: VideoToolbox uses our decoder. sudo sysctl debug.irisxe_video=N: "
+                                       "0 record only (nothing on the GPU), 1 self-test, 2 decode on VCS0 + record, 3 decode "
+                                       "(IrisXe-VideoDecode, IrisXe-VideoEngine)");
+    videoPublish();
 }
 
 // ---------------------------------------------------------------- the record
@@ -141,7 +147,7 @@ static void recordToken(const UInt8 *info, UInt32 ctype) {
 
 // v0.68.17 (defined below)
 struct XeSurf;
-#define XE_SURF_N     32
+#define XE_SURF_N     31          // v0.69.0: slot 31 (0x1F800000) = the video batch buffer
 static void surfForget(IOAccelResource2 *r);
 // ---------------------------------------------------------------- v0.68.15: texture ids -> resources
 // RO private +8 holds each resource's texture id (1..4095; the VA driver may pick its own for its surfaces, so the
@@ -370,6 +376,126 @@ static void xeCountsText(char *b, UInt32 len) {
         o += (UInt32)snprintf(b + o, len - o, "%s 0x%x->0x%x x%u, ", sCounts[i].kind, sCounts[i].id, sCounts[i].res, sCounts[i].n);
 }
 
+// ---------------------------------------------------------------- v0.69.0: hardware decoding on VCS0
+// debug.irisxe_video (IrisXeAccel.cpp): 0 record only, 1 self-test (stage A), 2 decode + record, 3 decode.
+// Per Media-context command stream (research rounds 45-49, Apple's IGAccelVideoContext):
+//   SetFence token (0x80xx): token +8 = fence slot (checked against the family's fence memory sizes), kept here
+//   BatchBufferStart (0x81xx): token +8 = resource id, +0xc = offset: its GPU address into the MI_BATCH_BUFFER_START
+//   CodecHAL (0x82xx): the patch list, applied in place to the command buffer (as Apple does)
+//   end of stream: the commands (info +0x30 byte offset, +0x34 dwords; the last 2 dwords are room for
+//   MI_BATCH_BUFFER_END) are copied into our batch buffer, mapped into the process's GPU space at 0x1F800000, and
+//   run on VCS0 (IrisXeCore, synchronously). Then the frame's fence slot is set to an empty event (= passed: the
+//   job has already ended) and its pending word cleared, as Apple's endCommandStream does with its stamp.
+// Anything we cannot resolve (an unknown codec token, an unresolved patch address): the job is not run and the
+// stream fails (ok flag 0) - the app then decodes in software. 3 GPU timeouts in one boot: decoding switches off.
+static int sStage;                       // 0..3
+static bool sDecodeOff;                  // after 3 timeouts
+static UInt32 sVHangs, sVRun, sVFail, sVNoRun, sVBadPatch, sVUnknownTok, sVFences, sVOtherCtx, sVAttrFix;
+static UInt64 sVGpuUs;
+static IOLock *sVJobLock;
+static IOBufferMemoryDescriptor *sVBatch;
+static UInt64 sVBatchPA[130];
+static const UInt64 kVBatchVA = XE_SURF_BASE + 31 * XE_SURF_SLOT;
+static const UInt32 kVBatchPages = 130;  // 512 KB of commands + MI_BATCH_BUFFER_END
+static char sVSelf[600] = "not run (sudo sysctl debug.irisxe_video=1)";
+
+static void videoPublish() {
+    if (!sVideoAccel) return;
+    char t[600];
+    snprintf(t, sizeof(t), "stage %d%s | jobs run %u (GPU %llu us average), failed %u, timeouts %u | not run: %u (unresolved "
+             "patch addresses %u, unknown codec tokens %u) | fences passed %u | streams of other contexts %u | "
+             "compression bits cleared %u | self-test: %s",
+             sStage, sDecodeOff ? " (OFF after 3 GPU timeouts)" : "", sVRun, sVRun ? sVGpuUs / sVRun : 0ULL, sVFail, sVHangs,
+             sVNoRun, sVBadPatch, sVUnknownTok, sVFences, sVOtherCtx, sVAttrFix, sVSelf);
+    sVideoAccel->setProperty("IrisXe-VideoDecode", t);
+}
+int IrisXeVideoStage() { return sStage; }
+int IrisXeVideoSetStage(int v) {
+    if (v < 0 || v > 3) return EINVAL;
+    if (!sVideoAccel) return ENODEV;
+    if (v == 1) {                                    // stage A: the self-test, the stage stays as it was
+        int r = sVideoAccel->coreVideoSelfTest(100, true, sVSelf, sizeof(sVSelf));
+        if (r == -10) strlcpy(sVSelf, "IrisXeCore v0.69.0 or newer needed (install it too, restart)", sizeof(sVSelf));
+        videoPublish();
+        return 0;
+    }
+    sStage = v;
+    if (v >= 2) sDecodeOff = false, sVHangs = 0;     // a new try
+    videoPublish();
+    return 0;
+}
+static bool videoBatchReady() {
+    if (sVBatch) return true;
+    if (!sVJobLock) sVJobLock = IOLockAlloc();
+    IOBufferMemoryDescriptor *m = IOBufferMemoryDescriptor::withOptions(kIODirectionInOut, kVBatchPages * 4096, 4096);
+    if (!m || m->prepare() != kIOReturnSuccess) { OSSafeReleaseNULL(m); return false; }
+    for (UInt32 i = 0; i < kVBatchPages; i++) {
+        IOByteCount seg = 0;
+        addr64_t p = m->getPhysicalSegment((IOByteCount)i * 4096, &seg, kIOMemoryMapperNone);
+        if (!p) { m->complete(); m->release(); return false; }
+        sVBatchPA[i] = p & ~0xFFFULL;
+    }
+    sVBatch = m;
+    return sVJobLock != nullptr;
+}
+// the CodecHAL patch list, applied to the command buffer itself. Returns the number of entries it could not apply.
+// Memory-attribute dwords right after a patched address (small values, no address bits) lose the Gen12 compression
+// bits 9 / 10 (Apple's Gen11 values never mean compression on Gen12 surfaces we map).
+static UInt32 applyCodecHAL(const UInt32 *tok, UInt32 sizeDw, void *task, void *shared, const UInt8 *info, bool rec) {
+    if (!tok || sizeDw < 8) return 0;
+    UInt32 *cmd = *(UInt32 * const *)(info + 0x00);
+    const UInt8 *base = *(const UInt8 * const *)(info + 0x08);
+    UInt64 cmdSize = *(const UInt64 *)(info + 0x10);
+    if (!cmd || !base || (const UInt8 *)cmd < base) return 1;
+    UInt64 cmdDw64 = (UInt64)(base + cmdSize - (const UInt8 *)cmd) / 4;
+    UInt32 cmdDw = cmdDw64 > 0xFFFFF ? 0xFFFFF : (UInt32)cmdDw64;
+    const UInt32 *e = tok + 2 + 6, *end = tok + sizeDw;
+    UInt32 bad = 0, ok = 0;
+    if (rec) { recLock(); recAdd("\n#run patch:"); recUnlock(); }
+    for (; e + 5 <= end && (e[0] & 1); e += 5) {
+        UInt32 dw0 = e[0], type = (dw0 >> 1) & 7, idx = (dw0 >> 5) & 0xFFFFF, sh = (dw0 >> 25) & 31;
+        if (type == 3) continue;                                        // skip entry
+        UInt32 id1 = e[1] & 0xFFFF, id2 = e[1] >> 16, p1 = 0, p2 = 0;
+        UInt64 va1 = 0, va2 = 0, v = 0;
+        resolveId(shared, id1, task, &va1, &p1);
+        bool good = va1 != 0;
+        switch (type) {
+            case 0: v = va1; break;
+            case 1: v = p1 ? p1 - 1 : 0; good = p1 != 0; break;
+            case 2: resolveId(shared, id2, task, &va2, &p2);
+                    v = (va2 > va1 && p1) ? (va2 - va1) / p1 : 0; good = good && va2 && p1; break;
+            default: good = false; break;
+        }
+        if (dw0 & 0x40000000) v >>= sh; else v <<= sh;
+        if ((dw0 & 0x80000000) && (e[3] | e[4])) good = false;
+        if (!good || idx + (type == 0 ? 1 : 0) >= cmdDw) { bad++; continue; }
+        UInt64 full = v + e[2];
+        if (type == 0) {
+            cmd[idx] = (UInt32)full;
+            cmd[idx + 1] = (UInt32)(full >> 32);
+            if (idx + 2 < cmdDw) {
+                UInt32 a = cmd[idx + 2];
+                if (!(a & ~0x7FFu) && (a & 0x600u)) { cmd[idx + 2] = a & ~0x600u; sVAttrFix++; }
+            }
+        } else cmd[idx] = (UInt32)(e[2] + (UInt32)v);
+        ok++;
+        if (rec) { recLock(); recAdd(" %u:%x", idx, cmd[idx]); recUnlock(); }
+    }
+    if (rec) { recLock(); recAdd(" | applied %u, unresolved %u\n", ok, bad); recUnlock(); }
+    return bad;
+}
+// the fence slot of this stream: an empty event (passed) and the pending word cleared
+static void videoPassFence(IrisXeVideoContext *c, SInt32 &slot) {
+    if (slot < 0) return;
+    UInt8 *me = (UInt8 *)c;
+    UInt8 *evMem = *(UInt8 **)(me + 0x6a8), *pend = *(UInt8 **)(me + 0x6a0);
+    UInt32 evBytes = *(UInt32 *)(me + 0x6d8), pendBytes = *(UInt32 *)(me + 0x6c8);
+    IOAccelEventMachine2 *em = sVideoAccel ? (IOAccelEventMachine2 *)sVideoAccel->eventMachine() : nullptr;
+    if (evMem && em && (UInt32)slot * 64 + 64 <= evBytes) { em->initEvent((IOAccelEvent *)(evMem + (UInt32)slot * 64)); sVFences++; }
+    if (pend && (UInt32)slot * 16 + 4 <= pendBytes) *(volatile UInt32 *)(pend + (UInt32)slot * 16) = 0;
+    slot = -1;
+}
+
 // ---------------------------------------------------------------- the context
 IOAccelDataBufferLimits IrisXeVideoContext::getDataBufferLimits() {
     // as Apple's Intel video context (IGAccelVideoContext::getDataBufferLimits, round 35): the family's limits, then
@@ -406,6 +532,38 @@ IRISXE_SLOT_RET IrisXeVideoContext::processSidebandToken(IOAccelCommandStreamInf
         return r;
     }
     recordToken(p, xeType);
+    if (sStage >= 2 && (xeType == 0x101 || (id >> 8) == 0x80)) {   // v0.69.0: decoding on VCS0 (fences: every context)
+        const UInt32 *tok = *(const UInt32 * const *)(p + 0x18);
+        UInt16 sz = *(const UInt16 *)(p + 0x22);
+        UInt32 g = id >> 8;
+        void *task = (void *)getGPUTask(), *shared = *(void **)((UInt8 *)this + 0x5a0);
+        if (g == 0x80) {                                     // SetFence
+            UInt32 slot = tok && sz >= 3 ? tok[2] : 0xFFFFFFFFu;
+            UInt32 pendBytes = *(UInt32 *)((UInt8 *)this + 0x6c8), evBytes = *(UInt32 *)((UInt8 *)this + 0x6d8);
+            if (slot != 0xFFFFFFFFu && (UInt64)slot * 16 < pendBytes && (UInt64)slot * 64 < evBytes) xeFence = (SInt32)slot;
+            else xeBad = true;
+        } else if (g == 0x81) {                              // BatchBufferStart
+            UInt32 *cmd = *(UInt32 * const *)(p + 0x00);
+            const UInt8 *base = *(const UInt8 * const *)(p + 0x08);
+            UInt64 cmdSize = *(const UInt64 *)(p + 0x10);
+            UInt64 va = 0; UInt32 pitch = 0;
+            if (tok && sz == 4 && cmd && base && (const UInt8 *)cmd >= base && (const UInt8 *)(cmd + 3) <= base + cmdSize &&
+                resolveId(shared, tok[2], task, &va, &pitch) && va) {
+                UInt64 a = va + tok[3];
+                cmd[1] = (UInt32)a & ~3u;
+                cmd[2] = (UInt32)(a >> 32);
+            } else { xeBad = true; sVBadPatch++; }
+        } else if (g == 0x82) {                              // CodecHAL patch list
+            static UInt32 recs;
+            bool rec = sStage == 2 && recs < 4;
+            if (rec) recs++;
+            UInt32 bad = applyCodecHAL(tok, sz, task, shared, p, rec);
+            if (bad) { xeBad = true; sVBadPatch += bad; }
+        } else { xeBad = true; sVUnknownTok++; }             // a codec token Apple's Media context handles itself
+        static UInt32 n2;
+        if ((++n2 & 15) == 1) IrisXeVideoRecordPublish(sVideoAccel);
+        return 0;
+    }
     if ((id >> 8) == 0x82)                                   // v0.68.15: CodecHAL patch list, dry run
         dryRunCodecHAL(*(const UInt32 * const *)(p + 0x18), *(const UInt16 *)(p + 0x22), (void *)getGPUTask(),
                        *(void **)((UInt8 *)this + 0x5a0), p);
@@ -443,6 +601,7 @@ IRISXE_SLOT_RET IrisXeVideoContext::processDataBuffers(unsigned int n) {
 }
 IRISXE_SLOT_RET IrisXeVideoContext::beginCommandStream(IOAccelCommandStreamInfo &i) {
     IRISXE_SLOT_RET r = IOAccelVideoContext2::beginCommandStream(i);
+    xeFence = -1; xeBad = false;                             // v0.69.0
     {   // v0.68.9: the stream info after the family's begin (command buffer base / size / offsets), first 3 per context
         static UInt32 bdumps[3];
         UInt32 t = xeType >= 0x100 && xeType <= 0x102 ? xeType - 0x100 : 0;
@@ -487,9 +646,57 @@ IRISXE_SLOT_RET IrisXeVideoContext::endCommandStream(IOAccelCommandStreamInfo &i
             IrisXeVideoRecordPublish(sVideoAccel);
         }
     }
+    if (sStage >= 2) videoRunStream(i);                       // v0.69.0
     IRISXE_SLOT_RET r = IOAccelVideoContext2::endCommandStream(i);
     xeCount("end", xeType, (UInt32)r);
     return r;
+}
+
+// v0.69.0: the end of a stream: run its commands on VCS0, then pass its fence
+void IrisXeVideoContext::videoRunStream(IOAccelCommandStreamInfo &i) {
+    UInt8 *p = (UInt8 *)&i;
+    UInt32 off = *(const UInt32 *)(p + 0x30) & ~3u, n = *(const UInt32 *)(p + 0x34);
+    if (xeType != 0x101) { if (n) sVOtherCtx++; videoPassFence(this, xeFence); return; }
+    if (n < 3) { videoPassFence(this, xeFence); return; }   // fence-only stream (Apple: a stamp, no batch)
+    const UInt8 *base = *(const UInt8 * const *)(p + 0x08);
+    UInt64 size = *(const UInt64 *)(p + 0x10);
+    UInt32 cmdDw = n - 2;
+    bool fail = false;
+    if (sDecodeOff || xeBad || !base || off + 4ull * n > size || cmdDw + 2 > kVBatchPages * 1024 || !videoBatchReady()) {
+        sVNoRun++; fail = true;
+    } else {
+        int space = irisxeTaskSpace(sVideoAccel, (IOAccelTask *)getGPUTask());
+        if (space <= 0) { sVNoRun++; fail = true; }
+        else {
+            IOLockLock(sVJobLock);
+            UInt32 *b = (UInt32 *)sVBatch->getBytesNoCopy();
+            memcpy(b, base + off, cmdDw * 4ull);
+            b[cmdDw] = 0x05000000u;                          // MI_BATCH_BUFFER_END
+            b[cmdDw + 1] = 0;
+            __asm__ volatile("mfence" ::: "memory");
+            UInt32 pages = (cmdDw * 4 + 8 + 4095) / 4096;
+            bool mapped = sVideoAccel->coreMapPages((UInt32)space, kVBatchVA, sVBatchPA, pages);
+            UInt32 us = 0;
+            int r = mapped ? sVideoAccel->coreVideoRun((UInt32)space, kVBatchVA, 2000, &us) : -20;
+            IOLockUnlock(sVJobLock);
+            if (r == 0) { sVRun++; sVGpuUs += us; }
+            else {
+                sVFail++; fail = true;
+                if (r == -3 || r == -9) { sVHangs++; if (sVHangs >= 3) sDecodeOff = true; }
+            }
+            static UInt32 recs;
+            if (sStage == 2 && recs < 8) {
+                recs++;
+                recLock();
+                recAdd("\n#run ctx 0x%x space %d dwords %u -> %d (%u us)", xeType, space, cmdDw, r, us);
+                recUnlock();
+                IrisXeVideoRecordPublish(sVideoAccel);
+            }
+        }
+    }
+    if (fail) p[0x3c] = 0;                                   // the stream failed: the VA driver gets an error
+    videoPassFence(this, xeFence);
+    if ((sVRun + sVFail + sVNoRun) % 32 == 1 || fail) videoPublish();
 }
 
 // v0.68.6: the family's own selectors (0..7) run as before, through a wrapper that records each one's result

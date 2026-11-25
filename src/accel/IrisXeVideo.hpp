@@ -40,6 +40,9 @@ private:
     UInt8 _apple[4664];
 public:
     UInt32 xeType = 0;                                 // v0.68.1: 0x100 Main, 0x101 Media, 0x102 VEBox (for the record)
+    SInt32 xeFence = -1;                               // v0.69.0: this stream's fence slot (SetFence), -1 none
+    bool   xeBad = false;                              // v0.69.0: this stream cannot run (unresolved / unknown token)
+    void   videoRunStream(IOAccelCommandStreamInfo &i);
 };
 
 // v0.68.2: the device connection (IOAccelDevice2). Apple's Intel device (IGAccelDevice, research rounds 37-39) adds
