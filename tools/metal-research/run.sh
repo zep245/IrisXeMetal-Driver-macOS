@@ -1,5 +1,6 @@
 #!/bin/bash
-# Round 49 (hardware video decoding, R4 rest): the video context end of stream, fences, FIFO channel. Text only.
+# Round 50 (hardware video decoding, R8): where an IOSurface resource keeps its IOSurface, memory and GPU address. Text only.
+# Round 49 is kept as run49.sh.
 # Round 48 (R4, R6, R7) is kept as run48.sh.
 #   R4: what happens to a frame after its End token in Apple's Intel kernel driver: SetFence / SetBlockFence,
 #       BatchBufferStart, submission to the media ring, the stamp / event that tells the VA driver "done",
@@ -22,17 +23,18 @@ python3 kcdump.py "$OUT" $A -- $F $I > "$OUT/03-kcdump-stdout.txt" 2>&1
 for f in "$OUT"/12-*-vtables.txt "$OUT"/10-*-symbols.txt; do [ -f "$f" ] && c++filt < "$f" > "$f.tmp" && mv "$f.tmp" "$f"; done
 rm -f "$OUT"/11-*-segments.txt "$OUT"/02-*.txt
 
-VT="--vt IOAccelContext2 --vt IOAccelVideoContext2 --vt IGAccelVideoContext --vt IGAccelVideoContextMain --vt IGAccelVideoContextMedia --vt IGAccelVideoContextVEBox --vt IOGraphicsAccelerator2 --vt IntelAccelerator --vt IOAccelResource2 --vt IOAccelEventMachine2"
-# --- R4 (rest): how the frame's fence slot (SetFence index, context +0x1300) gets its stamp, and how the job is queued
-python3 kcdis.py "$OUT/60-r4-endstream.txt" "$OUT" $A -- \
-  "$I:^IGAccelVideoContext::(endCommandStream|beginCommandStream|prepare_to_decode|bind_resource|set_current_resource|addDataBufferToChannel|removeDataBufferFromChannel|removeCurrentResourceFromChannel|getChannel|process_token_CodecHAL|contextStart|contextStop|getDataBufferLimits)" \
-  "$I:^IGAccelFIFOChannel::.*" \
-  "$I:^IGAccelVideoContextMedia::process_token_(AVCDecode|CODECDecode)" $VT > "$OUT/60-log.txt" 2>&1
-python3 kcdis.py "$OUT/61-family-fences.txt" "$OUT" $A -- \
-  "$F:^IOAccelContext2::(enable_block_fences|finish_fence_event|s_finish_fence_event|.*[Ff]ence.*|process_token_End|submit_data_buffers)" \
-  "$F:^IOAccelEventMachine2::(setEventStamp|initEvent|mergeEvent|finishEvent|testEvent|waitForEvent|.*[Ee]vent.*)" \
-  "$F:^IOAccelChannel2::.*" $VT > "$OUT/61-log.txt" 2>&1
-rm -f "$OUT"/13-*-strings.txt "$OUT"/12-*-vtables.txt
-gzip -9 "$OUT"/6*.txt 2>/dev/null
+VT="--vt IOAccelResource2 --vt IGAccelResource --vt IOAccelVideoContext2 --vt IGAccelVideoContext --vt IGAccelVideoContextMedia --vt IOGraphicsAccelerator2 --vt IntelAccelerator --vt IOAccelMemory --vt IOAccelSharedUserClient2 --vt IOAccelShared2"
+S=com.apple.iokit.IOSurface
+# --- R8: where an IOSurface resource keeps its IOSurface / memory / GPU address (v0.69.0 and v0.69.1 guessed wrong:
+# resource +0xe0 and (+0xe0)+0x10 are not the IOSurface for the VA driver's picture buffers -> kernel panics)
+python3 kcdis.py "$OUT/70-r8-family-resource.txt" "$OUT" $A -- \
+  "$F:^IOAccelResource2::(newResourceWithIOSurface|newResourceWithIOSurfaceDeviceCache|initialize|init|initWith.*|free|map|prepare|getPhysicalOffset|getResourceInfo|update_iosurface_valid_bits|update_iosurface_textures_stamp|testIOSurfacePurgeable|setPurgeableIOSurface|getResidentSize|getStorageResource|getGPUVirtualAddressForUserProcess|getMemoryAllocParameter|.*[Ss]urface.*)" \
+  "$F:^IOAccelSharedUserClient2::(new_resource|.*[Ss]urface.*)" \
+  "$F:^IOAccelShared2::(new_resource|lookupResource|.*[Ss]urface.*)" $VT > "$OUT/70-log.txt" 2>&1
+python3 kcdis.py "$OUT/71-r8-intel-resource.txt" "$OUT" $A -- \
+  "$I:^IGAccelResource::.*" \
+  "$I:^IGAccelVideoContext::(bind_resource|set_current_resource|getResource.*|patch_codechal_command_buffer|process_token_CodecHAL)" \
+  "$S:^IOSurface::(getPlaneOffset|getMemoryDescriptor|getAllocSize|getBytesPerRow|getPlaneCount|getPlaneBytesPerRow|getSurfaceID|getMetaClass)" $VT > "$OUT/71-log.txt" 2>&1
+gzip -9 "$OUT"/7*.txt 2>/dev/null
 ls -la "$OUT"
 exit 0

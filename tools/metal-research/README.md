@@ -15,6 +15,12 @@ runners and collects how Metal finds and talks to an Intel GPU driver:
 
 Purpose: interoperability - writing our own Metal driver bundle for Iris Xe.
 
+## Round 50 (hardware video decoding, R8: IOSurface resources)
+`run.sh`, on macos-15-intel and macos-26-intel: how IOAcceleratorFamily2 and Apple's Intel driver find an IOSurface
+resource's IOSurface, memory and GPU address (`IOAccelResource2::newResourceWithIOSurface`, `initialize`, `map`, the
+IOSurface helpers; `IGAccelResource`; `IGAccelVideoContext::bind_resource`; IOSurface getters). v0.69.0 / v0.69.1
+read the wrong fields and panicked on the first decode job. Text output only. Round 49 is kept as `run49.sh`.
+
 ## Round 49 (hardware video decoding, rest of research R4)
 `run.sh`, on macos-15-intel and macos-26-intel: the video context's begin/end of command stream, resource binding and channel
 functions, Apple's FIFO channel (media ring submission, stamps), and the family's fence / event-machine / channel functions -
