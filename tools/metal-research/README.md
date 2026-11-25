@@ -15,6 +15,11 @@ runners and collects how Metal finds and talks to an Intel GPU driver:
 
 Purpose: interoperability - writing our own Metal driver bundle for Iris Xe.
 
+## Round 49 (hardware video decoding, rest of research R4)
+`run.sh`, on macos-15-intel and macos-26-intel: the video context's begin/end of command stream, resource binding and channel
+functions, Apple's FIFO channel (media ring submission, stamps), and the family's fence / event-machine / channel functions -
+how a decoded frame's fence slot gets its completion stamp. Python + capstone only. Text output only. Round 48 is kept as `run48.sh`.
+
 ## Round 48 (hardware video decoding, research R4 / R6 / R7 of docs/VIDEO-DECODER.md)
 `run.sh`, on macos-15-intel and macos-26-intel: what Apple's Intel kernel driver does after a frame's End token (fences,
 stamps, media ring submission, interrupts, hang handling), HEVC / VP9 / HuC in the kernel and the VA driver, and the
