@@ -225,14 +225,24 @@ static UInt64 surfVA(IOAccelResource2 *r, void *task, UInt32 *pitch) {
     if (pitch) *pitch = 0;
     const UInt8 *me = (const UInt8 *)r;
     if (!r || me[0x14] != 0x82 || !sVideoAccel) return 0;
-    // v0.69.1: the IOSurface is at (resource +0xe0) +0x10, as IrisXeResource::calculateIOSurfaceDeviceCacheVRAMBytes
-    // reads it (research round 31). v0.68.17 - v0.69.0 took +0xe0 itself as the IOSurface: kernel panic (page fault in
-    // resolveId) on the first decode job of v0.69.0 stage B.
-    const UInt8 *dc = *(const UInt8 * const *)(me + 0xe0);
-    IOSurface *sf = dc ? *(IOSurface * const *)(dc + 0x10) : nullptr;
-    if (!sf) return 0;
-    UInt32 plane = *(const UInt32 *)(me + 0xf8);
-    UInt64 poff = _ZNK9IOSurface14getPlaneOffsetEj(sf, plane);
+    // v0.69.2 (research round 50, IOAccelResource2::newResourceWithIOSurface / ...WithIOSurfaceDeviceCache, the same
+    // on Sequoia and Tahoe): an IOSurface resource the VA driver uses is a VIEW of a storage resource:
+    //   view +0xe0 = the storage resource (IOSurfaceDeviceCache +0x20), +0xf8 = plane, +0xfc = byte offset of that
+    //   plane (IOSurface client-aligned offset + plane offset, computed by the family)
+    //   storage: +0xe byte has 0x20 set, +0xe0 = the IOSurfaceDeviceCache, whose +0x10 = the IOSurface
+    // v0.69.0 used view +0xe0 as the IOSurface, v0.69.1 (view +0xe0) +0x10: both kernel panics.
+    auto kptr = [](const void *p) { return (UInt64)p >= 0xffffff8000000000ULL; };   // a kernel address at all
+    const UInt8 *stor = nullptr;
+    UInt32 poff = 0;
+    if (me[0x0e] & 0x20) stor = me;                                  // the storage resource itself
+    else {
+        const UInt8 *v = *(const UInt8 * const *)(me + 0xe0);
+        if (kptr(v) && (v[0x0e] & 0x20)) { stor = v; poff = *(const UInt32 *)(me + 0xfc); }
+    }
+    if (!stor) { sSurfStat[2]++; return 0; }
+    const UInt8 *dc = *(const UInt8 * const *)(stor + 0xe0);
+    IOSurface *sf = kptr(dc) ? *(IOSurface * const *)(dc + 0x10) : nullptr;
+    if (!kptr(sf)) { sSurfStat[2]++; return 0; }
     if (pitch) *pitch = (UInt32)sf->getBytesPerRow();
     int freeSlot = -1;
     for (int i = 0; i < XE_SURF_N; i++) {
