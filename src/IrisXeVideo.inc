@@ -150,7 +150,7 @@ IOReturn IrisXeProbe::vcsTest(char *rep, UInt32 repLen) {
 static UInt32 sVSeq, sVJobs, sVTimeouts, sVResets, sVResetFails, sVLastUs, sVMaxUs;
 static UInt64 sVTotalUs;
 static bool sVWaDone;
-static char sVLast[160];
+static char sVLast[400];
 
 bool IrisXeProbe::vcsPrepare() {
     if (!gpuUp || !gpuMMIO || !gpuVA) return false;
@@ -285,8 +285,13 @@ int IrisXeProbe::vcsRunJob(UInt64 bbAddr, bool ppgtt, UInt32 timeoutMS, UInt32 *
     int r = 0;
     if (!ran) {
         sVTimeouts++;
-        snprintf(sVLast, sizeof(sVLast), "TIMEOUT after %u us: head 0x%x tail 0x%x acthd 0x%x esr 0x%x el-status 0x%08x", us,
-                 RD(VCS0 + R_HEAD), RD(VCS0 + R_TAIL), RD(VCS0 + R_ACTHD), RD(VCS0 + R_ESR), RD(VCS0 + R_EL_STATUS));
+        // v0.69.3: + the command the engine is on (IPEHR = its header), INSTDONE / INSTPS, the MFX status registers
+        // (CodecHAL: error flags +0x800, CRC +0x850, macroblock count +0x868) and the power-gating enables (0xA210)
+        snprintf(sVLast, sizeof(sVLast), "TIMEOUT after %u us: head 0x%x tail 0x%x acthd 0x%x ipehr 0x%08x ipeir 0x%x "
+                 "instdone 0x%08x instps 0x%08x esr 0x%x el-status 0x%08x | mfx err 0x%x crc 0x%x mbs 0x%x | pg 0x%x", us,
+                 RD(VCS0 + R_HEAD), RD(VCS0 + R_TAIL), RD(VCS0 + R_ACTHD), RD(VCS0 + 0x68), RD(VCS0 + 0x64),
+                 RD(VCS0 + 0x6c), RD(VCS0 + 0x70), RD(VCS0 + R_ESR), RD(VCS0 + R_EL_STATUS),
+                 RD(VCS0 + 0x800), RD(VCS0 + 0x850), RD(VCS0 + 0x868), RD(0xA210));
         IOLog("IrisXeGPU: video job %s\n", sVLast);
         r = vcsReset() ? -3 : -9;
     } else {
@@ -347,6 +352,34 @@ int IrisXeProbe::vcsSelfTest(UInt32 rounds, bool hang, char *rep, UInt32 repLen)
         bool after = r2 == 0 && vcsVA[V_HWSP * 1024 + HWSP_SEQ + 4] == 0x5E1FAFAFu;
         say(" | job after the reset: %s", after ? "ok" : "FAILED");
         if (r != -3 || !after) res = -6;
+    }
+    // v0.69.3 stage A2: the first commands of a real H.264 decode job (v0.69.2 record), one step more each time, as
+    // GGTT batches (no addresses in them): where does the video engine stop? v0.69.2's decode jobs all stopped at
+    // dword 17 of the batch, right after PIPE_MODE_SELECT + MFX_WAIT.
+    if (hang && !bad) {
+        static const UInt32 kSteps[][12] = {
+            { 1, 0x13000082u, 0, 0, 0 },                                         // MI_FLUSH_DW (+ invalidate BSD)
+            { 2, 0x68000100u },                                                  // MFX_WAIT
+            { 3, 0x70000003u, 0x202, 0, 0, 0 },                                  // MFX_PIPE_MODE_SELECT: AVC, VLD decode
+            { 4, 0x70000003u, 0x202, 0, 0, 0, 0x68000100u },                     // + MFX_WAIT
+            { 5, 0x70000003u, 0x202, 0, 0, 0, 0x68000100u, 0x70010004u, 0, 0x077c27f0u, 0x08001e1bu, 0x13eu },  // + SURFACE_STATE
+        };
+        static const UInt32 kLen[] = { 4, 1, 5, 6, 11 };
+        say("%s", " | MFX steps:");
+        for (UInt32 k = 0; k < 5; k++) {
+            volatile UInt32 *b = vcsVA + 12 * 1024;
+            UInt32 n = 0;
+            for (UInt32 j = 0; j < kLen[k]; j++) b[n++] = kSteps[k][1 + j];
+            if (kLen[k] == 11) b[n++] = 0;                                       // SURFACE_STATE dword 5
+            b[n++] = MI_BB_END;
+            if (n & 1) b[n++] = MI_NOOP;
+            __asm__ volatile("mfence" ::: "memory");
+            UInt32 us = 0;
+            int r = vcsRunJob(V_GGTT_ADDR + 12 * 4096, false, 100, &us);
+            say(" %u:%s", k + 1, r == 0 ? "ok" : r == -3 ? "HANG" : "fail");
+            if (r == 0) say("(%u us)", us);
+            else { say(" [%s]", sVLast); break; }
+        }
     }
     say(" | totals: %u jobs, %u timeouts, %u resets", sVJobs, sVTimeouts, sVResets);
     vcsNote(this, res ? "self-test FAILED" : "self-test passed");

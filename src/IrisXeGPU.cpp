@@ -2870,7 +2870,7 @@ IOReturn IrisXeProbe::mtlSpaceOp(UInt32 op, void *argp) {
     }
 
     case kXeSpaceVideoSelfTest: {                          // v0.69.0: stage A
-        static char rep[600];
+        static char rep[1500];
         IOLockLock(mtlJobLock);
         mtlFinishAsync();
         rep[0] = 0;

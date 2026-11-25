@@ -411,11 +411,11 @@ static IOBufferMemoryDescriptor *sVBatch;
 static UInt64 sVBatchPA[130];
 static const UInt64 kVBatchVA = XE_SURF_BASE + 31 * XE_SURF_SLOT;
 static const UInt32 kVBatchPages = 130;  // 512 KB of commands + MI_BATCH_BUFFER_END
-static char sVSelf[600] = "not run (sudo sysctl debug.irisxe_video=1)";
+static char sVSelf[1500] = "not run (sudo sysctl debug.irisxe_video=1)";
 
 static void videoPublish() {
     if (!sVideoAccel) return;
-    char t[600];
+    char t[2000];
     snprintf(t, sizeof(t), "stage %d%s | jobs run %u (GPU %llu us average), failed %u, timeouts %u | not run: %u (unresolved "
              "patch addresses %u, unknown codec tokens %u) | fences passed %u | streams of other contexts %u | "
              "compression bits cleared %u | self-test: %s",
@@ -691,7 +691,7 @@ void IrisXeVideoContext::videoRunStream(IOAccelCommandStreamInfo &i) {
             UInt32 pages = (cmdDw * 4 + 8 + 4095) / 4096;
             bool mapped = sVideoAccel->coreMapPages((UInt32)space, kVBatchVA, sVBatchPA, pages);
             UInt32 us = 0;
-            int r = mapped ? sVideoAccel->coreVideoRun((UInt32)space, kVBatchVA, 2000, &us) : -20;
+            int r = mapped ? sVideoAccel->coreVideoRun((UInt32)space, kVBatchVA, 250, &us)   /* v0.69.3: 250 ms (was 2 s: the desktop waited) */ : -20;
             IOLockUnlock(sVJobLock);
             if (r == 0) { sVRun++; sVGpuUs += us; }
             else {

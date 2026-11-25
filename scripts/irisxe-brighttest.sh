@@ -1,5 +1,5 @@
 #!/bin/bash
-# IrisXe v0.69.2 brightness + sleep test. Changes nothing: it only records.
+# IrisXe v0.69.3 brightness + sleep test. Changes nothing: it only records.
 # Finds out why the brightness slider always shows full, whether the brightness is remembered, and whether sleep and
 # wake (including "dark wake": awake with the screen off) work.
 #   sudo bash irisxe-brighttest.sh          the main test (slider, then sleep and wake), about 3 minutes
