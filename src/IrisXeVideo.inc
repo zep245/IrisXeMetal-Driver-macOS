@@ -248,6 +248,10 @@ int IrisXeProbe::vcsRunJob(UInt64 bbAddr, bool ppgtt, UInt32 timeoutMS, UInt32 *
     UInt32 w = 0;
     while (!(RD(FW_ACK_VDBOX0) & 1) && w < 50000) { IODelay(10); w += 10; }
     if (!(RD(FW_ACK_VDBOX0) & 1)) { WR(FW_MEDIA_VDBOX0, MASKED_OFF(1u)); gpuForcewake(false); vcsNote(this, "media forcewake: no ack"); return -2; }
+    {                                                          // v0.69.4: no HCP/MFX power gating for the VDBoxes
+        UInt32 pg = RD(0xA210);                                //   (see gpuInit: the MFX unit never woke up)
+        if (pg & 0x198u) WR(0xA210, pg & ~0x198u);
+    }
     if (!sVWaDone) {                                           // i915 gen12 workarounds for VDBox 0 (once per boot)
         WR(VDBOX0_CGCTL3F10, RD(VDBOX0_CGCTL3F10) | (1u << 22));
         WR(GEN10_DFR_CHICKEN, RD(GEN10_DFR_CHICKEN) | (1u << 9));

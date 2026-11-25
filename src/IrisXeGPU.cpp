@@ -579,8 +579,11 @@ IOReturn IrisXeProbe::gpuBringUpGated() {
         WR(RC6_THRESHOLD, 50000);
         WR(MEDIA_PG_IDLE_HYST, 60);
         WR(RENDER_PG_IDLE_HYST, 60);
-        UInt32 pg = (1u << 0) | (1u << 1) | (1u << 2) |          // render, media, sampler
-                    (1u << 3) | (1u << 4) | (1u << 7) | (1u << 8);   // VCS0 + VCS2 HCP/MFX
+        // v0.69.3 test (self-test stage A2): with VDBox HCP/MFX power gating on (bits 3/4, 7/8, as i915 sets it) the
+        // MFX unit never woke up - MFX_PIPE_MODE_SELECT left the decoder busy for ever. i915 leaves that to the media
+        // driver's MI_FORCE_WAKEUP at the start of every Gen12 decode batch; Apple's Gen11 VA driver does not send
+        // one. v0.69.4: render, media and sampler power gating only.
+        UInt32 pg = (1u << 0) | (1u << 1) | (1u << 2);           // render, media, sampler
         WR(PG_ENABLE, pg);
         WR(RC_CONTROL, (1u << 31) | (1u << 18) | (1u << 27));    // HW enable | RC6 | EI mode 1
         gpuRC6On = true;
